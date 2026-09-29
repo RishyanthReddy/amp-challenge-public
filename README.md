@@ -36,22 +36,16 @@ model inference, training, scoring, and selection commands.
 
 ```mermaid
 flowchart TD
-    D[Curated peptide data] --> P[ProGen2 fine-tuning]
-    D --> S[Evolution seed panel]
-    P --> A[Autoregressive sampling]
-    S --> E[Mutation and evolutionary search]
-    A --> F[Validity, novelty and synthesis filters]
-    E --> F
-    F --> R[AMP and hemolysis prediction]
-    R --> M[APEX pathogen MIC prediction]
-    M --> Q[MAP-Elites quality-diversity archive]
-    Q --> K[Constrained DPP selection]
-    K --> T[Ranked Top 100]
-    A --> U["Auxiliary pool: perplexity, novelty,<br/>synthesis and AMP/safety screening"]
-    M --> L[50,000-sequence library assembly]
-    U --> L
+    D[Curated peptide data] --> G[ProGen2 + evolutionary generation]
+    G --> S[Validity, novelty and synthesis screening]
+    S --> R[AMP / hemolysis + APEX scoring]
+    R --> Q[MAP-Elites + constrained DPP]
+    Q --> T[Ranked Top 100]
+    G --> A[Screened ProGen2 auxiliary pool]
+    R --> L[50,000-sequence library]
+    A --> L
     T --> L
-    L --> V[FASTA export and validation]
+    L --> V[FASTA export + validation]
     T --> V
 ```
 

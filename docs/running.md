@@ -18,7 +18,7 @@ checks counts, uniqueness, alphabet, lengths, subset membership, novelty and rep
 
 ## 2. Download weights and sample new sequences
 
-Authenticate GitHub CLI (`gh auth login`) with an account that has repository access.
+The release assets are public. GitHub CLI may require login; direct browser downloads do not.
 
 ```bash
 uv run python cloud/fetch_progen_checkpoint.py

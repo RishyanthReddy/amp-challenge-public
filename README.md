@@ -70,7 +70,7 @@ are excluded from this entry. Read the [method](docs/method.md) or [abstract](do
 
 ## Run model inference
 
-Install and authenticate [GitHub CLI](https://cli.github.com/) with repository access, then:
+Install [GitHub CLI](https://cli.github.com/) (the CLI may require login), then:
 
 ```bash
 uv run python cloud/fetch_progen_checkpoint.py

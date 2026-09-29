@@ -49,3 +49,5 @@ Retain each source's attribution and applicable terms when reusing its data.
 
 The root MIT license covers original project code. It does not relicense third-party data,
 weights or software. Source access and historical gaps are disclosed in [DATA_ACCESS.md](DATA_ACCESS.md).
+
+Anonymous downloads are available directly from the [public release](https://github.com/RishyanthReddy/amp-challenge-public/releases/tag/progen2-checkpoint-20260928). Place the four model/config/tokenizer files under `autoregressive-models/checkpoints/progen2_small_amp_best_val/`; the fetch helper verifies cached files without network access.

@@ -1,6 +1,6 @@
 # Public release scope
 
-This is a fresh filesystem staging copy, without private Git history. Code files are unchanged from the recorded source commit. Current documentation may reference assets intentionally held outside this candidate and must be reconciled before publication.
+This repository was published from a reviewed snapshot with fresh Git history. Code files are unchanged from the recorded source commit. Current documentation may reference assets intentionally held outside this candidate and must be reconciled before publication.
 
 ## Included
 Original source/configuration, existing component license files, documentation, challenge reference and frozen export input/output artifacts. Inclusion is not a license clearance decision.
@@ -10,10 +10,10 @@ Raw and processed third-party training datasets, copied baseline checkpoints, AM
 
 Eight APEX weights are included and match the organizer starter kit LFS fingerprints.
 
-## Blocking public readiness
+## Disclosed limitations and follow-up
 - Resolve source-use/distribution questions documented in the review folder.
 - Finish exact third-party software/weight license inventory and retained notices.
-- Provide public model weights with hash-verified anonymous access; existing private release links do not meet this requirement.
+- ProGen2 weights are published in the public checkpoint release; anonymous-download verification is recorded separately.
 - Complete training disclosure and access/reconstruction instructions for all required inputs; do not claim withheld datasets have been publicly released.
 - Review documentation links and perform a complete secret/internal-data scan.
 - Verify the final release package against competition requirements. Frozen export is distinct from fresh model inference.

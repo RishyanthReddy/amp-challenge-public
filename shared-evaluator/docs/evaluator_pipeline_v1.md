@@ -1,4 +1,4 @@
-# Role 06: Shared Evaluator Pipeline v1.0 Specification & Interface Contract
+# Shared Evaluator Pipeline v1.0 Specification & Interface Contract
 
 **Date:** 2026-09-27  
 **Version:** 1.0.0 (FROZEN)  

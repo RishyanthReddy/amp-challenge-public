@@ -1,5 +1,0 @@
-[console_scripts]
-amp-data-build = amp_data.build:main
-amp-data-inspect = amp_data.inspect:main
-amp-data-report = amp_data.build:main
-amp-data-validate = amp_data.validate:main

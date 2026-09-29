@@ -1,6 +1,11 @@
-# AMP Challenge 2027 — Data Engineering
+# Data preparation and biophysical descriptors
 
-Reproducible, provenance-preserving data preparation for antimicrobial peptide (AMP) generation and downstream modelling. This project deliberately stops at the model-ready data layer: it does not train or generate peptides.
+This component prepares peptide sequences, assay tables, provenance and model-ready views.
+It supplies the biophysical descriptors and synthesis filter used elsewhere in the pipeline.
+
+Most raw snapshots and processed tables are not bundled in the public checkout. Rebuilding
+requires the expected inputs in [the source access guide](../docs/DATA_ACCESS.md). The
+counts below describe the historical data build, rather than files all distributed here.
 
 ## What it produces
 
@@ -16,35 +21,22 @@ The pipeline reads immutable local source data from `data/raw/` and writes deriv
 
 The challenge reference is used only for novelty validation and exclusion from the generation corpus; it is not a declared training source.
 
-## Requirements
+## Rebuild with the original inputs
 
-- Python 3.11+
-- [uv](https://docs.astral.sh/uv/)
+From the repository root, after restoring the source snapshots:
 
-Install the locked environment:
-
-```powershell
-uv sync
-```
-
-## Rebuild and verify
-
-```powershell
+```bash
+uv sync --project data-engineering --frozen
+cd data-engineering
 uv run python -m amp_data.build
-uv run pytest
-uv run python -m amp_data.validate data\processed\unique_amp_sequences.fasta
-uv run python scripts\write_release_checksums.py
+uv run python -m amp_data.validate data/processed/unique_amp_sequences.fasta
+uv run python scripts/write_release_checksums.py
 ```
 
-Use `--top100` when validating a ranked top-100 FASTA; it additionally rejects a sequence whose similarity to any challenge-reference peptide is strictly greater than 80%.
+The build writes derived artifacts and leaves `data/raw/` unchanged. To validate the root
+submission instead, use `uv run python scripts/verify_submission.py .` from the repository root.
 
-```powershell
-uv run python -m amp_data.validate generate\top.fasta --top100
-```
-
-The build is deterministic and never modifies `data/raw/`.
-
-## Generator handoff artifacts
+## Derived inputs for generation
 
 - `data/processed/views/` contains explicit autoregressive, VAE/latent, diffusion, evolution-seed, and evaluator views.
 - `data/processed/curated_seed_panel.csv` contains 100 activity-supported, biophysically filtered, diversity-selected seed sequences.
@@ -61,7 +53,7 @@ batch = filter_sequences(["AKRKLVWQ", "AAAAAAXX"])
 
 `warn_unpaired_cys` is a soft warning; other non-`ok` outcomes are rejection reasons.
 
-## Current build summary
+## Historical build summary
 
 | Metric | Result |
 | --- | ---: |
@@ -84,7 +76,7 @@ src/amp_data/                   Parsers, normalization, validation, build CLI
 data/raw/                        Immutable source exports
 data/challenge/                 Official novelty-reference FASTA
 data/processed/                 Model-ready Parquet/CSV tables and FASTA corpus
-data/processed/views/           Role-specific generator/evaluator views
+data/processed/views/           Generator and evaluator views
 data/processed/curated_seed_panel.csv  Diverse MIC-supported generator seeds
 data/processed/motif_library.csv       Functional motif conditioning library
 data/reports/                   Inventories, QC, overlap, split, and cluster reports
@@ -110,6 +102,6 @@ See [the data card](data/DATA_CARD.md), [provenance documentation](data/PROVENAN
 
 The implementation follows the current [AMP Challenge 2027 repository](https://github.com/szczurek-lab/amp-challenge-2027): standard amino-acid alphabet, length 8–50, uniqueness, no exact library overlap with the antibacterial reference, and the stricter top-100 similarity condition.
 
-## Next step
+## Using the derived tables
 
 Use `data/processed/generation/amp_sequences.fasta` as the clean corpus, `curated_seed_panel.csv` for seed-based generation, `motif_library.csv` for motif conditioning, and the separate activity/toxicity tables for downstream objectives. Keep modelling, ranking, and submission code outside this data-engineering layer.

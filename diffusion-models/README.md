@@ -8,12 +8,12 @@ submission packager.
 
 - `src/ampdiffusion_starter_kit/model.py` defines `Denoise_Transformer` and
   `GaussianDiffusion1D`.
-- `scripts/generate.py` is the role adapter for 1000-step DDPM or 250-step DDIM. It validates
+- `scripts/generate.py` is the generation adapter for 1000-step DDPM or 250-step DDIM. It validates
   arguments, records a maximum-round bound, and filters unique valid outputs.
-- `cloud/run_diffusion_pipeline.py` is the production Beam runner. It requires CUDA and
+- `../cloud/run_diffusion_pipeline.py` is the production Beam runner. It requires CUDA and
   records per-batch seeds, model/checkpoint hashes, ESM asset hashes, sampler settings, and
   runtime versions.
-- `cloud/audit_diffusion_candidates.py` quarantines exact challenge-reference matches,
+- `../cloud/audit_diffusion_candidates.py` quarantines exact challenge-reference matches,
   recomputes full-precision Indel novelty, and adds biophysical and synthesizability fields.
 
 ## Current run
@@ -26,9 +26,8 @@ and 3,101 pass the synthesizability screen.
 
 The 500-sequence route comparison recorded 250-step DDIM at 60.38 seconds (8.28 sequences/s)
 and 1000-step DDPM at 239.02 seconds (2.09 sequences/s). These timings describe this Beam
-run and hardware, not a biological-quality comparison. See
-`reports/feasibility_metrics.csv`, `reports/step_tradeoff.csv`,
-`reports/diffusion_generation_manifest.json`, and
+run and hardware, not a biological-quality comparison. Detailed timing CSVs remain in
+the private archive. Public records include `reports/diffusion_generation_manifest.json` and
 `reports/diffusion_candidate_audit_manifest.json`.
 
 ## Weights and replay
@@ -50,8 +49,8 @@ SHA-256 before atomically placing the file at the ignored local cache
 `cloud/diffusion_checkpoint/model.pt`. The standalone adapter uses that same path by default.
 The upstream starter kit is MIT-licensed and stores the checkpoint in Git LFS. ESM-2 8M
 weights and the regression asset are fetched by `fair-esm` and their hashes are recorded in
-the generation manifest. APEX model assets are tracked separately and still need a
-redistribution-terms review.
+the generation manifest. Eight APEX model assets are tracked separately and match the upstream starter-kit
+fingerprints; their MIT notice and [provenance record](../docs/license_evidence/APEX_WEIGHT_PROVENANCE.json) are retained.
 
 ## Baseline eligibility and scientific limits
 

@@ -1,5 +1,6 @@
-# Role 03: VAE & Latent Models Technical Audit Report
+# VAE & Latent Models Technical Audit Report
 
+> Historical record: Historical HydrAMP baseline analysis. Its generated sequences are excluded from the selected submission; supporting raw outputs are not bundled.
 **Date:** 2026-09-27 22:02:04
 **Model:** HydrAMP (Epoch 37 Checkpoint, R^64 Latent Space, 2D Conditioning)
 **Generation Modes:** Mode 1 (Unconstrained) + Mode 2 (Analogues from 60 Curated Seeds)
@@ -16,7 +17,7 @@
 | **Novelty Threshold ($\le 80\%$)** | **1379 sequences (49.7%)** | Top 100 must be $\le 80\%$ | **PASS (Available for Top 100)** |
 | **Biological Synthesizability** | **1996 sequences (71.9%)** | Free of polyrepeats, hydrophobic runs $\ge 5$, charge $<1$ | **PASS** |
 | **Alphabet & Length** | **100% valid (20 canonical AAs, $8 \le L \le 25$)** | Strict challenge gate | **PASS** |
-| **Ancestry Tracking** | **100% of Mode 2 analogues have valid `parent_sequence_id`** | Luna mandate | **PASS** |
+| **Ancestry Tracking** | **100% of Mode 2 analogues have valid `parent_sequence_id`** | Project requirement | **PASS** |
 
 ---
 

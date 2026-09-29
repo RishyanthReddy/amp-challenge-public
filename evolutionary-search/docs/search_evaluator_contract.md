@@ -1,4 +1,4 @@
-# Role 05: Search & Evaluator Interface Contract
+# Search & Evaluator Interface Contract
 
 **Date:** 2026-09-27  
 **Status:** FROZEN  

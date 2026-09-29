@@ -39,7 +39,7 @@ flowchart TD
     D[Curated peptide data] --> G[ProGen2 + evolutionary generation]
     G --> S[Validity, novelty and synthesis screening]
     S --> R[AMP / hemolysis + APEX scoring]
-    R --> Q[MAP-Elites + constrained DPP]
+    R --> Q[Quality and niche annotation + DPP]
     Q --> T[Ranked Top 100]
     G --> A[Screened ProGen2 auxiliary pool]
     R --> L[50,000-sequence library]
@@ -53,8 +53,9 @@ flowchart TD
   while recording parent-child ancestry.
 - **Evaluation:** sequence descriptors feed AMP and empirical human-erythrocyte hemolysis
   models. The APEX ensemble predicts MIC across 11 pathogens for eligible ranked candidates.
-- **Selection:** MAP-Elites covers charge, hydrophobic moment and length; constrained DPP
-  selection balances predicted quality and sequence diversity, with a nested Top 50.
+- **Selection:** MAP-Elites annotates charge, hydrophobic-moment and length niches; DPP
+  selection uses the full eligible annotated pool and balances predicted quality and sequence
+  diversity, with a nested Top 50.
 - **Assembly:** 3,964 scored candidates and 46,036 screened ProGen2 auxiliary sequences form
   the submitted library. Auxiliary sequences do not have APEX predictions.
 
@@ -111,7 +112,7 @@ remain valid.
 | Maximum Top-100/reference Levenshtein ratio | 0.8000 |
 | Maximum internal Top-100 Levenshtein ratio | 0.7778 |
 | Repeated submission export | Byte-identical |
-| Historical training / selection replay | Recorded in the linked verification report |
+| Historical training / selection replay | Checkpoint and ranked lists reproduced from archived inputs |
 
 A separate fresh 50,000-sequence build also passed the sequence checks. Exact regeneration
 of every historical auxiliary filler was not tested. See the
@@ -135,14 +136,9 @@ performance is unknown.
 
 Training sources, filters and limitations are documented in the
 [data card](data-engineering/data/DATA_CARD.md), [source inventory](docs/training_source_scope.json),
-and [model cards](shared-evaluator/reports/model_cards.md). Source access and historical limitations are recorded in the
-[training disclosure](docs/PUBLIC_TRAINING_DISCLOSURE.md).
+and [model cards](shared-evaluator/reports/model_cards.md).
 
 ## License
 
 Original project code is provided under the [MIT license](LICENSE). Third-party code,
 model weights and datasets retain their own terms; see [assets and attribution](docs/assets.md).
-
-## Training-source access
-
-See [source retrieval and snapshot details](docs/DATA_ACCESS.md). Raw third-party databases are not mirrored, except the exact AMPlify training FASTA distributed with its verified CC BY 4.0 attribution. Known historical access gaps are disclosed explicitly.

@@ -47,3 +47,8 @@ submission_preparation/
 # Local AI workflow instructions
 AGENTS.md
 **/AGENTS.md
+
+# Generated package metadata and local document scratch
+*.egg-info/
+**/*.egg-info/
+data-engineering/tmp/

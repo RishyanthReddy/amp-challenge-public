@@ -1,5 +1,5 @@
-# Phase-1 metrics (placeholder)
+# HydrAMP baseline metrics
 
-Phase-1 [`seqme`](https://github.com/szczurek-lab/seqme) metrics for the HydrAMP baseline
-library, computed under the same protocol used for participant submissions, will be added
-here at competition launch once the Phase-1 evaluation pipeline is finalized.
+No organizer seqme scores are distributed in this directory. Historical baseline analysis
+is recorded in this component's documentation. It is distinct from the submitted
+ProGen2/evolution entry and from organizer evaluation results.

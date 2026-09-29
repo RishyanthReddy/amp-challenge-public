@@ -1,5 +1,6 @@
-# Role 06: Candidate Ingestion & Reconciliation Audit Report
+# Candidate Ingestion & Reconciliation Audit Report
 
+> Historical record: Earlier four-generator ingestion (2026-09-27). These input counts and hashes precede the later evaluation and the final two-generator submission.
 **Date:** 2026-09-27 02:02:11  
 **Auditor:** Shared Evaluator & Integration Team  
 **Evaluation Target:** Multi-Modal Candidate Reservoir across 4 Completed Generator Roles  
@@ -22,4 +23,4 @@
 - **Current Multi-Modal Reservoir:** Exactly **13425 audited candidates** (13230 unique sequences).
 - **Exact Reference Overlap:** 0 exact matches across all 39,448 reference sequences in `antibacterial.fasta`.
 - **Chemical Invariants:** 100% canonical proteinogenic amino acids; all lengths strictly within $[8, 50]$ residues.
-- **Workflow Boundary:** In accordance with Luna's Master Plan, Role 06 is responsible for scoring and integrating the multi-modal candidate reservoir, providing unified activity, safety, APEX MIC predictions, and cross-domain overlap analysis. In Role 07 (Portfolio Selection & Final Submission), the final library generation generates the remaining sequences to reach 50,000 or packages the submission files.
+- **Workflow Boundary:** The shared evaluator handles scoring and integrating the multi-modal candidate reservoir, providing unified activity, safety, APEX MIC predictions, and cross-domain overlap analysis. During portfolio selection and assembly, the final library generation generates the remaining sequences to reach 50,000 or packages the submission files.

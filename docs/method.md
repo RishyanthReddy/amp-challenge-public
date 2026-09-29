@@ -14,8 +14,11 @@ with ancestry from their official baseline checkpoints are excluded from the sub
 
 Sequence checks remove invalid candidates and exact antibacterial-reference matches.
 Synthesizability rules reject homopolymers of four or more residues, hydrophobic runs of
-five or more, and net charge below +1. Biophysical features include pH-7 charge,
-hydrophobic moment, Boman index and GRAVY.
+five or more, and net charge below +1. Biophysical features include free-terminal charge
+at pH 7.4, Boman index and GRAVY.
+The Eisenberg hydrophobic moment uses a 100-degree residue angle and the maximum over
+11-residue windows (or the whole sequence when shorter). The legacy field name
+`net_charge_ph7` refers to the pH-7.4 calculation.
 
 The shared evaluator uses 27 sequence/biophysical features for AMP and empirical RBC
 hemolysis prediction. The hemolysis forest is trained on 183 unambiguous peptides with
@@ -28,9 +31,17 @@ claim that every possible sequence-alignment identity metric is equivalent.
 
 ## Quality and diversity
 
-MAP-Elites discretizes charge, hydrophobic moment and length into 150 cells. Its quality
-score penalizes predictor uncertainty. A constrained DPP optimizer then balances quality,
-feature-space diversity, model-family coverage and explicit sequence redundancy limits.
+MAP-Elites discretizes charge, hydrophobic moment and length into 150 cells and assigns a
+quality score to every eligible candidate. The DPP receives the full annotated pool, rather
+than only the best sequence in each cell. Quality rewards AMP likelihood and low predicted
+MIC, while penalizing toxicity and tree-to-tree prediction spread; this is a heuristic,
+not a calibrated statistical confidence bound.
+
+The DPP similarity kernel combines an RBF kernel over standardized biophysical features
+(weight 0.60) with cosine similarity of normalized amino-acid composition (weight 0.40).
+Selection also enforces reference novelty, internal Levenshtein ratio at or below 0.80,
+composition cosine similarity at or below 0.92, and representation of both generator
+families with a maximum of 60 candidates per family.
 The selected Top 50 is the first 50 entries of the ranked Top 100.
 
 The submitted library combines 3,964 eligible scored candidates with 46,036 ProGen2

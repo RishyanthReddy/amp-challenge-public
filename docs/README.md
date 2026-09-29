@@ -16,10 +16,13 @@
 
 ## Verification evidence
 
-- [Full selected training-to-selection replay](FULL_REPLAY_VERIFICATION.md).
+- [Historical training-to-selection replay](FULL_REPLAY_VERIFICATION.md).
 - [Checkpoint inference check](INFERENCE_REPLAY.md).
 - [Submitted artifact manifest](FINAL_HANDOFF_MANIFEST.json).
 - [Official validator result](official_validator_result.json).
+- [Research records](research_records.md): how to interpret older component reports.
+- [Public release scope](../PUBLIC_RELEASE_STATUS.md): included assets and additional inputs.
+
 Detailed historical replay records remain in the private research archive.
 
 The evidence records computational results and their scope. It does not establish

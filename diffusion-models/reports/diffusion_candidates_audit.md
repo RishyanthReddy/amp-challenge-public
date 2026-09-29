@@ -1,4 +1,4 @@
-# Role 04: Diffusion Models Technical Audit Report
+# Diffusion Models Technical Audit Report
 
 **Date:** 2026-09-27 22:02:48
 **Model:** AMP-Diffusion (16.54M parameters, ESM-2 8M Embedding Diffusion, 1000 steps)

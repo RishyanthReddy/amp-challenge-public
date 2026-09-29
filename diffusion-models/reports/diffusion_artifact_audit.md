@@ -1,4 +1,4 @@
-# Role 04: Diffusion Artifact Audit Report
+# Diffusion Artifact Audit Report
 
 **Date:** 2026-09-27
 **Primary Model:** AMP-Diffusion (Torres et al., *Cell Biomaterials* 2025; Chen et al., *bioRxiv* 2024)
@@ -40,7 +40,7 @@
 
 ## 3. Challenger Route & Ablation Scope
 
-In accordance with Luna's directives:
+Recorded settings:
 1. **Primary Route:** AMP-Diffusion default sampling at $T_{\text{infer}} = 1000$ steps.
 2. **Inference-Step Ablation Challenger:** Matched comparison at reduced step budget ($T_{\text{infer}} = 250$ / $500$ steps) to quantify the quality-versus-latency curve.
 3. **Discrete Sequence Diffusion Fallback:** If continuous embedding diffusion degrades at lower steps, a discrete categorical masked diffusion baseline is available.

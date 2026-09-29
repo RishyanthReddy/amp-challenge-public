@@ -5,13 +5,18 @@ human erythrocyte hemolysis, keeps a separate hydropathy/moment proxy, and wraps
 pathogen model. These are retrospective screening tools; they do not replace experimental
 assays.
 
-## Environment and training
+## Inputs and environment
+
+Curated training views, negative partitions and the AMP/RBC forest files are not bundled
+in this public checkout. The training and full-scoring commands require these additional
+inputs; see [source access](../docs/DATA_ACCESS.md) and
+[model cards](reports/model_cards.md). The eight APEX weights are included separately.
+
+## Training workflow
 
 The component environment is defined by `pyproject.toml` and `uv.lock`:
 
 ```bash
-uv run --project shared-evaluator --locked --group dev \
-  pytest -q shared-evaluator/tests
 uv run --project shared-evaluator --locked \
   python shared-evaluator/scripts/train_evaluator_models.py
 ```
@@ -35,9 +40,10 @@ the empirical hemolysis target or describe it as assay-trained.
 ## APEX and portfolio integration
 
 `apex_scorer.py` calls the separately locked APEX environment under `diffusion-models/apex/`.
-The current master table contains 12,756 unique valid candidates. It has complete 11-pathogen
-APEX coverage for all 7,655 candidates that pass the novelty and synthesizability gates used
-for ranking. The input, code, model, APEX-asset, and output hashes are recorded in
-`reports/master_evaluation_manifest.json`; run `uv run --frozen python
-cloud/verify_role6_physical.py` from the repository root to verify them. Root `uv run generate`
-packages the frozen Parquet artifacts; it does not run this evaluator.
+The recorded master table contained 12,756 unique valid candidates with 11-pathogen
+APEX coverage for all 7,655 candidates passing the novelty and synthesis ranking gates.
+Those totals describe the wider four-generator research pool; the submitted entry retains
+only eligible ProGen2/evolution sequences. Input, code, model and output hashes are recorded
+in `reports/master_evaluation_manifest.json`. Raw scored tables and forest assets remain in
+the private archive, so their physical verifier is not a fresh-public-clone command.
+Root `uv run generate` exports the frozen selected tables; it does not run this evaluator.

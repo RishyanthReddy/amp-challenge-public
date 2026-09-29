@@ -1,5 +1,6 @@
-# Role 07: Portfolio Selection Strategy Decision Report
+# Portfolio Selection Strategy Decision Report
 
+> Historical record: Earlier four-generator comparison (2026-09-27). The final entry uses only ProGen2 and evolution, with different domain constraints. These results are not the final Top-100 metrics.
 **Date:** 2026-09-27 02:35:49  
 **Author:** Portfolio Selection & Quality-Diversity Team  
 

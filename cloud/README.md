@@ -9,7 +9,8 @@ The root `uv run generate` command exports frozen results and does not dispatch 
 uv run python cloud/fetch_progen_checkpoint.py
 ```
 
-The default source is the private GitHub release. Authenticate `gh` with repository access.
+The default source is the public checkpoint release. GitHub CLI may request login; direct
+browser downloads are also available without authentication.
 `--source beam` uses the original model volume instead. Every file is checked against size
 and SHA-256 pins. `fetch_diffusion_checkpoint.py` downloads the separately pinned baseline.
 
@@ -31,7 +32,7 @@ Do not upload the entire research workspace as a cloud function bundle.
 
 Historical training scripts save into their configured model volume and output paths.
 Use a separate checkout and model volume for new experiments. The executed isolated
-verification sources are preserved in [replay evidence](../docs/verification/full_replay_20260928/).
+verification sources are preserved in [replay summary](../docs/FULL_REPLAY_VERIFICATION.md); detailed runner records remain in the private archive.
 
 ## Candidate audits and verification
 

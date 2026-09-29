@@ -1,4 +1,4 @@
-# Role 06: Ground-Truth Evaluator View Audit Report
+# Ground-Truth Evaluator View Audit Report
 
 **Date:** 2026-09-27 02:03:58  
 **Source Dataset:** `data-engineering/data/processed/views/evaluator_view.parquet`  

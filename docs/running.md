@@ -44,11 +44,11 @@ Use a new output directory for each check. The check downloads verified weights,
 one candidate twice on CPU and compares results. It is distinct from the full replay
 recorded in [the verification report](FULL_REPLAY_VERIFICATION.md).
 
-## 3. Train, evaluate and select research candidates
+## 3. Research workflow with additional inputs
 
 Additional inputs are required: curated training tables, AMP/RBC forests and baseline
 checkpoints are omitted. These commands document the research workflow and cannot run
-from this candidate alone. See [source access](DATA_ACCESS.md).
+from the public checkout alone. See [source access](DATA_ACCESS.md).
 
 These stages write research outputs. Run them in an isolated checkout if preserving a
 previous candidate pool. Full regeneration needs curated training partitions, all evaluator

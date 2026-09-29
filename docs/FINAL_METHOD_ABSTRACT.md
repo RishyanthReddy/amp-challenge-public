@@ -1,28 +1,32 @@
-# Final private-entry method abstract
+# Method abstract
 
-We developed a computational pipeline for antimicrobial-peptide design. For the
-current conservative ranked portfolio, candidate generation uses a participant fine-tuned
-ProGen2 autoregressive model and project evolutionary search; official HydrAMP and
-AMP-Diffusion checkpoint outputs remain in the research workspace but are excluded from the
-ranked portfolio and library. A shared evaluator extracts 27 sequence and physicochemical
-features, predicts AMP likelihood and human-erythrocyte hemolysis risk, and applies the
-official APEX predictor across 11 pathogen models to eligible candidates. MAP-Elites
-quality-diversity screening over charge, hydrophobic moment, and length feeds a constrained
-positive-semidefinite-kernel determinantal point process to select nested Top 50 and Top 100
-lists.
+We developed an antimicrobial-peptide design pipeline combining a fine-tuned ProGen2
+language model with evolutionary search. New sequences are screened for amino-acid validity,
+length, novelty and synthesis feasibility. A shared evaluator uses 27 sequence and
+physicochemical features to predict AMP likelihood and human-erythrocyte hemolysis risk.
+The APEX ensemble predicts MIC across 11 pathogens for candidates eligible for ranking.
+MAP-Elites assigns candidates to charge, hydrophobic-moment and length niches and computes
+a quality score that penalizes toxicity and ensemble spread. A constrained determinantal
+point process selects a diverse ranked Top 100 from the annotated candidate pool, with a
+nested Top 50.
 
-The local library contains 50,000 unique peptides: 3,964 scored autoregressive/evolutionary
-candidates and 46,036 auxiliary ProGen2 sequences. Auxiliary sequences passed a ProGen2
-perplexity screen at `<= 100`, duplicate and exact-reference checks, and the project
-synthesis filter. The Top 100 contains 60 autoregressive and 40 evolutionary candidates.
-It is fully contained in the library. The library has zero exact matches to the 39,448
-reference sequences; maximum Top-100/reference and internal Top-100 Levenshtein ratios are
-`0.80` and `0.7778`, respectively. Activity, hemolysis, and MIC fields are model predictions,
-not assay results; auxiliary peptides do not have APEX MIC scores.
+The library contains 50,000 unique peptides: 3,964 scored autoregressive and evolutionary
+candidates and 46,036 auxiliary ProGen2 sequences. Auxiliary sequences passed a perplexity
+screen at or below 100, duplicate and exact-reference checks, and the synthesis filter.
+The Top 100 contains 60 autoregressive and 40 evolutionary candidates, all drawn from the
+library. There are no exact library matches to the 39,448 reference sequences. Maximum
+Top-100/reference and internal Top-100 Levenshtein ratios are 0.80 and 0.7778, respectively.
+Auxiliary peptides do not have APEX MIC scores.
 
-The empirical hemolysis model was trained from 183 unambiguous peptides with explicit human
-erythrocyte assay labels. Its grouped five-fold out-of-fold ROC-AUC is 0.7280. This small,
-retrospective evaluation does not establish prospective performance. No peptide generated
-by this project has been experimentally assayed by the team.
+The empirical hemolysis classifier was trained on 183 peptides with unambiguous human
+erythrocyte HC50 labels. Grouped five-fold evaluation yielded out-of-fold ROC-AUC 0.7280.
+These retrospective results do not establish prospective performance. Activity, hemolysis
+and MIC values are predictions; none of the newly generated peptides has been assayed by
+this project.
 
-The submission is declared as one integrated ProGen2/evolution method. Training sources and filters are disclosed in `data-engineering/data/DATA_CARD.md` and `docs/training_source_scope.json`. Existing model weights are available in the private GitHub prerelease. Root generation reproduces frozen artifacts; separate inference code and verification are provided. Data use and evaluator access are owner-confirmed, not independently legally certified.
+HydrAMP and AMP-Diffusion were explored as research baselines. Their generated sequences
+are excluded from this integrated ProGen2/evolution entry. The public repository provides
+the [fine-tuned checkpoint](https://github.com/RishyanthReddy/amp-challenge-public/releases/tag/progen2-checkpoint-20260928),
+inference code and deterministic export of the selected sequences. Training sources,
+computational filters and historical data-access gaps are described in the
+[data disclosure](PUBLIC_TRAINING_DISCLOSURE.md) and [method](method.md).

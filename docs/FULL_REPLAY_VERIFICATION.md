@@ -1,4 +1,4 @@
-# Training-to-selection verification — PASS
+# Historical training-to-selection replay
 
 Verified 2026-09-28 in isolated local workspaces and a separate Beam volume. The existing
 submission was not promoted, overwritten or regenerated in place.
@@ -52,11 +52,11 @@ RTX 4090 for the other). No threshold or provenance gate was relaxed.
 
 ## Evidence
 
-`verification/full_replay_20260928/run_manifest.json` contains stage evidence, input hashes,
-remote task information, exact reproduction checks, and preserved submission hashes.
-Adjacent files include training summaries, APEX/selection manifests, lineage audit,
-auxiliary run manifests, executed runner snapshots, and the final independent verifier log.
-Research outputs remain isolated at `/tmp/amp-full-replay-20260928/`; that temporary location
-is not a distribution requirement. The evidence copied into Git is the durable run record.
+The private research archive retains `docs/verification/full_replay_20260928/run_manifest.json`
+with stage evidence, input hashes, remote task information and exact reproduction checks.
+Adjacent records include training summaries, APEX/selection manifests, lineage analysis,
+auxiliary run manifests and executed runner snapshots. Those detailed records and raw
+replay outputs are not bundled in the public release. This page summarizes the observed
+replay; public export and inference checks are documented separately in the execution guide.
 
 This is computational engineering verification, not experimental biological validation.

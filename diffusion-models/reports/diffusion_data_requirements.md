@@ -1,4 +1,4 @@
-# Role 04: Diffusion Data Requirements & Split Contract Report
+# Diffusion Data Requirements & Split Contract Report
 
 **Source View:** `data-engineering/data/processed/views/diffusion_view.parquet`
 **Data Version:** 1.0 (frozen by Role 01 Data Engineering)

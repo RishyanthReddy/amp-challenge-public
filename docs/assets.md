@@ -1,53 +1,54 @@
 # Model assets and attribution
 
-> License review update (2026-09-29): the exact AMPlify training FASTA matches the authors' CC BY 4.0 Zenodo deposit 7320306. Older statements below describing its data license as unestablished are superseded by this finding. See the public training disclosure and AMPLIFY_DATA_LICENSE_MATCH.json. Other source questions remain open.
-
 ## ProGen2 checkpoint
 
-The fine-tuned checkpoint is distributed through the public GitHub release
-[`progen2-checkpoint-20260928`](https://github.com/RishyanthReddy/amp-challenge-public/releases/tag/progen2-checkpoint-20260928).
-Download it with:
+The fine-tuned checkpoint is distributed through the
+[public release](https://github.com/RishyanthReddy/amp-challenge-public/releases/tag/progen2-checkpoint-20260928).
+Download and verify it with:
 
 ```bash
 uv run python cloud/fetch_progen_checkpoint.py
 ```
 
-The fetcher checks all four assets: configuration, generation configuration, tokenizer and
-weights. Model SHA-256:
-`124b8ea7df5c96cda927bada51c9d26d89f91636d0975fe70e7bc0ef182f9f83`.
-Weights are cached under `autoregressive-models/checkpoints/`, outside Git tracking.
-The pinned base model/code revision is `43237a0b733c6629226a079266d2985c9fdce9b7`.
+The fetcher checks configuration, generation configuration, tokenizer and weights against
+recorded sizes and SHA-256 hashes. All four release assets have also been downloaded
+anonymously and checked. GitHub CLI may request login; browser downloads are public.
+Place manually downloaded files in
+`autoregressive-models/checkpoints/progen2_small_amp_best_val/` and run the fetcher to
+verify the cache.
 
-Base model: [ProGen2-small mirror](https://huggingface.co/hugohrban/progen2-small),
-with a declared BSD-3-Clause license; see its linked upstream sources and notices.
+Model SHA-256:
+`124b8ea7df5c96cda927bada51c9d26d89f91636d0975fe70e7bc0ef182f9f83`.
+The pinned base model/code revision is `43237a0b733c6629226a079266d2985c9fdce9b7`.
+The [ProGen2-small mirror](https://huggingface.co/hugohrban/progen2-small) declares
+BSD-3-Clause; its notice is retained in [licenses/PROGEN_BSD_3_CLAUSE.txt](../licenses/PROGEN_BSD_3_CLAUSE.txt).
 
 ## Evaluators and research baselines
 
-| Component | Location | Purpose |
+| Component | Availability | Purpose |
 | --- | --- | --- |
-| AMP / RBC forests | Not bundled | Required to rerun activity/hemolysis scoring |
-| APEX | `diffusion-models/apex/` | Eight weights included and checked against upstream hashes; MIT notice retained |
-| HydrAMP | `vae-latent-models/` | Research baseline; excluded from submitted sequence ancestry |
-| AMP-Diffusion | `diffusion-models/` | Research baseline; excluded from submitted sequence ancestry |
+| AMP / RBC forests | Not bundled | Required to repeat activity and hemolysis scoring |
+| APEX | Eight weights and source in `diffusion-models/apex/` | Pathogen MIC prediction; weights match upstream fingerprints and retain the MIT notice |
+| HydrAMP | Source adapter only; checkpoint and decomposer omitted | Research baseline; excluded from submitted sequence ancestry |
+| AMP-Diffusion | Source and hash-pinned checkpoint download helper | Research baseline; excluded from submitted sequence ancestry |
 
-The APEX environment is isolated from the root and AR environments. Its source and weight
-hashes are recorded in the evaluation manifests. Baseline asset instructions are in their
-component READMEs.
+APEX uses a separate locked environment. Its asset provenance is recorded in
+[APEX_WEIGHT_PROVENANCE.json](license_evidence/APEX_WEIGHT_PROVENANCE.json).
+Read the [HydrAMP](../vae-latent-models/README.md) and
+[diffusion](../diffusion-models/README.md) guides for baseline requirements.
 
-## Data sources
+## Data and licenses
 
-The curated corpus records DBAASP, DRAMP, dbAMP and AMPlify provenance. UniProt-derived
-negative partitions are used by the AMP evaluator. See the
-[data card](../data-engineering/data/DATA_CARD.md),
-[source manifest](TRAINING_SOURCE_MANIFEST.csv), and
-[evaluator training summary](../shared-evaluator/reports/training_data_summary.json).
+Training sources include DBAASP, DRAMP, dbAMP and AMPlify. UniProt-derived negative
+partitions support the AMP evaluator. The exact AMPlify training FASTA matches the authors'
+CC BY 4.0 Zenodo deposit and is included with [attribution](../data-engineering/data/raw/amplify/ATTRIBUTION.md).
+This dataset license is separate from AMPlify's GPL software license.
 
 DBAASP attribution: this project uses peptide and assay data from the Database of
 Antimicrobial Activity and Structure of Peptides. Cite Pirtskhalava et al., *DBAASP v3*,
 Nucleic Acids Research (2021), DOI: [10.1093/nar/gkaa991](https://doi.org/10.1093/nar/gkaa991).
-Retain each source's attribution and applicable terms when reusing its data.
 
-The root MIT license covers original project code. It does not relicense third-party data,
-weights or software. Source access and historical gaps are disclosed in [DATA_ACCESS.md](DATA_ACCESS.md).
-
-Anonymous downloads are available directly from the [public release](https://github.com/RishyanthReddy/amp-challenge-public/releases/tag/progen2-checkpoint-20260928). Place the four model/config/tokenizer files under `autoregressive-models/checkpoints/progen2_small_amp_best_val/`; the fetch helper verifies cached files without network access.
+The root MIT license covers original project code. Third-party data, weights and software
+retain their own terms. See [third-party notices](../THIRD_PARTY_NOTICES.md),
+[source access](DATA_ACCESS.md), [training disclosure](PUBLIC_TRAINING_DISCLOSURE.md) and
+[evaluator model cards](../shared-evaluator/reports/model_cards.md).

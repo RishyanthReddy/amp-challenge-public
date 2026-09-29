@@ -1,4 +1,4 @@
-# Role 05: Evolutionary Search Candidates Audit Report
+# Evolutionary Search Candidates Audit Report
 
 **Date:** 2026-09-27 22:02:05
 **Model:** Multi-Family Genetic Algorithm (GA with Family Quotas)

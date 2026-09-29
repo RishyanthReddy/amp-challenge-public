@@ -1,12 +1,13 @@
-# Shared evaluator report status
+# Evaluator records
 
-- `training_data_summary.json` and `model_cards.md` document the current classifiers,
-  training inputs, grouped hemolysis evaluation, and limitations.
-- `master_evaluation_manifest.json` records the current 13,057-row multi-generator input,
-  12,756 unique sequences, current evaluator-model hashes, and complete 11-pathogen APEX
-  coverage for the 7,655 novelty-eligible, synthesizable ranking candidates.
-- `artifact_verification.json`, `master_candidates_audit.md`, and
-  `candidate_ingestion_audit.md` describe the same current evaluation; run
-  `uv run --frozen python cloud/verify_role6_physical.py` from the repository root to check
-  their hashes and invariants.
-- Older sign-off documents under `docs/` are historical and are not current evidence.
+| Record | Scope |
+| --- | --- |
+| [Model cards](model_cards.md) and `training_data_summary.json` | Final AMP and human-erythrocyte classifiers, training inputs and retrospective metrics |
+| `master_evaluation_manifest.json` and `artifact_verification.json` | Later four-generator research pool: 13,057 input rows, 12,756 unique candidates, 7,655 eligible candidates with APEX coverage |
+| `master_candidates_audit.md` and `candidate_ingestion_audit.md` | Earlier 2026-09-27 pool and evaluator version; superseded totals and predictions |
+| Other analysis reports | Historical data-view and cross-generator analyses |
+
+The raw master table and forest assets are not bundled. Their physical verifier needs the
+private archive. Use the [submission manifest](../../portfolio-selection/reports/submission_entry_manifest.json)
+for the final ProGen2/evolution entry, and
+[research-record guidance](../../docs/research_records.md) when reading older reports.

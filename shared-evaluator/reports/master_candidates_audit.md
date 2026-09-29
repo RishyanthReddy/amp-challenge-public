@@ -1,5 +1,6 @@
-# Role 06: Master Candidate Repository Technical Audit Report
+# Master Candidate Repository Technical Audit Report
 
+> Historical record: Earlier evaluator version (2026-09-27). Its 13,230-candidate totals and predictions are superseded by the later evaluation manifest and model cards; they are not final submission results.
 **Date:** 2026-09-27 02:11:46  
 **Auditor:** Shared Evaluator & Integration Team  
 **Master Release File:** `outputs/master_scored_candidates.csv`  

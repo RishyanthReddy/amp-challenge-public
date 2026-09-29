@@ -5,6 +5,12 @@ mutations, a hand-coded biophysical fitness heuristic, and parent/child ancestry
 The heuristic is for search guidance; it is not the empirical shared-evaluator activity or hemolysis
 model. Final candidates must be rescored by the shared evaluator.
 
+## Inputs and environment
+
+The search requires the curated seed panel and processed data views, which are not bundled
+in the public checkout. See [source access](../docs/DATA_ACCESS.md). The command below
+is for a research checkout with those inputs restored.
+
 ## Run and outputs
 
 The environment is defined by `pyproject.toml` and `uv.lock`. From the repository root:
@@ -24,7 +30,7 @@ before the requested evaluation budget if mutation stagnates.
 root seeds are generation zero, edge fields match candidate fields, seed lineage stays
 within its root, and parent generations strictly precede child generations.
 
-The current production outputs were generated after these guards were added. The independent
-Role 05 physical verifier confirms 3,500 unique retained sequences, zero exact reference
-matches, 3,493 valid child-to-parent edges, and an intact ancestry DAG. The current run
-manifest, candidate audit, ancestry report, and verifier output are under `reports/`.
+The recorded production run retained 3,500 unique sequences with no exact reference
+matches and 3,493 valid child-to-parent edges. Run and lineage summaries are retained under
+`reports/`; raw candidate and ancestry tables remain in the private research archive.
+The [historical replay](../docs/FULL_REPLAY_VERIFICATION.md) reproduced these outputs.

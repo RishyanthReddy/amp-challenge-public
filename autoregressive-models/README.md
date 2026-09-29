@@ -1,11 +1,11 @@
 # Autoregressive peptide generation
 
 ProGen2-small fine-tuning, seeded amino-acid sampling, and sequence-level perplexity
-screening. The fine-tuned checkpoint is available through the private GitHub release.
+screening. The fine-tuned checkpoint is available through the [public checkpoint release](https://github.com/RishyanthReddy/amp-challenge-public/releases/tag/progen2-checkpoint-20260928).
 
 ## Sample candidates
 
-From the repository root, with GitHub CLI authenticated:
+From the repository root, with GitHub CLI installed (the CLI may request login):
 
 ```bash
 uv run python cloud/fetch_progen_checkpoint.py

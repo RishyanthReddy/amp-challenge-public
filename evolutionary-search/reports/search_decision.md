@@ -1,4 +1,4 @@
-# Role 05: Method Comparison, Candidate Inspection & Route Decision Report
+# Method Comparison, Candidate Inspection & Route Decision Report
 
 **Date:** 2026-09-27  
 **Auditor:** Bio-AI Engineering Team  

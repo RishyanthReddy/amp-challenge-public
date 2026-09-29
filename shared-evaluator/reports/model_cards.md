@@ -1,6 +1,6 @@
 # Shared evaluator model cards
 
-Generated from the checked-in data by `shared-evaluator/scripts/train_evaluator_models.py`.
+Generated from the archived training inputs by `shared-evaluator/scripts/train_evaluator_models.py`.
 See [`training_data_summary.json`](training_data_summary.json) for input hashes and counts.
 These retrospective models are research screening tools, not validated clinical or
 prospective predictors.

@@ -1,4 +1,4 @@
-# Role 02: Autoregressive Candidates Technical Audit Report
+# Autoregressive Candidates Technical Audit Report
 
 **Date:** 2026-09-27 22:10:11
 **Model:** ProGen2-small (151M params, Best Validation Checkpoint — Epoch 1)

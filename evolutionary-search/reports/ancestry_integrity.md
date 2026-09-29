@@ -1,4 +1,4 @@
-# Role 05: Ancestry & Lineage Integrity Audit Report
+# Ancestry & Lineage Integrity Audit Report
 
 **Date:** 2026-09-27 22:02:05
 **Search Algorithm:** Multi-Family Genetic Algorithm (GA)

@@ -1,4 +1,4 @@
-# Role 06: Cross-Domain Overlap & Candidate Reservoir Report
+# Cross-Domain Overlap & Candidate Reservoir Report
 
 **Date:** 2026-09-27 22:12:24
 **Total Ingested Candidates:** 13057

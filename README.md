@@ -1,8 +1,5 @@
 # AMP Challenge
 
-> **Public release with documented reproducibility limits.** The existing private project remains intact. Model files are hosted as release assets. Third-party training tables and some research assets are withheld pending review, so full training/evaluation cannot yet be reproduced from this folder alone. See [release status](PUBLIC_RELEASE_STATUS.md) and [training disclosure](docs/PUBLIC_TRAINING_DISCLOSURE.md). Co-authorship eligibility is not certified.
-
-
 An antimicrobial peptide design pipeline combining a fine-tuned **ProGen2** language model
 with **evolutionary search**. Candidates are screened for sequence validity, novelty and
 synthesizability, scored for predicted activity and safety, and selected for diversity.
@@ -11,12 +8,15 @@ The submission contains **50,000 unique peptide sequences** and a **ranked Top 1
 from that library. This repository provides the submitted artifacts, model inference code,
 checkpoint access, and reproducibility evidence.
 
+[Quick start](#quick-start) · [Method](#how-it-works) · [Model weights](https://github.com/RishyanthReddy/amp-challenge-public/releases/tag/progen2-checkpoint-20260928) · [Documentation](docs/README.md) · [Data sources](docs/DATA_ACCESS.md)
+
 ## Quick start
 
-Requirements: Git and [uv](https://docs.astral.sh/uv/). From this checkout, exporting and validating the submission runs on CPU.
-Clone https://github.com/RishyanthReddy/amp-challenge-public before running these commands.
+Requirements: Git and [uv](https://docs.astral.sh/uv/). Export and validation run on CPU; no GPU or model download is needed.
 
 ```bash
+git clone https://github.com/RishyanthReddy/amp-challenge-public.git
+cd amp-challenge-public
 uv sync --frozen --python 3.12
 uv run generate
 uv run python scripts/verify_submission.py .
@@ -48,7 +48,7 @@ flowchart TD
     Q --> K[Constrained DPP selection]
     K --> T[Ranked Top 100]
     A --> U["Auxiliary pool: perplexity, novelty,<br/>synthesis and AMP/safety screening"]
-    F --> L[50,000-sequence library assembly]
+    M --> L[50,000-sequence library assembly]
     U --> L
     T --> L
     L --> V[FASTA export and validation]
@@ -89,19 +89,18 @@ this command does not replace the submitted FASTAs. See [model assets](docs/asse
 
 ```text
 src/amp_challenge_2027/   Submission export entry point
-scripts/                  Validation, checkpoint checks and artifact assembly
-cloud/                    Beam training/inference runners and asset downloads
-data-engineering/         Data curation, provenance and biophysical descriptors
+scripts/                  Validation, provenance and artifact assembly
+cloud/                    Beam runners and checkpoint downloads
+data-engineering/         Data curation and biophysical descriptors
 autoregressive-models/    ProGen2 training and inference
-evolutionary-search/     Mutation search and ancestry tracking
-shared-evaluator/        AMP, hemolysis and pathogen scoring
-portfolio-selection/     Quality-diversity selection and library assembly
-generate/                Submission FASTAs
-generate_broad_spectrum/ Compatibility copy of the FASTAs
-outputs/                 Integrated candidate and scoring tables
-diffusion-models/        Diffusion baseline and shared APEX assets
-vae-latent-models/        HydrAMP baseline and evaluator reference data
-docs/                    Method, execution, data and verification documentation
+evolutionary-search/      Mutation search and ancestry tracking
+shared-evaluator/         Activity, hemolysis and pathogen scoring
+portfolio-selection/      Diversity selection and frozen output tables
+generate/                 Canonical submission FASTAs
+generate_broad_spectrum/  Compatibility copy of the FASTAs
+diffusion-models/         Research baseline and shared APEX assets
+vae-latent-models/        HydrAMP research baseline
+docs/                     Usage, methods, data and verification
 ```
 
 Each component has its own dependency lockfile where its runtime differs from the root
@@ -118,12 +117,20 @@ remain valid.
 | Maximum Top-100/reference Levenshtein ratio | 0.8000 |
 | Maximum internal Top-100 Levenshtein ratio | 0.7778 |
 | Repeated submission export | Byte-identical |
-| Training and ranked-selection replay | Submitted checkpoint, evaluators and ranked lists reproduced |
+| Historical training / selection replay | Recorded in the linked verification report |
 
 A separate fresh 50,000-sequence build also passed the sequence checks. Exact regeneration
 of every historical auxiliary filler was not tested. See the
 [verification report](docs/FULL_REPLAY_VERIFICATION.md) and
 [artifact hashes](docs/FINAL_HANDOFF_MANIFEST.json).
+
+## Reproducibility scope
+
+The public repository supports deterministic export of the submitted artifacts and ProGen2
+inference with the released checkpoint. Full training and evaluation require additional
+curated training tables and AMP/RBC model assets that are not bundled here. Historical
+source acquisition gaps are documented in the [training disclosure](docs/PUBLIC_TRAINING_DISCLOSURE.md).
+See [release scope](PUBLIC_RELEASE_STATUS.md) for the remaining limitations.
 
 ## Data and interpretation
 

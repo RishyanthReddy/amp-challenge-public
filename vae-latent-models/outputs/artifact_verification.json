@@ -1,0 +1,23 @@
+{
+  "role": "03_hydramp_generation",
+  "upstream_revision": "6590d2f4c2963f25d30669052a4c4a857e0e7279",
+  "device": "CPU",
+  "raw_rows": 2802,
+  "audited_candidate_rows": 2777,
+  "unique_candidate_sequences": 2508,
+  "exact_reference_matches": 0,
+  "reference_sequence_count": 39448,
+  "analogue_rows": 1779,
+  "analogue_parent_count": 59,
+  "all_analogue_parents_are_eligible": true,
+  "novel_le80_count": 1379,
+  "synthesizable_count": 1996,
+  "raw_candidate_csv_sha256": "b079a20e366f1c62a11d27fb760d7c23e026c2672dd16ad84dae2c085edb50c1",
+  "candidate_csv_sha256": "887b2d3a90b682853f2313d7db2c806d115f65dec6cc1e97395a515a46e8ce3d",
+  "checkpoint_tree_sha256": "02ab8015a717bde799d66cce4043d93e3149a291b8df70c577df4521c76f41d6",
+  "pca_decomposer_sha256": "a3a5dcea04e91421be363c047249b93fa46e99e128aec929e1f6b0f0e488a26d",
+  "runtime": {
+    "tensorflow_version": "2.2.1",
+    "keras_version": "2.3.1"
+  }
+}

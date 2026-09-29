@@ -1,0 +1,16 @@
+[project]
+name = "amp-challenge-evolutionary-search"
+version = "0.1.0"
+description = "Bounded genetic search and lineage tracking for AMP candidates"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "numpy>=1.26,<3",
+    "pandas>=2.0,<4",
+    "rapidfuzz>=3.14.5,<4",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<9"]
+
+[tool.uv]
+package = false

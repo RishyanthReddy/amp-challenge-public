@@ -1,0 +1,99 @@
+{
+  "actual_library_size": 50000,
+  "amp_model_sha256": "c93c67ff1d63d5f1eb6386fb2daea6e537708bd60352aea78c933a8f9ce49679",
+  "auxiliary_provenance": {
+    "rejected": {
+      "duplicate": 6034,
+      "invalid": 0,
+      "perplexity": 0,
+      "reference_overlap": 7801
+    },
+    "runs": [
+      {
+        "attempts": 51069,
+        "csv": "autoregressive-models/outputs/progen_aux_production_20260928_a_ppl100_retry1.csv",
+        "csv_sha256": "aca03588b6d0c4551cbeabb67e09af1b65e82e56ec0610e257cee251426c23b8",
+        "generation_attempts_per_sec": null,
+        "generation_gpu": "RTX4090 requested on Beam; task was cancelled before returning hardware summary",
+        "manifest": "autoregressive-models/outputs/progen_aux_production_20260928_a_ppl100_retry1.manifest.json",
+        "manifest_sha256": "249f0ea0a8876436780b8241b9d2abf7f54af003d361b0ac83bfcb2b04e86c85",
+        "max_observed_perplexity": 31.742647171020508,
+        "max_perplexity": 100.0,
+        "n_perplexity_pass": 51069,
+        "perplexity_attempts_per_sec": 2568.55,
+        "perplexity_elapsed_sec": 19.882,
+        "perplexity_gpu": "NVIDIA GeForce RTX 4090",
+        "perplexity_runner_source_file": "autoregressive-models/outputs/progen_aux_perplexity_runner_26a039f20968.py",
+        "perplexity_runner_source_sha256": "26a039f209681ac6d3637b61f6015f3ef4f3323ec9b84b391bf947b7e9e34dbf",
+        "requested_attempts": 60000,
+        "run_id": "production_20260928_a",
+        "run_status": "cancelled_incomplete",
+        "runner_source_file": "autoregressive-models/outputs/progen_aux_production_runner_20260928.py",
+        "runner_source_sha256": "22045b357c2fdc284bbdc331a70e2ebb41db767393cd7f8e0b964a6ff961efd1",
+        "unique_valid_attempts": 47333,
+        "valid_attempts": 51069
+      },
+      {
+        "attempts": 85000,
+        "csv": "autoregressive-models/outputs/progen_aux_production_20260928_b_ppl100.csv",
+        "csv_sha256": "0b8cafc261b94cfcbed28a2d2c1ea87735d3c6bebbee1e307df922eccddbe0aa",
+        "generation_attempts_per_sec": 47.903,
+        "generation_gpu": "NVIDIA GeForce RTX 4090",
+        "manifest": "autoregressive-models/outputs/progen_aux_production_20260928_b_ppl100.manifest.json",
+        "manifest_sha256": "fe9b0593c598ddd8d329df6eda0b8e491f5306c71ce6b7299ba8945620f721e0",
+        "max_observed_perplexity": 29.116283416748047,
+        "max_perplexity": 100.0,
+        "n_perplexity_pass": 85000,
+        "perplexity_attempts_per_sec": 2324.341,
+        "perplexity_elapsed_sec": 36.57,
+        "perplexity_gpu": "NVIDIA GeForce RTX 4090",
+        "perplexity_runner_source_file": "autoregressive-models/outputs/progen_aux_perplexity_runner_26a039f20968.py",
+        "perplexity_runner_source_sha256": "26a039f209681ac6d3637b61f6015f3ef4f3323ec9b84b391bf947b7e9e34dbf",
+        "requested_attempts": 85000,
+        "run_id": "production_20260928_b",
+        "run_status": "completed",
+        "runner_source_file": "autoregressive-models/outputs/progen_aux_production_runner_20260928.py",
+        "runner_source_sha256": "22045b357c2fdc284bbdc331a70e2ebb41db767393cd7f8e0b964a6ff961efd1",
+        "unique_valid_attempts": 77679,
+        "valid_attempts": 85000
+      }
+    ]
+  },
+  "auxiliary_selection_score_min": 0.5191927666819611,
+  "auxiliary_sequences_selected": 46036,
+  "auxiliary_synthesizable_selected": 46036,
+  "challenger_manifest_sha256": "79587c8a7bf318672f4216287fbf1b4ab003f61e48aa996999d18dcdaee28bbd",
+  "challenger_top100_sha256": "684a0d7cf3ac9f69ed62abff9a41eac1902a63c04ee62e73b6c08285519cd38d",
+  "eligible_master_provenance": {
+    "eligible_rows": 3964,
+    "evaluation_manifest_sha256": "0ae94d6f1cd2f9df427a36dd35a91c081f7b07f146d7990f4b0afaea4e1fb4d9",
+    "master_sha256": "d623356fa8bc410b91204984f5f0b09f256de000449316a6d5beb63958632a19",
+    "source_sha256": {
+      "autoregressive": "65955348cc24ecc040e55bfdceac97de5c6a0db281a8fe2612d933382daa686d",
+      "diffusion": "2efd485c7f626872aef79fd11cd1787a2f279b64e97c1c3c72280da6729accea",
+      "evolution": "4a29e99294df1fabbc044a78e1fe5f3c67c1bdf22b893781540ff6c3c176defa",
+      "vae_latent": "887b2d3a90b682853f2313d7db2c806d115f65dec6cc1e97395a515a46e8ce3d"
+    }
+  },
+  "exact_reference_overlap_count": 0,
+  "hemolysis_model_sha256": "8215836de943f63a7f327a368d2f13e5f646d1ecf418b06ec4718b39c63cebf9",
+  "library_domain_counts": {
+    "autoregressive": 47683,
+    "evolution": 2317
+  },
+  "library_sha256": "c88d450e572f099546cdd1f9c863c5cd21f9cc292b50714513c156984f60995e",
+  "method": "scored_AR_evolution_candidates_plus_finetuned_ProGen2_fillers",
+  "reference_count": 39448,
+  "reference_fasta_sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9",
+  "run_id": "final_ar_evo_20260928",
+  "scoring_limit": "Auxiliary MIC is unscored; AMP and safety fields are model predictions, not assay results.",
+  "synthesis_filter_pass_count": 50000,
+  "synthesizable_unique_auxiliary_pool": 73491,
+  "target_library_size": 50000,
+  "top100_count": 100,
+  "top100_is_subset": true,
+  "top100_max_internal_levenshtein_ratio": 0.7777777777777778,
+  "top100_max_reference_levenshtein_ratio": 0.8,
+  "unique_nonreference_auxiliary_pool": 122234,
+  "unique_sequences": 50000
+}

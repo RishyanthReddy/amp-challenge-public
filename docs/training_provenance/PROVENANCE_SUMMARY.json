@@ -1,0 +1,90 @@
+{
+  "scope": "Provenance metadata for current AR training view; source identifiers and sequence hashes, no raw assay fields or peptide sequences. Not complete evaluator training membership.",
+  "training_unique_sequences": 26699,
+  "covered_unique_sequences": 26699,
+  "source_link_rows": 94314,
+  "source_link_rows_by_database": {
+    "AMPlify": 2902,
+    "DRAMP_antibacterial_fasta": 22658,
+    "DRAMP_general_fasta": 8641,
+    "DBAASP_fasta": 1674,
+    "dbAMP": 6584,
+    "DBAASP_peptides": 1674,
+    "DBAASP_activity": 17469,
+    "DBAASP_toxicity": 1413,
+    "DRAMP_Antibacterial_amps": 22658,
+    "DRAMP_general_amps": 8641
+  },
+  "input_sha256": {
+    "data-engineering/data/processed/views/autoregressive_view.csv": "cb3c9b4e47c2ada6c4e6eb3b4f0843c4790a8a44c67d919fde422b815d80c369",
+    "data-engineering/data/processed/provenance.csv": "6800dee3dd757e9d68e24ed170bbe1128b26fa7b8a85aaafe59a70858688b768"
+  },
+  "verified_raw_snapshots": [
+    {
+      "source_file": "data/raw/DBAASP/activity-against-target-species.csv",
+      "sha256": "d871e664d194ca155a39d9bbff564b73b30783c8afc53f26a0422c0d0aea24f9",
+      "bytes": 2359042,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/DBAASP/hemolytic-and-cytotoxic-activities.csv",
+      "sha256": "987ea27c1ed86ec7ddb6868d94d40d41f26a689cf0b72a9241e6d76968f1e921",
+      "bytes": 145639,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/DBAASP/peptides-antibiofilm-activities.csv",
+      "sha256": "d07f34e5efc1bec91a661ee9df412bc22d4dbd78141b59b2f81b5640b0cbb5a9",
+      "bytes": 11983,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/DBAASP/peptides-fasta.txt",
+      "sha256": "607a3dc32237f0869683532093b10478fba2b391406409235f05212b52ff437d",
+      "bytes": 111935,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/DBAASP/peptides.csv",
+      "sha256": "4377a3434ff0fbb6e52b24d01f32df1b9e74e0b462aa5c0f761f6a51bb518277",
+      "bytes": 254732,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/DRAMP/Antibacterial_amps.fasta",
+      "sha256": "a0d484eb6176e123298d19d06f23ccc6398a1f5c75d169cccbbf7590a6e6c835",
+      "bytes": 1072625,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/DRAMP/Antibacterial_amps.xlsx",
+      "sha256": "2b6c79485618439877e06bcaedc79fe4c647fd3be36129cc1cef91a70d0421f5",
+      "bytes": 1853664,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/DRAMP/general_amps.fasta",
+      "sha256": "5915e91b3501c41a914a05403dfd2a435af59116ffb738a8423d34995a2b9c26",
+      "bytes": 445659,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/DRAMP/general_amps.xlsx",
+      "sha256": "205b13ba026f54e69d598fa53a54c21a279613d516c70e9cd7598307c8c18925",
+      "bytes": 2773355,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/amplify/AMPlify_AMP_train_common.fa",
+      "sha256": "a04e28f8d29d1bb4f445a6162e210e0999289c31bf93f2f13c8d2268c8dd9cdc",
+      "bytes": 141696,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    },
+    {
+      "source_file": "data/raw/dbamp/dbamp_df.csv",
+      "sha256": "d7a1eede4c6c9d87605145c6b1854d1f1918564d0db58cb756ee330947f5a688",
+      "bytes": 4818154,
+      "snapshot_state": "local bytes verified; historical remote availability unknown"
+    }
+  ]
+}

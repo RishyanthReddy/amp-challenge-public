@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/amp_challenge_2027_data.egg-info/PKG-INFO
+src/amp_challenge_2027_data.egg-info/SOURCES.txt
+src/amp_challenge_2027_data.egg-info/dependency_links.txt
+src/amp_challenge_2027_data.egg-info/entry_points.txt
+src/amp_challenge_2027_data.egg-info/requires.txt
+src/amp_challenge_2027_data.egg-info/top_level.txt
+src/amp_data/__init__.py
+src/amp_data/build.py
+src/amp_data/core.py
+src/amp_data/inspect.py
+src/amp_data/synthesis_filter.py
+src/amp_data/validate.py
+tests/test_core.py

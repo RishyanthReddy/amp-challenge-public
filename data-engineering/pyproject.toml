@@ -1,0 +1,34 @@
+[project]
+name = "amp-challenge-2027-data"
+version = "0.1.0"
+description = "Auditable, leakage-controlled AMP data engineering pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=3.0.5",
+    "pyarrow>=25.0.1",
+    "rapidfuzz>=3.14.5",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+amp-data-inspect = "amp_data.inspect:main"
+amp-data-build = "amp_data.build:main"
+amp-data-validate = "amp_data.validate:main"
+amp-data-report = "amp_data.build:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

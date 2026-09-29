@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "validator": "https://github.com/szczurek-lab/amp-challenge-2027/blob/main/scripts/verify_submission.py",
+  "validator_sha256": "3f2eb1bd61200abfccf07d86e9c226d57f3d12abcf25715af1d90f41531942cf",
+  "tested_commit": "020b9c4540aec0b30944962284c8dda7eb16458c",
+  "scope": "Official clean clone, dependency installation, frozen generation, sequence invariants, and repeated-output equality; not full model inference",
+  "exit_code": 0,
+  "log_sha256": "a96d64720ba8c140c3e0f424cdfcc2d65e8c7b4be808db1fa5ea6f125baaf898"
+}

@@ -1,0 +1,29 @@
+{
+  "role": "05_evolutionary_search",
+  "algorithm": "Multi-Family Genetic Algorithm (GA)",
+  "run_id": "evo_prod_001",
+  "seed": 42,
+  "seed_count": 50,
+  "family_count": 9,
+  "candidate_node_count": 3543,
+  "unique_candidate_count": 3500,
+  "ancestry_edges": 3493,
+  "all_nonroot_nodes_have_one_valid_parent_edge": true,
+  "lineage_validation": "PASS",
+  "exact_reference_matches": 0,
+  "all_canonical_and_length_valid": true,
+  "candidate_sha256": "4a29e99294df1fabbc044a78e1fe5f3c67c1bdf22b893781540ff6c3c176defa",
+  "candidate_nodes_sha256": "66b9e9b001d52e5234d17183ac0e8b5f97d892f533052620fee39dc565348211",
+  "ancestry_sha256": "c6b6e524882951dbb789ecd3e04e99f7c6ab4855feecc7f0c4db513fab9ed2c3",
+  "seed_file_sha256": "cf945c5c952d2223b454dad6d12e28c8b479787fe2ea4dd75e5be1c4fd44f5a6",
+  "evaluator_ledger": {
+    "total_requests": 3616,
+    "unique_evaluator_calls": 3500,
+    "cache_hits": 70,
+    "cache_hit_rate": 0.0194,
+    "pre_evaluator_rejections": 46,
+    "cached_sequences_count": 3500,
+    "evaluator_version": "1.0.0-prod"
+  },
+  "termination_reason": "budget_exhausted"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "component": "diffusion",
+    "url": "https://raw.githubusercontent.com/szczurek-lab/ampdiffusion-starter-kit/main/LICENSE",
+    "sha256": "56ea4236312d84792db583fb2f3c1e54de18bf5b5d1728d923d47ab08f33e7b8",
+    "exact_local_match": true
+  },
+  {
+    "component": "apex",
+    "url": "https://raw.githubusercontent.com/szczurek-lab/ampdiffusion-starter-kit/main/apex/LICENSE",
+    "sha256": "23f821451bf60d3ab0d497aed4b57308340fa795b9365cd1a646c88bb8be9265",
+    "exact_local_match": true
+  },
+  {
+    "component": "hydramp",
+    "url": "https://raw.githubusercontent.com/szczurek-lab/hydramp/master/LICENSE",
+    "sha256": "6b5216edf5248687f1b410631485de581f9339709cb0e247bc76cb61fb6fbac8",
+    "exact_local_match": false
+  }
+]

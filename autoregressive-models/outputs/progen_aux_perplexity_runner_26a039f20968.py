@@ -1,0 +1,276 @@
+"""Apply the Role 02 sequence-level perplexity screen to an auxiliary ProGen2 pool.
+
+This is a deterministic teacher-forced likelihood pass over an existing Beam-volume CSV.
+It preserves every attempt and adds its perplexity and threshold decision to a separate
+output file. The default threshold of 100 follows the Role 02 usage example.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import hashlib
+import json
+import os
+import re
+import shutil
+import subprocess
+from pathlib import Path
+
+from beam import Image, Volume, function
+
+ROOT = Path(os.environ.get("AMP_CHALLENGE_ROOT", Path(__file__).resolve().parents[1]))
+MODEL_REVISION = "43237a0b733c6629226a079266d2985c9fdce9b7"
+CHECKPOINT_SHA256 = "124b8ea7df5c96cda927bada51c9d26d89f91636d0975fe70e7bc0ef182f9f83"
+TOKENIZER_SHA256 = "cc489cd8bfeab3c70c6a2954d2963b9fb8e7ee4b13aaa0e84e97d7f17f35d43c"
+
+image = Image(
+    python_version="python3.10",
+    python_packages=[
+        "torch==2.5.1",
+        "transformers==4.46.3",
+        "tokenizers==0.20.3",
+    ],
+)
+models_volume = Volume(name="amp-models", mount_path="/models")
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(8 * 1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+@function(
+    gpu="RTX4090",
+    image=image,
+    memory="24Gi",
+    cpu=8,
+    volumes=[models_volume],
+    timeout=3600,
+)
+def score_auxiliary(source_name: str, output_name: str, max_perplexity: float, batch_size: int) -> dict:
+    import time
+
+    import torch
+    import torch.nn.functional as F
+    import transformers
+    from tokenizers import Tokenizer
+    from transformers import AutoModelForCausalLM
+
+    for name in (source_name, output_name):
+        if not re.fullmatch(r"[A-Za-z0-9_.-]+\.csv", name):
+            raise ValueError("Volume filenames must be simple CSV basenames")
+    if not 0 < max_perplexity < float("inf"):
+        raise ValueError("max_perplexity must be finite and positive")
+    if not 1 <= batch_size <= 128:
+        raise ValueError("batch_size must be in [1, 128]")
+    if not torch.cuda.is_available():
+        raise RuntimeError("ProGen2 perplexity scoring requires CUDA")
+
+    checkpoint_dir = Path("/models/progen2_small_amp_best_val")
+    weight_path = checkpoint_dir / "model.safetensors"
+    tokenizer_path = checkpoint_dir / "tokenizer.json"
+    if not weight_path.is_file() or sha256_file(weight_path) != CHECKPOINT_SHA256:
+        raise RuntimeError("ProGen2 checkpoint is absent or differs from its pinned SHA-256")
+    if not tokenizer_path.is_file() or sha256_file(tokenizer_path) != TOKENIZER_SHA256:
+        raise RuntimeError("ProGen2 tokenizer is absent or differs from its pinned SHA-256")
+
+    volume_dir = Path("/models/progen2_auxiliary")
+    source_path = volume_dir / source_name
+    output_path = volume_dir / output_name
+    if not source_path.is_file():
+        raise FileNotFoundError(source_path)
+    if output_path.exists():
+        raise FileExistsError(f"Refusing to overwrite prior scored output: {output_path}")
+
+    dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+    model = AutoModelForCausalLM.from_pretrained(
+        str(checkpoint_dir),
+        code_revision=MODEL_REVISION,
+        trust_remote_code=True,
+        torch_dtype=dtype,
+    ).to("cuda").eval()
+    tokenizer = Tokenizer.from_file(str(tokenizer_path))
+    tokenizer.no_padding()
+    start_id = tokenizer.encode("1").ids[0]
+    end_id = tokenizer.encode("2").ids[0]
+
+    source_hash = sha256_file(source_path)
+    start_time = time.perf_counter()
+    total = valid_count = pass_count = 0
+    max_seen = 0.0
+    temp_path = output_path.with_suffix(".staging.csv")
+    with source_path.open(newline="", encoding="ascii") as source, temp_path.open(
+        "w", newline="", encoding="ascii"
+    ) as target:
+        reader = csv.DictReader(source)
+        if not reader.fieldnames or not {"attempt_index", "sequence", "is_valid"} <= set(reader.fieldnames):
+            raise ValueError("Source CSV lacks required ProGen2 attempt columns")
+        fieldnames = [*reader.fieldnames, "perplexity", "passes_perplexity_filter"]
+        writer = csv.DictWriter(target, fieldnames=fieldnames, extrasaction="ignore")
+        writer.writeheader()
+        batch = []
+
+        def score_batch(rows: list[dict[str, str]]) -> list[float]:
+            token_rows = [
+                tokenizer.encode("1" + row["sequence"].strip().upper() + "2").ids
+                for row in rows
+            ]
+            max_tokens = max(map(len, token_rows))
+            input_ids = torch.full(
+                (len(token_rows), max_tokens), end_id, dtype=torch.long, device="cuda"
+            )
+            attention_mask = torch.zeros_like(input_ids)
+            for index, tokens in enumerate(token_rows):
+                input_ids[index, :len(tokens)] = torch.tensor(tokens, dtype=torch.long, device="cuda")
+                attention_mask[index, :len(tokens)] = 1
+            with torch.no_grad():
+                logits = model(input_ids=input_ids, attention_mask=attention_mask).logits[:, :-1].float()
+                targets = input_ids[:, 1:]
+                target_mask = attention_mask[:, 1:].to(dtype=logits.dtype)
+                losses = F.cross_entropy(
+                    logits.reshape(-1, logits.shape[-1]),
+                    targets.reshape(-1),
+                    reduction="none",
+                ).reshape(targets.shape)
+                token_counts = target_mask.sum(dim=1).clamp_min(1)
+                mean_nll = (losses * target_mask).sum(dim=1) / token_counts
+                return torch.exp(mean_nll.clamp(max=20)).detach().cpu().tolist()
+
+        def flush(rows: list[dict[str, str]]) -> None:
+            nonlocal total, valid_count, pass_count, max_seen
+            scores = score_batch(rows)
+            if len(scores) != len(rows):
+                raise RuntimeError("Perplexity scorer returned a different number of scores than input rows")
+            for row, score in zip(rows, scores):
+                total += 1
+                is_valid = row["is_valid"] == "True"
+                valid_count += int(is_valid)
+                passed = bool(is_valid and score <= max_perplexity)
+                pass_count += int(passed)
+                max_seen = max(max_seen, float(score))
+                writer.writerow({
+                    **row,
+                    "perplexity": f"{score:.6f}",
+                    "passes_perplexity_filter": str(passed),
+                })
+            if total % 4096 == 0:
+                print(f"Perplexity-scored {total} attempts")
+
+        for row in reader:
+            batch.append(row)
+            if len(batch) >= batch_size:
+                flush(batch)
+                batch = []
+        if batch:
+            flush(batch)
+
+    temp_path.replace(output_path)
+    elapsed = time.perf_counter() - start_time
+    return {
+        "status": "success",
+        "source_name": source_name,
+        "source_csv_sha256": source_hash,
+        "output_name": output_name,
+        "output_csv_sha256": sha256_file(output_path),
+        "n_attempts": total,
+        "n_valid": valid_count,
+        "n_perplexity_pass": pass_count,
+        "max_perplexity": max_perplexity,
+        "max_observed_perplexity": max_seen,
+        "batch_size": batch_size,
+        "elapsed_sec": round(elapsed, 3),
+        "attempts_per_sec": round(total / elapsed, 3),
+        "gpu": torch.cuda.get_device_name(0),
+        "torch_version": str(torch.__version__),
+        "transformers_version": transformers.__version__,
+        "checkpoint_sha256": CHECKPOINT_SHA256,
+        "tokenizer_sha256": TOKENIZER_SHA256,
+        "model_code_revision": MODEL_REVISION,
+        "remote_csv": f"beam://amp-models/progen2_auxiliary/{output_name}",
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source-csv", required=True)
+    parser.add_argument("--output-csv", required=True)
+    parser.add_argument("--max-perplexity", type=float, default=100.0)
+    parser.add_argument("--batch-size", type=int, default=64)
+    args = parser.parse_args()
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+\.csv", args.source_csv):
+        parser.error("--source-csv must be a simple CSV basename")
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+\.csv", args.output_csv):
+        parser.error("--output-csv must be a simple CSV basename")
+    if not 0 < args.max_perplexity < float("inf"):
+        parser.error("--max-perplexity must be finite and positive")
+    if not 1 <= args.batch_size <= 128:
+        parser.error("--batch-size must be in [1, 128]")
+
+    output_path = ROOT / "autoregressive-models/outputs" / args.output_csv
+    manifest_path = output_path.with_suffix(".manifest.json")
+    if output_path.exists() or manifest_path.exists():
+        raise FileExistsError(f"Refusing to overwrite local scored output: {output_path}")
+
+    result = score_auxiliary.remote(
+        source_name=args.source_csv,
+        output_name=args.output_csv,
+        max_perplexity=args.max_perplexity,
+        batch_size=args.batch_size,
+    )
+    subprocess.run(["beam", "cp", result["remote_csv"], str(output_path.relative_to(ROOT))], cwd=ROOT, check=True)
+    if sha256_file(output_path) != result["output_csv_sha256"]:
+        raise RuntimeError("Downloaded PPL-scored CSV does not match the Beam result hash")
+    result["source_csv"] = f"autoregressive-models/outputs/{args.source_csv}"
+    source_manifest_path = output_path.with_name(args.source_csv).with_suffix(".manifest.json")
+    source_manifest = json.loads(source_manifest_path.read_text())
+    if result["source_csv_sha256"] != source_manifest.get("csv_sha256"):
+        raise RuntimeError("Beam-scored source does not match its local generation manifest")
+    scorer_hash = sha256_file(Path(__file__))
+    scorer_archive = ROOT / "autoregressive-models/outputs" / f"progen_aux_perplexity_runner_{scorer_hash[:12]}.py"
+    scorer_archive.parent.mkdir(parents=True, exist_ok=True)
+    if scorer_archive.exists():
+        if sha256_file(scorer_archive) != scorer_hash:
+            raise ValueError(f"Refusing to overwrite a different scorer snapshot: {scorer_archive}")
+    else:
+        shutil.copy2(Path(__file__), scorer_archive)
+    result.update({
+        "run_id": source_manifest["run_id"],
+        "run_status": source_manifest.get("run_status", "completed"),
+        "requested_attempts": int(source_manifest.get("requested_attempts", source_manifest["n_attempts"])),
+        "csv_sha256": result["output_csv_sha256"],
+        "raw_source_csv_sha256": result["source_csv_sha256"],
+        "raw_source_manifest_sha256": sha256_file(source_manifest_path),
+        "n_unique_valid": int(source_manifest["n_unique_valid"]),
+        "generation_runner_source_sha256": source_manifest["runner_source_sha256"],
+        "generation_runner_source_file": source_manifest["runner_source_file"],
+        "runner_source_sha256": source_manifest["runner_source_sha256"],
+        "runner_source_file": source_manifest["runner_source_file"],
+        "perplexity_runner_source_sha256": scorer_hash,
+        "perplexity_runner_source_file": str(scorer_archive.relative_to(ROOT)),
+        "perplexity_attempts_per_sec": float(result["attempts_per_sec"]),
+        "perplexity_elapsed_sec": float(result["elapsed_sec"]),
+        "attempts_per_sec": source_manifest.get("attempts_per_sec"),
+        "generation_elapsed_sec": source_manifest.get("elapsed_sec"),
+        "generation_gpu": source_manifest.get("gpu"),
+        "generation_attempts_per_sec": source_manifest.get("attempts_per_sec"),
+        "n_perplexity_pass": int(result["n_perplexity_pass"]),
+        "n_generation_attempts": int(source_manifest["n_attempts"]),
+        "n_generation_valid": int(source_manifest["n_valid"]),
+        "tokenizer_sha256": TOKENIZER_SHA256,
+    })
+    result["local_csv"] = str(output_path.relative_to(ROOT))
+    manifest_staging = manifest_path.with_name(f".{manifest_path.name}.staging")
+    manifest_staging.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    manifest_staging.replace(manifest_path)
+    print(json.dumps({key: result[key] for key in (
+        "n_attempts", "n_valid", "n_perplexity_pass", "max_perplexity",
+        "attempts_per_sec", "gpu", "output_csv_sha256"
+    )}, indent=2))
+
+
+if __name__ == "__main__":
+    main()

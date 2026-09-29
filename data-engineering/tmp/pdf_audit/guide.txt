@@ -1,0 +1,662 @@
+          AMP CHALLENGE 2026
+
+   Data Engineering
+
+       A complete student-friendly guide to building the shared AMP
+       dataset
+
+          ROLE GUIDE 01 / 06
+
+How this guide is written
+Every technical idea is explained through its meaning, why it matters, what the role actually
+does, and what must be delivered. The science is kept complete, but the language is
+intentionally simple.
+
+                                    Prepared 19 August 2026 | Submission deadline: 1 October 2026 AoE
+Data Engineering Student Guide
+
+How to use this guide
+
+Read Sections 1-6 to understand the data problem. Sections 7-8 explain the actual pipeline
+and role handoffs. Sections 9-13 are the schedule. The final sections give acceptance checks,
+mistakes, fallbacks, the handover package and a glossary.
+
+1. What is the purpose of this role?            2. Where does this role fit in the project?
+3. Why is data engineering so important?        4. The four planned data sources
+5. How should the master dataset be organized?  6. Five kinds of information that must remain
+                                                separate
+7. Step-by-step data-engineering workflow       8. What does each domain receive?
+9. Week 1: full data-engineering phase          10. Week 2 responsibilities
+11. Week 3 responsibilities                     12. Week 4 responsibilities
+13. Buffer period: 17 September to 1 October    14. How do we know the work is complete?
+15. Common mistakes to avoid                    16. Fallback plans
+17. Final handover                              18. Simple glossary
+19. Main sources
+
+Main outcome
+
+At the end of this role, all five other roles receive reliable, versioned data files generated
+from one shared master dataset.
+
+AMP Challenge 2026 | Internal execution guide                                                   Page 2
+Data Engineering Student Guide
+
+1. What is the purpose of this role?
+
+ Before we train any model, we need one dataset that everyone can trust.
+ We plan to collect antimicrobial peptide information from four public sources: DBAASP, APD,
+ DRAMP and the dataset released with HydrAMP. We cannot simply download these files, join
+ them and call the result our training dataset.
+ The same peptide may appear in several databases. Its name may be written differently in
+ each source. One database may report activity against E. coli, another may report activity
+ against S. aureus, and a third may include a toxicity measurement. Some records contain
+ exact MIC values, while others only say that a peptide is antimicrobial.
+ The Data Engineering Lead turns this scattered information into one clean and understandable
+ dataset.
+
+   Simple way to remember it
+
+   Think of the model members as people building different engines. The Data Engineering
+   Lead prepares the fuel that all those engines use.
+
+ If the data is duplicated, wrongly labelled or missing important context, even an advanced
+ model can learn the wrong information.
+
+2. Where does this role fit in the
+project?
+
+ The project has three main stages.
+
+ Stage 1: Prepare the shared data
+
+ The Data Engineering Lead collects, cleans and organizes the existing peptide information.
+
+ Stage 2: Generate new candidates
+
+ Four domains work in parallel: autoregressive models, VAE and latent-space models, diffusion
+ models and evolutionary search. Each domain receives a suitable version of the same shared
+ dataset.
+
+ Stage 3: Evaluate and combine candidates
+
+ The Shared Evaluator scores candidates from all four domains using the same process. It then
+ helps create the final 50,000-sequence library and the ranked top-100 list.
+ The training dataset and the 50,000-sequence library are therefore different things. The
+ training dataset contains existing knowledge collected from public sources. The 50,000 library
+ contains new candidates produced by our models and search methods.
+
+AMP Challenge 2026 | Internal execution guide  Page 3
+Data Engineering Student Guide
+
+3. Why is data engineering so
+important?
+
+ Published AMP models are difficult to compare fairly because they often use different data.
+ One study may use only natural peptides, while another includes synthetic peptides. One may
+ define activity using one MIC threshold, while another uses a different threshold. Some studies
+ mix several bacterial species, while others focus on one species.
+
+ This means a model can appear better simply because its dataset or test was easier.
+
+ Our team avoids this by giving every domain the same cleaned foundation. The domains can
+ use different views of the data, but those views come from one master dataset and follow the
+ same cleaning rules.
+
+ This helps us compare the domains fairly, prevents five people from repeating the same
+ cleaning work, and makes our final data disclosure much easier to explain.
+
+4. The four planned data sources
+
+ 4.1 DBAASP
+
+ DBAASP contains experimentally studied antimicrobial peptides. It is especially useful because
+ it may include peptide sequences, MIC values, target organisms and strains, hemolysis or
+ cytotoxicity information, chemical modifications and literature references.
+
+ Not every DBAASP record is automatically valid for the challenge. Some peptides contain
+ non-standard amino acids, chemical modifications, multiple chains or lengths outside the
+ allowed range. We keep these records in the raw data for traceability, but exclude them from
+ challenge-ready views when necessary.
+
+ 4.2 APD
+
+ APD is a curated antimicrobial peptide database with strong coverage of natural AMPs. It is
+ useful for high-confidence sequences, peptide functions, source organisms, general properties
+ and literature references.
+
+ APD has changed over time. If we use an APD3 download, we label it APD3. If we use a newer
+ snapshot, we record the actual version and date instead of still calling it APD3. Another
+ researcher should be able to identify exactly which records we used.
+
+ 4.3 DRAMP
+
+ DRAMP contains natural, synthetic, patented and clinically relevant AMPs. It can add activity,
+ structure, toxicity, stability and clinical information.
+
+ Its wider coverage also increases overlap with DBAASP and APD. A peptide appearing in all
+ three databases is still one peptide and must not be counted as three training examples.
+
+AMP Challenge 2026 | Internal execution guide  Page 4
+Data Engineering Student Guide
+
+ 4.4 HydrAMP release
+
+ HydrAMP is different from the other sources. DBAASP, APD and DRAMP are peptide databases.
+ The HydrAMP release is a model-related dataset prepared for training and evaluating
+ HydrAMP.
+
+ It includes sequences used for AMP classification, low-MIC classification, reconstruction, new
+ generation and analogue generation. It mainly focuses on peptides up to 25 amino acids.
+
+ HydrAMP includes information gathered from other sources, including AMP databases and
+ UniProt-derived sequences. It may therefore overlap with DBAASP, APD and DRAMP. A
+ HydrAMP appearance is not an independent confirmation of activity. We simply record that the
+ sequence was also used in the HydrAMP release.
+
+5. How should the master dataset be
+organized?
+
+ We should not force everything into one enormous spreadsheet row. A clearer design uses
+ three connected tables.
+
+ Table 1: Peptide sequences
+
+ This table has one row per unique sequence. It stores a stable peptide ID, sequence, length,
+ challenge validity, modification information, similarity group and train/validation/test
+ assignment.
+
+ Table 2: Source links
+
+ This table records every database in which a sequence appeared. One canonical peptide can
+ link to DBAASP, APD, DRAMP and HydrAMP without being counted four times.
+
+ For example, PEP_0001 may link to a DBAASP ID, a DRAMP ID and a HydrAMP row. The master
+ sequence table still contains only one PEP_0001.
+
+ Table 3: Experimental measurements
+
+ This table stores activity and toxicity measurements. One peptide may have many rows: an
+ MIC against E. coli, another MIC against S. aureus, and a hemolysis measurement against
+ human red blood cells.
+
+ These measurements must stay separate because they answer different biological questions.
+
+6. Five kinds of information that
+must remain separate
+
+ 6.1 Antimicrobial activity
+
+ This asks whether a peptide has been reported to act against microorganisms. A general AMP
+ label does not mean that the peptide is strong against every species.
+
+AMP Challenge 2026 | Internal execution guide  Page 5
+Data Engineering Student Guide
+
+ 6.2 MIC
+
+ MIC means Minimum Inhibitory Concentration. It is the lowest tested concentration that
+ prevented visible bacterial growth. Lower MIC usually means less peptide was needed, but the
+ value only makes sense with its context: species, strain, unit, medium, method and whether
+ the result is exact or limited.
+ An MIC of 8 micrograms per millilitre against E. coli is not the same experiment as 8 against S.
+ aureus.
+
+ 6.3 Toxicity and hemolysis
+
+ AMPs can also damage human or animal cells. Hemolysis measures damage to red blood cells.
+ Toxicity data may be reported as percentage hemolysis at a concentration, HC50, cytotoxicity
+ against a cell line, or a simple label.
+ These measurements do not mean exactly the same thing. Missing toxicity data means safety
+ is unknown; it does not mean the peptide is safe.
+
+ 6.4 Negative and unknown examples
+
+ A true negative has evidence of inactivity under a defined condition. A peptide with no activity
+ information is only unknown.
+ For example, "tested against E. coli and inactive above 128 micrograms per millilitre" is
+ evidence of poor activity under that experiment. "No MIC is present" is not a negative result.
+ Assumed negatives from UniProt or the HydrAMP release must be labelled as assumed
+ negatives, not experimentally confirmed inactive peptides.
+
+ 6.5 Novelty
+
+ Novelty describes how close a generated candidate is to known peptides. It is mainly an
+ evaluation property, not an activity label.
+ The full 50,000 library must contain no exact match to the official antibacterial reference.
+ Every top-100 sequence must also pass the stricter official similarity rule.
+
+7. Step-by-step data-engineering
+workflow
+
+ Step 1: Download and freeze the sources
+
+ Record the source name, website or API, version, download date, file name, size, retrieval
+ method and access or licence notes. Calculate a SHA-256 checksum for each raw file.
+ A checksum is a digital fingerprint. If the file changes, its checksum changes.
+
+   Deliverable
+
+   source_manifest.csv and checksum files.
+
+AMP Challenge 2026 | Internal execution guide  Page 6
+Data Engineering Student Guide
+
+ Step 2: Preserve the raw data
+
+ Never manually edit the original downloads. Corrections belong in processing code, giving us a
+ clear path from original source to cleaning script to processed data.
+
+   Deliverable
+   an immutable data/raw/ folder.
+
+Step 3: Normalize sequences
+
+Sources may use lowercase letters, spaces, hyphens, modification symbols or unknown
+characters. Create one clean uppercase sequence while preserving the original source value.
+Do not silently remove a chemical modification and pretend the peptide was unmodified. Keep
+a modification flag.
+
+  Deliverable
+
+  normalization_report.csv, showing valid, corrected, modified, non-standard, out-of-range
+  and unreadable records.
+
+Step 4: Apply the challenge rules
+
+Challenge-ready sequences use only the 20 standard amino acids, are 8 to 50 residues long,
+are linear, have free termini and contain no chemical modifications.
+Invalid records stay traceable and receive a clear exclusion reason such as invalid length,
+non-standard amino acid or modified terminus.
+
+  Deliverable
+
+  validity and exclusion-reason columns.
+
+Step 5: Merge exact duplicates
+
+After normalization, the same sequence may appear many times. Keep one canonical
+sequence and connect all sources and measurements to it.
+This prevents accidental double counting without losing evidence.
+
+  Deliverables
+
+  sequences.parquet, source_links.parquet and a source-overlap report.
+
+Step 6: Standardize organisms and strains
+
+Names such as E. coli, Escherichia coli and E coli should map to one standard species
+name. Keep the strain separately, because K-12 and ATCC 25922 are not the same strain.
+
+AMP Challenge 2026 | Internal execution guide                                           Page 7
+Data Engineering Student Guide
+
+ If a strain is missing, store it as unknown rather than guessing.
+   Deliverable
+   organism_mapping.csv.
+
+Step 7: Standardize measurements carefully
+
+MIC values may use micrograms per millilitre, milligrams per litre, micromolar or nanomolar
+units. Preserve the original value and unit. Add a standardized value only when the conversion
+is justified and documented.
+Converting a mass concentration to a molar concentration requires the peptide molecular
+weight and a declared termini convention.
+Also preserve limits. MIC > 128 is not the same as exactly 128.
+
+  Deliverables
+
+  assays.parquet and unit_conversion_rules.md.
+
+Step 8: Keep repeated measurements
+
+A peptide can have several MIC values because different strains, laboratories, media or
+protocols were used. Keep all original measurements.
+If a model later needs one summary value, create a separate view with a documented rule,
+such as the median for compatible measurements from one species.
+
+  Deliverable
+
+  the full assay table plus documented summary views.
+
+Step 9: Separate positives, negatives and unknowns
+
+Every label should include its evidence. Useful states include experimental positive, tested
+inactive, assumed negative and unknown.
+Never turn missing data into a negative label.
+
+  Deliverable
+
+  label and label-evidence columns.
+
+Step 10: Check the official reference
+
+Use the official antibacterial.fasta to tag exact matches and nearest known sequences.
+Training overlap is not automatically a problem, but it must be documented. Generated-output
+novelty is checked separately later.
+
+AMP Challenge 2026 | Internal execution guide                                                 Page 8
+Data Engineering Student Guide
+
+   Deliverable
+   official_reference_matches.csv.
+
+ Step 11: Create similarity groups
+
+ Exact deduplication is not enough. Two peptides may differ by only one amino acid. If one is in
+ training and its near-twin is in testing, the model may appear better than it truly is.
+ Group similar sequences into families, then put the whole family in only one split: training,
+ validation or test.
+
+   Simple way to remember it
+   Close relatives should stay in the same room. We should not teach the model with one family
+   member and then pretend its near-twin is completely new.
+
+ Tools such as MMseqs2, CD-HIT or SpanSeq can create these groups. We may compare several
+ settings to balance honest separation with usable split sizes.
+
+   Deliverables
+   sequence_clusters.csv, dataset_splits.csv and leakage_check.csv.
+
+ Step 12: Release a stable version
+
+ Dataset version 1.0 should include the sequence, source, assay, cluster, split and
+ official-reference files; quality reports; a data card; and checksums.
+ After release, do not change version 1.0 silently. A real correction creates version 1.0.1 or
+ 1.0.2, with an explanation of what changed and which model runs are affected.
+
+AMP Challenge 2026 | Internal execution guide  Page 9
+Data Engineering Student Guide
+
+8. What does each domain receive?
+
+ All domains use the same master dataset, but each receives a view suited to its method. A
+ view is not a new independent dataset; it is a selected version generated from the master
+ data.
+
+ Autoregressive view
+
+ Clean sequence, length, split, similarity-group ID, optional activity condition and data-version
+ information.
+
+ VAE and latent-model view
+
+ Clean sequence, AMP label, MIC-related label when available, length, split, similarity group and
+ prototype information. HydrAMP reproduction should respect its main range of up to 25
+ residues. Hemolysis remains a downstream evaluation target, not an original HydrAMP
+ condition.
+
+ Diffusion view
+
+ Clean sequences, length, split, similarity group, optional conditions and any representation
+ needed by the chosen decoder or embedding model.
+
+ Evolution seed view
+
+ A diverse seed panel containing sequence, length, cluster, sources, activity evidence, MIC
+ evidence, toxicity evidence, official-reference similarity and reason for inclusion. Do not
+ choose only the 50 lowest-MIC peptides, because that could trap the search in a few known
+ families.
+
+ Evaluator view
+
+ The most complete view: positives, confirmed or assumed negatives, MIC, toxicity, organism,
+ strain, similarity-aware splits, missing-data indicators and reference information.
+
+9. Week 1: full data-engineering
+phase
+
+ Week 1 is a full data-engineering week, but the other roles still work in parallel on setup and
+ smoke tests.
+
+ Day 1: Agree on the structure
+
+ Confirm sources, define the three master tables, collect field requirements from each role and
+ create example records.
+
+   Deliverables
+
+   schema.md, source_plan.md and example rows.
+
+AMP Challenge 2026 | Internal execution guide  Page 10
+Data Engineering Student Guide
+
+ Days 2-3: Download and normalize
+
+ Save the raw sources, calculate checksums, normalize sequences, tag modifications and
+ create the first validity report.
+
+   Deliverables
+   raw files, source_manifest.csv and normalization_report.csv.
+
+ Day 4: Merge and organize measurements
+
+ Deduplicate sequences, preserve source links, standardize organisms and organize MIC,
+ activity and toxicity records.
+
+   Deliverables
+   first sequence, source-link and assay tables, plus an overlap report.
+
+ Day 5: Create groups and splits
+
+ Group related sequences, test similarity settings, assign train/validation/test splits and check
+ label coverage and leakage.
+
+   Deliverables
+   cluster, split and leakage files.
+
+ Day 6: Create role-specific views
+
+ Generate the AR, VAE, diffusion, evolution and evaluator files. Give each role a small sample
+ first so format problems are found early.
+
+   Deliverables
+   five view files and short descriptions.
+
+ Day 7: Audit and release version 1.0
+
+ Reconcile counts, test duplicates and validity, confirm that every role can open its file, write
+ the data card and calculate final checksums.
+
+   Deliverables
+   version 1.0 package, DATA_CARD.md, SHA256SUMS and release notes.
+
+AMP Challenge 2026 | Internal execution guide  Page 11
+Data Engineering Student Guide
+
+10. Week 2 responsibilities
+
+ Model roles now begin real comparisons. The Data Engineering Lead protects the stability of
+ version 1.0, helps roles load their views, answers questions, records issues and fixes only
+ genuine errors.
+ Do not change the data simply because one model performs poorly. A weak result is not proof
+ that the data is wrong.
+
+   Deliverables
+
+   data issue log, data-version list for every role and approved patch releases when necessary.
+
+11. Week 3 responsibilities
+
+ The selected model in each domain should now generate at scale. Confirm the exact dataset
+ version used in every final run, check that nobody used an untracked personal CSV, prepare
+ the training-data disclosure and record any additional domain-specific data.
+ If a role adds another public dataset, record its source, version and purpose using the same
+ provenance rules.
+
+   Deliverables
+
+   final data-usage table, draft training-data summary, limitations list and additional-data
+   record.
+
+12. Week 4 responsibilities
+
+ Prepare the final evidence package: source descriptions, file checksums, data card, rebuild
+ instructions, training-data disclosure and official-reference overlap report. Help the evaluator
+ run a clean rebuild.
+
+   Deliverables
+
+   final manifest, data card, source/licence notes, rebuild guide, disclosure and overlap report.
+
+13. Buffer period: 17 September to 1
+October
+
+ The buffer is for repairs and submission preparation, not for adding a large new database or
+ changing fundamental label and split rules.
+ Good buffer work includes fixing paths, adding missing source references, repairing
+ reproducibility and clarifying processing steps. Risky work includes replacing the master
+ dataset, changing the split, redefining activity or removing inconvenient records without
+ documentation.
+
+AMP Challenge 2026 | Internal execution guide  Page 12
+Data Engineering Student Guide
+
+14. How do we know the work is
+complete?
+
+ - Every source has a name, link, version or snapshot, date and checksum.
+ - Cleaning, exclusions, duplicate handling and measurement processing are explained.
+ - Every processed sequence links back to its original source records.
+ - Unique sequences are stored once while all sources and assays are preserved.
+ - Missing labels remain unknown.
+ - Close sequence families do not cross training and test splits.
+ - Every domain can load its view without manual editing.
+ - Processing scripts recreate the same files.
+ - The data card clearly supports the competition disclosure.
+
+15. Common mistakes to avoid
+
+ Treating four sources as four independent votes
+
+ A peptide appearing in all four sources is still one peptide. Multiple appearances show overlap,
+ not four independent experiments.
+
+ Losing information while removing duplicates
+
+ Merge exact sequences, but preserve all source IDs and assay rows.
+
+ Treating missing information as negative
+
+ No MIC does not mean inactive. No hemolysis measurement does not mean safe.
+
+ Averaging unrelated assays
+
+ Do not average different species, strains or incompatible units without a clear rule.
+
+ Using only a random split
+
+ Random splits can put near-identical family members in training and testing, creating an
+ unrealistically strong score.
+
+ Changing the dataset after training starts
+
+ Every necessary correction creates a new version and identifies affected runs.
+
+ Allowing private cleaned copies
+
+ Every role file must be generated from the shared master dataset.
+
+AMP Challenge 2026 | Internal execution guide  Page 13
+Data Engineering Student Guide
+
+ Filtering too aggressively
+
+ Unusual charge or hydrophobicity does not automatically make a peptide useless. Exclude
+ objective invalidity and serious data-quality problems; keep biological preferences as labels,
+ scores or warnings.
+
+16. Fallback plans
+
+ If a database cannot be downloaded in bulk
+
+ Use its official API or a reproducible query process. If redistribution is restricted, publish
+ retrieval and processing code rather than redistributing the data improperly.
+
+ If many MIC units cannot be standardized
+
+ Keep every original measurement and create a smaller high-confidence standardized subset
+ for MIC modelling.
+
+ If toxicity data is limited
+
+ Keep it as a separate sparse dataset and use published safety predictors only as supporting
+ evidence. Never call missing toxicity data safe.
+
+ If similarity grouping makes the test set too small
+
+ Compare several thresholds and choose the one that gives honest separation while keeping
+ enough examples.
+
+ If HydrAMP overlaps strongly with other sources
+
+ Use it mainly as a reproduction/baseline view and do not count repeated sequences as new
+ independent examples.
+
+ If a late error is discovered
+
+ Create a patch version, list affected records and rerun only the work genuinely affected.
+
+AMP Challenge 2026 | Internal execution guide  Page 14
+Data Engineering Student Guide
+
+17. Final handover
+
+ Raw-data package
+
+ Original source files, source manifest, checksums, retrieval instructions and access/licence
+ notes.
+
+ Processed-data package
+
+ Canonical sequences, source links, assay table, similarity groups, splits and official-reference
+ matches.
+
+ Role-specific files
+
+ AR view, VAE/prototype view, diffusion view, evolution seed view and evaluator view.
+
+ Documentation
+
+ Data card, field definitions, unit rules, organism mapping, overlap report, leakage audit,
+ limitations, change log and rebuild instructions.
+ The handover succeeds when each role can use its file without asking the Data Engineering
+ Lead to manually repair individual rows.
+
+AMP Challenge 2026 | Internal execution guide  Page 15
+Data Engineering Student Guide
+
+18. Simple glossary
+
+ Assay: a laboratory experiment measuring a property such as activity or toxicity.
+ MIC: the lowest tested concentration that stops visible bacterial growth under a particular
+ experiment.
+ Hemolysis: damage to red blood cells.
+ HC50: the concentration causing 50% hemolysis.
+ Provenance: the record of where data came from and how it was processed.
+ Canonical sequence: the one standardized sequence representing all exact copies of a
+ peptide.
+ Similarity group: a family of related sequences kept together during dataset splitting.
+ Data leakage: training information appearing in testing and making performance look better
+ than it really is.
+ Dataset view: a role-specific file generated from the master dataset.
+ Checksum: a digital fingerprint showing whether a file changed.
+ Data card: a document explaining dataset contents, sources, processing and limitations.
+ Assumed negative: a sequence treated as negative because it lacks an AMP annotation, not
+ because an experiment proved it inactive.
+
+AMP Challenge 2026 | Internal execution guide  Page 16
+Data Engineering Student Guide
+
+19. Main sources
+
+ - Official AMP Challenge: https://szczurek-lab.github.io/amp-challenge-website/
+ - Official repository and validator: https://github.com/szczurek-lab/amp-challenge-2027
+ - DBAASP: https://dbaasp.org/
+ - APD: https://aps.unmc.edu/
+ - DRAMP: https://dramp.cpu-bioinfor.org/
+ - HydrAMP paper: https://www.nature.com/articles/s41467-023-36994-z
+ - HydrAMP code and data: https://github.com/szczurek-lab/hydramp
+ - seqme: https://github.com/szczurek-lab/seqme
+
+AMP Challenge 2026 | Internal execution guide                                             Page 17
+

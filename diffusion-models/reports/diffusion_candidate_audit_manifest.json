@@ -1,0 +1,21 @@
+{
+  "role": "04_diffusion_candidate_audit",
+  "generation_manifest": "diffusion-models/reports/diffusion_generation_manifest.json",
+  "generation_manifest_sha256": "b0de8c18533f63ceaca1d9352118b6024da9ed4ffc0b7e95790573d42bd43a81",
+  "raw_candidate_csv_sha256": "5e8966a86395b743021ddd150ddc979a366ef5dd56e084e0495d51eeb8b27dad",
+  "candidate_csv_sha256": "2efd485c7f626872aef79fd11cd1787a2f279b64e97c1c3c72280da6729accea",
+  "raw_candidate_rows": 3500,
+  "retained_candidate_rows": 3495,
+  "retained_unique_sequences": 3495,
+  "exact_reference_matches_quarantined": 5,
+  "reference_sequence_count": 39448,
+  "checkpoint_sha256": "6a3f347df7c02ff6008ac3d2d4826daeadf7418cb6862a6599b4f710e1d7f8aa",
+  "esm_weights_sha256": "46f002a9870c9bdecd0ea887acb1f9a38a6b561e8f8bf8a6990b679b9d31b928",
+  "esm_regression_sha256": "8f7a4557d57713b97ba0e484303007efb7230d25299c0ac47a0a1b12a87bbb9d",
+  "model_source_sha256": "3abc19641c5f3824d3358caf5b598005e59efd9d2f00c5218c7e329adbc0a638",
+  "audit_timestamp_utc": "2026-09-27T20:02:48Z",
+  "pipeline_source_sha256": "6b93faa31252c792dbf49fad11c32c2f1cbc7e1679fd84cb3b4b49afa84e6cc3",
+  "pipeline_source_snapshot_file": "diffusion-models/reports/diffusion_pipeline_source_6b93faa31252.py",
+  "pipeline_source_snapshot_sha256": "6b93faa31252c792dbf49fad11c32c2f1cbc7e1679fd84cb3b4b49afa84e6cc3",
+  "current_workspace_pipeline_source_sha256": "843d84fd66d3ca7d25a490da909ee4a81f529bede3dc17d04cde9afb2757fb56"
+}

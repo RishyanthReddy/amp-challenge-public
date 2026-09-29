@@ -1,0 +1,46 @@
+{
+  "role": "Role 03: VAE & Latent Models (HydrAMP)",
+  "final_candidate_file": {
+    "path": "outputs/vae_candidates.csv",
+    "sha256": "7d3385647d623d9fcf699a558265e58e4f0eff6166353a25cb9bb80d03fc8cb7",
+    "total_rows": 3189,
+    "mode_1_unconstrained_rows": 1998,
+    "mode_2_analogue_rows": 1191,
+    "unique_sequences": 3027,
+    "min_length": 8,
+    "max_length": 25,
+    "exact_reference_overlap": 0
+  },
+  "accounting": {
+    "total_raw_attempts": 3211,
+    "mode_1_raw_attempts": 2000,
+    "mode_2_raw_attempts": 1211,
+    "mode_1_sub8_removals": 2,
+    "mode_1_clean_retained": 1998,
+    "mode_2_exact_ref_rows_removed": 19,
+    "mode_2_exact_ref_distinct_sequences": 16,
+    "mode_2_sub8_removals": 1,
+    "mode_2_clean_retained": 1191,
+    "total_removed_rows": 22,
+    "total_clean_retained": 3189,
+    "reconciliation_check": true
+  },
+  "ancestry": {
+    "total_analogues": 1191,
+    "missing_parent_id": 0,
+    "unrecognized_seed_ids": [],
+    "ancestry_integrity_pass": true
+  },
+  "final_checks": {
+    "total_clean_candidates": 3189,
+    "unique_clean_sequences": 3027,
+    "duplicates_in_pool": 162,
+    "invalid_amino_acids": 0,
+    "invalid_lengths": 0,
+    "exact_reference_overlap": 0,
+    "min_length": 8,
+    "max_length": 25,
+    "final_file_compliance_pass": true
+  },
+  "verdict": "READY_FOR_FINAL_SIGN_OFF"
+}

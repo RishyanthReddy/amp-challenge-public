@@ -1,0 +1,50 @@
+[
+  {
+    "path": "diffusion-models/apex/APEX_pathogen_models/APEX_2&256&2048&1e-05&0.0&0.1",
+    "bytes": 35897011,
+    "sha256": "fccd356cbb901c08fe7d35663f3902a5d2d01a4c257203af931aabf02bdd7913",
+    "upstream_lfs_pointer_matches": true
+  },
+  {
+    "path": "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&1024&1e-06&0.001&2.0",
+    "bytes": 11235187,
+    "sha256": "857e17d7703d771f82fe63dd82f15a86dd60a0b4f705577a56b88485d60a60c6",
+    "upstream_lfs_pointer_matches": true
+  },
+  {
+    "path": "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.0&1.0",
+    "bytes": 28067699,
+    "sha256": "9db48419381d7bcdac2ad3154aa6b67327c6da47dce973bb8a0745e5632ff79a",
+    "upstream_lfs_pointer_matches": true
+  },
+  {
+    "path": "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.001&0.1",
+    "bytes": 28067699,
+    "sha256": "9362c006ccc0e7ae3fd5210f2cbbe9ed02cec4ff6383f95a119acab9b020aea4",
+    "upstream_lfs_pointer_matches": true
+  },
+  {
+    "path": "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.001&2.0",
+    "bytes": 28067699,
+    "sha256": "58b5eeb6c8c8c4b94d1d776c92f5c653177cfcf3b77ec41cf409839304c8cc80",
+    "upstream_lfs_pointer_matches": true
+  },
+  {
+    "path": "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&2048&1e-05&0.001&0.1",
+    "bytes": 40629107,
+    "sha256": "6d3f2bd66c6b3f138e98fb13d1a3010ee94714b9ebf9673475192b365d388858",
+    "upstream_lfs_pointer_matches": true
+  },
+  {
+    "path": "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&2048&1e-06&0.001&0.1",
+    "bytes": 40629683,
+    "sha256": "69f101c4e3a1309166493f96221a8c44e37c87bd7a988240b32e26819162c954",
+    "upstream_lfs_pointer_matches": true
+  },
+  {
+    "path": "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&512&1e-06&0.0&2.0",
+    "bytes": 17739571,
+    "sha256": "d56b8153a4618620f3b3f91aeb204d6ba8ac38af2ab2f3dff77a28863bc49059",
+    "upstream_lfs_pointer_matches": true
+  }
+]

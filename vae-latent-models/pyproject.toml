@@ -1,0 +1,54 @@
+[project]
+name = "hydramp-starter-kit"
+version = "0.1.0"
+description = "AMP Challenge 2027 baseline starter kit: HydrAMP default-settings library generator"
+readme = "README.md"
+requires-python = ">=3.8,<3.9"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Paulina Szymczak", email = "szymczak.pau@gmail.com" },
+]
+dependencies = [
+    # HydrAMP inference code, pinned to the published archival repo.
+    "hydramp",
+    # HydrAMP's runtime stack (declared here because we override its own metadata below).
+    "tensorflow==2.2.1",
+    "tensorflow-probability==0.10.1",
+    "Keras==2.3.1",
+    "numpy==1.18.5",
+    "pandas==1.1.4",
+    "scikit-learn==0.23.2",
+    "joblib==0.17.0",
+    "protobuf==3.14.0",
+    "matplotlib==3.3.2",
+    "modlamp==4.2.3",
+    "tqdm==4.51.0",
+    "biopython==1.83",
+    # Levenshtein ratio for the top-100 similarity check (mirrors the challenge validator).
+    "levenshtein",
+]
+
+[project.scripts]
+# HydrAMP is strain-agnostic, so the baseline exposes the broad-spectrum entry point only.
+generate_broad_spectrum = "hydramp_starter_kit.generate:main"
+
+[tool.uv.sources]
+hydramp = { git = "https://github.com/szczurek-lab/hydramp", rev = "6590d2f4c2963f25d30669052a4c4a857e0e7279" }
+
+# HydrAMP's setup.py pins its full training stack; we supply the inference deps ourselves
+# (above), so ignore its declared metadata and install it as code only.
+[[tool.uv.dependency-metadata]]
+name = "hydramp"
+version = "1.2.0"
+requires-dist = []
+
+# modlamp 4.2.3 pins an unresolvable mysql-connector-python==8.0.17 that only its unused
+# database module needs. Override to the packages its analysis code actually imports.
+[[tool.uv.dependency-metadata]]
+name = "modlamp"
+version = "4.2.3"
+requires-dist = ["numpy", "scipy", "matplotlib", "scikit-learn", "pandas", "requests"]
+
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"

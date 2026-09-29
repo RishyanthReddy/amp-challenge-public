@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-09-26 23:48:58Z",
+  "test_seeds_count": 5,
+  "generations_completed": 3,
+  "total_proposals": 80,
+  "total_ancestry_edges": 75,
+  "unbroken_lineage_percentage": 100.0,
+  "evaluator_ledger": {
+    "total_requests": 80,
+    "unique_evaluator_calls": 80,
+    "cache_hits": 0,
+    "cache_hit_rate": 0.0,
+    "pre_evaluator_rejections": 0,
+    "cached_sequences_count": 80,
+    "evaluator_version": "1.0.0-smoke"
+  },
+  "output_files": [
+    "evolutionary-search/reports/smoke_candidates.csv",
+    "evolutionary-search/reports/smoke_ancestry.csv"
+  ],
+  "audit_status": "historical smoke run; current code has additional integrity checks"
+}

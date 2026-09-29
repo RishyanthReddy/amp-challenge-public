@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "timestamp_utc": "2026-09-27T00:03:40Z",
+  "total_ingested": 62,
+  "unique_sequences": 61,
+  "multi_domain_sequences_count": 1,
+  "tested_domains": [
+    "autoregressive",
+    "vae_latent",
+    "diffusion",
+    "evolution"
+  ],
+  "provenance_preservation_verified": true,
+  "sample_multi_domain_entry": {
+    "sequence": "KWKLFKKIGKVLKVL",
+    "contributing_domains": [
+      "autoregressive",
+      "diffusion"
+    ],
+    "contributing_candidate_ids": [
+      "test_ar_shared",
+      "test_diff_shared"
+    ]
+  }
+}

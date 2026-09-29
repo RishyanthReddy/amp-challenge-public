@@ -1,0 +1,77 @@
+{
+  "status": "success",
+  "run_id": "diff_prod_001",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "base_seed": 42,
+  "production_seed": 1042,
+  "requested_production_candidates": 3500,
+  "production_rows": 3500,
+  "checkpoint_sha256": "6a3f347df7c02ff6008ac3d2d4826daeadf7418cb6862a6599b4f710e1d7f8aa",
+  "esm_weights_sha256": "46f002a9870c9bdecd0ea887acb1f9a38a6b561e8f8bf8a6990b679b9d31b928",
+  "esm_regression_sha256": "8f7a4557d57713b97ba0e484303007efb7230d25299c0ac47a0a1b12a87bbb9d",
+  "model_source_sha256": "3abc19641c5f3824d3358caf5b598005e59efd9d2f00c5218c7e329adbc0a638",
+  "pipeline_source_sha256": "6b93faa31252c792dbf49fad11c32c2f1cbc7e1679fd84cb3b4b49afa84e6cc3",
+  "candidate_csv_sha256": "5e8966a86395b743021ddd150ddc979a366ef5dd56e084e0495d51eeb8b27dad",
+  "runtime": {
+    "torch": "2.5.1+cu124",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "fair_esm": "2.0.0",
+    "ema_pytorch": "0.7.9",
+    "einops": "0.8.2"
+  },
+  "sampler": {
+    "production_steps": 1000,
+    "production_type": "DDPM",
+    "objective": "pred_x0",
+    "noise_schedule": "cosine_pred_x0",
+    "decoder": "esm2_lm_head_argmax",
+    "length_distribution": "uniform integer [12, 37]"
+  },
+  "feasibility_metrics": {
+    "model": "AMP-Diffusion_EMA",
+    "timesteps": 1000,
+    "n_attempted": 100,
+    "n_valid": 100,
+    "validity_rate": 1.0,
+    "n_unique": 100,
+    "uniqueness_rate": 1.0,
+    "wall_time_sec": 55.48,
+    "throughput_seq_per_sec": 1.8,
+    "peak_vram_mb": 317.79,
+    "gpu": "NVIDIA GeForce RTX 4090"
+  },
+  "step_comparison_results": [
+    {
+      "inference_steps": 250,
+      "sampler_type": "DDIM",
+      "n_attempted": 500,
+      "n_valid": 500,
+      "validity_rate": 1.0,
+      "n_unique": 500,
+      "uniqueness_rate": 1.0,
+      "mean_length": 25.6,
+      "wall_time_sec": 60.38,
+      "throughput_seq_per_sec": 8.28,
+      "peak_vram_mb": 319.58
+    },
+    {
+      "inference_steps": 1000,
+      "sampler_type": "DDPM",
+      "n_attempted": 500,
+      "n_valid": 500,
+      "validity_rate": 1.0,
+      "n_unique": 500,
+      "uniqueness_rate": 1.0,
+      "mean_length": 25.2,
+      "wall_time_sec": 239.02,
+      "throughput_seq_per_sec": 2.09,
+      "peak_vram_mb": 317.79
+    }
+  ],
+  "total_prod_time_sec": 760.44,
+  "pipeline_source_snapshot_file": "diffusion-models/reports/diffusion_pipeline_source_6b93faa31252.py",
+  "pipeline_source_snapshot_sha256": "6b93faa31252c792dbf49fad11c32c2f1cbc7e1679fd84cb3b4b49afa84e6cc3",
+  "current_workspace_pipeline_source_sha256": "843d84fd66d3ca7d25a490da909ee4a81f529bede3dc17d04cde9afb2757fb56",
+  "post_run_source_change": "After this run, added positive input-count validation, sampled-batch cardinality validation, and automatic source snapshot recording. The executed sampling and decoding code is preserved in the snapshot; its only differences from current source are these guards and provenance recording."
+}

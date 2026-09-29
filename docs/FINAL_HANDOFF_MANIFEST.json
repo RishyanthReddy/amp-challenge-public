@@ -1,0 +1,23 @@
+{
+  "scope": "Frozen private benchmark handoff; Kaggle not submitted",
+  "files": {
+    "generate/library.fasta": {
+      "sha256": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+      "bytes": 3363308
+    },
+    "generate/top.fasta": {
+      "sha256": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480",
+      "bytes": 6184
+    },
+    "generate_broad_spectrum/library.fasta": {
+      "sha256": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+      "bytes": 3363308
+    },
+    "generate_broad_spectrum/top.fasta": {
+      "sha256": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480",
+      "bytes": 6184
+    }
+  },
+  "owner_permission": "docs/OWNER_PERMISSION_CONFIRMATION.md",
+  "abstract": "docs/FINAL_METHOD_ABSTRACT.md"
+}

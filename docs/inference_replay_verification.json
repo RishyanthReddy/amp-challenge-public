@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "two one-sequence CPU inference runs; not full portfolio replay",
+  "seed": 42,
+  "candidate_csv_sha256": [
+    "88d13db5d2dc8ebd76180066103dfd74301d7cd675132ba1747190b4a5a85ec8",
+    "88d13db5d2dc8ebd76180066103dfd74301d7cd675132ba1747190b4a5a85ec8"
+  ],
+  "checkpoint_source": "authenticated private GitHub release",
+  "git_commit": "207483f2d91d855bdceffc083bc7a672f71d8e2b",
+  "verified_worktree_files_sha256": {
+    "cloud/fetch_progen_checkpoint.py": "b8083836a4891e22017a9ca7ded8d057b63de85c1eb6d3647171833fc5f23b8b",
+    "autoregressive-models/scripts/06_generate_from_checkpoint.py": "e78cbb704568d87a52801ec2756910728199144ce7152f13346236c5d86169eb",
+    "scripts/verify_inference_replay.py": "c6ac9cfd3787fda418ab5c698d16ca2f449457c9155cbdf053704f16b8e58636"
+  },
+  "note": "Run used the recorded base Git commit plus these reviewed helper changes, subsequently pushed as 020b9c4."
+}

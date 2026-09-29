@@ -1,0 +1,48 @@
+{
+  "analogue_seed_count": 60,
+  "base_seed": 42,
+  "candidate_csv_sha256": "887b2d3a90b682853f2313d7db2c806d115f65dec6cc1e97395a515a46e8ce3d",
+  "checkpoint_tree_sha256": "02ab8015a717bde799d66cce4043d93e3149a291b8df70c577df4521c76f41d6",
+  "device": "CPU",
+  "generation_wall_time_sec": 70.82,
+  "keras_version": "2.3.1",
+  "n_analogue_per_seed_requested": 25,
+  "n_unconstrained_requested": 1000,
+  "n_unconstrained_returned": 1000,
+  "pca_decomposer_sha256": "a3a5dcea04e91421be363c047249b93fa46e99e128aec929e1f6b0f0e488a26d",
+  "raw_candidate_count": 2802,
+  "role": "03_hydramp_generation",
+  "sweep_stats": {
+    "1.0": {
+      "attempts": 1500,
+      "produced": 65,
+      "valid": 65
+    },
+    "2.0": {
+      "attempts": 1500,
+      "produced": 258,
+      "valid": 258
+    },
+    "3.0": {
+      "attempts": 1500,
+      "produced": 649,
+      "valid": 648
+    },
+    "4.0": {
+      "attempts": 1500,
+      "produced": 830,
+      "valid": 830
+    }
+  },
+  "tensorflow_version": "2.2.1",
+  "upstream_revision": "6590d2f4c2963f25d30669052a4c4a857e0e7279",
+  "valid_unique_candidate_count": 2522,
+  "raw_candidate_csv_sha256": "b079a20e366f1c62a11d27fb760d7c23e026c2672dd16ad84dae2c085edb50c1",
+  "post_audit_candidate_rows": 2777,
+  "post_audit_unique_sequences": 2508,
+  "exact_reference_matches_quarantined": 22,
+  "post_audit_novel_le80_count": 1379,
+  "post_audit_synthesizable_count": 1996,
+  "reference_sequence_count": 39448,
+  "audit_timestamp_utc": "2026-09-27T20:02:04Z"
+}

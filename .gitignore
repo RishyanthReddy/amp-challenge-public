@@ -1,0 +1,49 @@
+# Virtual Environments
+.venv/
+**/.venv/
+venv/
+**/venv/
+ENV/
+
+# Python cache
+.cache/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+**/.pytest_cache/
+
+# OS artifacts
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Model weights and machine-specific checkpoints that are not committed
+*.pt
+*.bin
+*.h5
+*.safetensors
+*.ckpt
+*.dylib
+*.pack
+*.idx
+outputs/checkpoints/
+autoregressive-models/checkpoints/
+
+# Intermediate logs
+*.log
+debug.log
+
+# Local packet snapshots and scratch directories
+submission_preparation/previous_packets/
+submission_preparation/.*.staging/
+
+# Local experiments and internal handoff packets
+outputs/inference_*/
+submission_preparation/
+
+# Local AI workflow instructions
+AGENTS.md
+**/AGENTS.md

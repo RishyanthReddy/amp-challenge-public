@@ -1,0 +1,42 @@
+=================================================================
+ AMP Challenge 2027: Deterministic Broad-Spectrum AMP Generation
+=================================================================
+
+[1/4] Writing 50,000 library sequences to /private/tmp/amp-closure-20260928/official-clone/generate_broad_spectrum/library.fasta...
+[2/4] Writing 100 ranked top candidates to /private/tmp/amp-closure-20260928/official-clone/generate_broad_spectrum/top.fasta...
+[3/4] Validating generated FASTA invariants...
+      FASTA counts, uniqueness, alphabet, lengths, subset, and reference novelty: PASS
+      Max top-to-reference similarity: 0.8000 (<= 0.80)
+      Max internal Top-100 similarity: 0.7778 (<= 0.80)
+[4/4] Computing cryptographic checksums...
+      library.fasta SHA-256: 65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba
+      top.fasta     SHA-256: 7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480
+
+✓ SUCCESS: Generation completed. All challenge invariants verified 100%!
+=================================================================
+ AMP Challenge 2027: Deterministic Broad-Spectrum AMP Generation
+=================================================================
+
+[1/4] Writing 50,000 library sequences to /private/tmp/amp-closure-20260928/official-clone/generate_broad_spectrum/library.fasta...
+[2/4] Writing 100 ranked top candidates to /private/tmp/amp-closure-20260928/official-clone/generate_broad_spectrum/top.fasta...
+[3/4] Validating generated FASTA invariants...
+      FASTA counts, uniqueness, alphabet, lengths, subset, and reference novelty: PASS
+      Max top-to-reference similarity: 0.8000 (<= 0.80)
+      Max internal Top-100 similarity: 0.7778 (<= 0.80)
+[4/4] Computing cryptographic checksums...
+      library.fasta SHA-256: 65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba
+      top.fasta     SHA-256: 7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480
+
+✓ SUCCESS: Generation completed. All challenge invariants verified 100%!
+[1] Cloning https://github.com/RishyanthReddy/amp-challenge → /tmp/amp-closure-20260928/official-clone
+[2] Installing dependencies
+[3] Generating library
+Running: uv run --no-sync generate
+[4] Verifying full library
+[5] Verifying top list
+[6] Checking library overlap with /Users/rishyanthreddy/amp-challenge/data-engineering/data/challenge/antibacterial.fasta
+[7] Checking top similarity with /Users/rishyanthreddy/amp-challenge/data-engineering/data/challenge/antibacterial.fasta
+[8] Checking reproducibility
+Running: uv run --no-sync generate
+
+All checks passed. Submission is valid!

@@ -1,0 +1,49 @@
+{
+  "role": "07_portfolio_and_submission_artifacts",
+  "run_id": "final_ar_evo_20260928",
+  "method": "scored_AR_evolution_candidates_plus_finetuned_ProGen2_fillers",
+  "library_sha256": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+  "top_sha256": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480",
+  "master_candidate_sha256": "d623356fa8bc410b91204984f5f0b09f256de000449316a6d5beb63958632a19",
+  "role06_manifest_sha256": "0ae94d6f1cd2f9df427a36dd35a91c081f7b07f146d7990f4b0afaea4e1fb4d9",
+  "portfolio_manifest_sha256": "c5a4669c051871ea284993b5d8cc7cb79a9f29e307abc1bb4993b3c59db06df9",
+  "library_assembly_manifest_sha256": "e673ccfef8042fb5581e7ff4b3abe7da1bf44a580e816b383744856664f5e7cc",
+  "library_parquet_sha256": "c88d450e572f099546cdd1f9c863c5cd21f9cc292b50714513c156984f60995e",
+  "top100_parquet_sha256": "684a0d7cf3ac9f69ed62abff9a41eac1902a63c04ee62e73b6c08285519cd38d",
+  "library_records": 50000,
+  "top_records": 100,
+  "top_is_strict_subset": true,
+  "top50_nested_in_top100": true,
+  "top100_domain_distribution": {
+    "autoregressive": 60,
+    "evolution": 40
+  },
+  "max_internal_top100_levenshtein_ratio": 0.7777777777777778,
+  "max_reference_top100_levenshtein_ratio": 0.8,
+  "exact_reference_overlap_count": 0,
+  "all_library_sequences_synthesizable": true,
+  "auxiliary_runs_validated": [
+    {
+      "run_id": "production_20260928_a",
+      "csv_sha256": "aca03588b6d0c4551cbeabb67e09af1b65e82e56ec0610e257cee251426c23b8",
+      "manifest_sha256": "249f0ea0a8876436780b8241b9d2abf7f54af003d361b0ac83bfcb2b04e86c85",
+      "attempts": 51069,
+      "valid_attempts": 51069,
+      "unique_valid_attempts": 47333,
+      "n_perplexity_pass": 51069
+    },
+    {
+      "run_id": "production_20260928_b",
+      "csv_sha256": "0b8cafc261b94cfcbed28a2d2c1ea87735d3c6bebbee1e307df922eccddbe0aa",
+      "manifest_sha256": "fe9b0593c598ddd8d329df6eda0b8e491f5306c71ce6b7299ba8945620f721e0",
+      "attempts": 85000,
+      "valid_attempts": 85000,
+      "unique_valid_attempts": 77679,
+      "n_perplexity_pass": 85000
+    }
+  ],
+  "top_headers_clean": true,
+  "library_headers_clean": true,
+  "verifier": "scripts/verify_submission.py",
+  "reference_sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+}

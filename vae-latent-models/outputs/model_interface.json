@@ -1,0 +1,11 @@
+{
+  "latent_dim": 64,
+  "cond_dim": 2,
+  "total_decoder_dim": 66,
+  "max_seq_len": 25,
+  "vocab_size": 21,
+  "classifiers": [
+    "NoConvAMPClassifier",
+    "VeltriAMPClassifier"
+  ]
+}

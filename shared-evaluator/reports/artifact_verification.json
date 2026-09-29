@@ -1,0 +1,55 @@
+{
+  "role": "06_shared_evaluator",
+  "master_rows": 12756,
+  "unique_sequences": 12756,
+  "valid_sequences": 12756,
+  "rankable_sequences": 7655,
+  "novelty_eligible_sequences": 9841,
+  "apex_rows_complete_for_rankable": 7655,
+  "apex_pathogen_count": 11,
+  "exact_reference_matches": 0,
+  "primary_domains": [
+    "autoregressive",
+    "diffusion",
+    "evolution",
+    "vae_latent"
+  ],
+  "input_sha256": {
+    "autoregressive": "65955348cc24ecc040e55bfdceac97de5c6a0db281a8fe2612d933382daa686d",
+    "vae_latent": "887b2d3a90b682853f2313d7db2c806d115f65dec6cc1e97395a515a46e8ce3d",
+    "diffusion": "2efd485c7f626872aef79fd11cd1787a2f279b64e97c1c3c72280da6729accea",
+    "evolution": "4a29e99294df1fabbc044a78e1fe5f3c67c1bdf22b893781540ff6c3c176defa"
+  },
+  "master_sha256": "d623356fa8bc410b91204984f5f0b09f256de000449316a6d5beb63958632a19",
+  "classifier_model_sha256": {
+    "amp_classifier_ensemble": "c93c67ff1d63d5f1eb6386fb2daea6e537708bd60352aea78c933a8f9ce49679",
+    "empirical_hemolysis_ensemble": "8215836de943f63a7f327a368d2f13e5f646d1ecf418b06ec4718b39c63cebf9"
+  },
+  "apex_asset_sha256": {
+    "diffusion-models/apex/APEX_predict.py": "cf306746f27df93410882676790b2e05643943223b3783044febae2b1439d281",
+    "diffusion-models/apex/APEX_models.py": "34d31fe74cb74a2320c7a7299cab4319ab7f9967637b27a506a3a6c600296f48",
+    "diffusion-models/apex/utils.py": "a99a3d94129616cde92c91e2099e395339bac25f62fccdbf8b5d9b560af18432",
+    "diffusion-models/apex/aaindex1.csv": "478510fa4ee5e23c871558789a3f8450c20615b82dc294794a24bfe55e2bfaef",
+    "diffusion-models/apex/APEX_pathogen_models/APEX_2&256&2048&1e-05&0.0&0.1": "fccd356cbb901c08fe7d35663f3902a5d2d01a4c257203af931aabf02bdd7913",
+    "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&1024&1e-06&0.001&2.0": "857e17d7703d771f82fe63dd82f15a86dd60a0b4f705577a56b88485d60a60c6",
+    "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.0&1.0": "9db48419381d7bcdac2ad3154aa6b67327c6da47dce973bb8a0745e5632ff79a",
+    "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.001&0.1": "9362c006ccc0e7ae3fd5210f2cbbe9ed02cec4ff6383f95a119acab9b020aea4",
+    "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.001&2.0": "58b5eeb6c8c8c4b94d1d776c92f5c653177cfcf3b77ec41cf409839304c8cc80",
+    "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&2048&1e-05&0.001&0.1": "6d3f2bd66c6b3f138e98fb13d1a3010ee94714b9ebf9673475192b365d388858",
+    "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&2048&1e-06&0.001&0.1": "69f101c4e3a1309166493f96221a8c44e37c87bd7a988240b32e26819162c954",
+    "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&512&1e-06&0.0&2.0": "d56b8153a4618620f3b3f91aeb204d6ba8ac38af2ab2f3dff77a28863bc49059"
+  },
+  "evaluator_code_sha256": {
+    "shared-evaluator/src/evaluator/validator.py": "1bce62d2320db8cd05b683ed4b6f8cb174116128a934f5da781d5d0547645be3",
+    "shared-evaluator/src/evaluator/biophysical.py": "098eec5b18be6d2a525b41fb0605ac424e1a4ee3f2d0ba6fab5298cd4ab92398",
+    "shared-evaluator/src/evaluator/activity_safety_models.py": "eea7dcdbaac82adff26385da7dc408d569896c9849f54ebd4e81a4aa26543231",
+    "shared-evaluator/src/evaluator/apex_scorer.py": "07d6fb5f3a64ebbcb252046df2a28de2f875b8bd0648073bd871502450526e58",
+    "shared-evaluator/scripts/run_master_evaluation.py": "78c16ccf510016722a584828a00956c002d6b45cedcf0304b89f28c937a48d64"
+  },
+  "runtime": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

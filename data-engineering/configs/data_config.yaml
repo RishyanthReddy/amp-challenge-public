@@ -1,0 +1,11 @@
+# All paths are repository-relative. Raw inputs are read-only by policy.
+raw_root: data/raw
+challenge_reference: data/challenge/antibacterial.fasta
+output_root: data
+valid_alphabet: ACDEFGHIKLMNPQRSTVWY
+min_length: 8
+max_length: 50
+split_seed: 42
+split_proportions: {train: 0.8, validation: 0.1, test: 0.1}
+similarity_thresholds: [1.0, 0.8, 0.7, 0.6]
+similarity_kmer: 3

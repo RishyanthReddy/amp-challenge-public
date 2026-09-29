@@ -1,0 +1,45 @@
+[project]
+name = "ampdiffusion-starter-kit"
+version = "0.1.0"
+description = "AMP Challenge 2027 baseline starter kit: AMP-Diffusion default-settings library generator"
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+license = { file = "LICENSE" }
+authors = [
+    { name = "AMP Challenge organizers" },
+]
+dependencies = [
+    # AMP-Diffusion inference stack (ESM2 embeddings + latent diffusion + EMA weights).
+    "fair-esm>=2.0.0",
+    # CUDA 12.1 build: newer torch wheels target CUDA 12.8 and fail on GPUs with older drivers
+    # (e.g. driver 565 / CUDA 12.7), silently falling back to CPU. cu121 runs on such drivers.
+    "torch==2.5.1",
+    "einops>=0.7",
+    "ema-pytorch>=0.4",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "tqdm>=4.60",
+    # Levenshtein ratio for the top-100 novelty check (mirrors the challenge validator).
+    "levenshtein>=0.25",
+    "biopython>=1.83",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu121" }
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[project.scripts]
+# AMP-Diffusion is strain-agnostic, so the baseline exposes the broad-spectrum entry point only.
+generate_broad_spectrum = "ampdiffusion_starter_kit.generate:main"
+
+# The APEX scorer under apex/ (APEX-pathogen) is a SEPARATE uv project, invoked as an isolated
+# subprocess from scoring.py — deliberately NOT a workspace member, so its pinned deps never
+# have to co-resolve with this project's stack.
+
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"

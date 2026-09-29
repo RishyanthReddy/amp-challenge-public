@@ -1,0 +1,12 @@
+{
+  "record": "https://zenodo.org/records/7320306",
+  "license": "cc-by-4.0",
+  "filename": "AMPlify_AMP_train_common.fa",
+  "record_md5": "md5:67470a4ac0e0356c2f756ce2831a536d",
+  "download_md5": "md5:67470a4ac0e0356c2f756ce2831a536d",
+  "local_md5": "md5:67470a4ac0e0356c2f756ce2831a536d",
+  "local_sha256": "a04e28f8d29d1bb4f445a6162e210e0999289c31bf93f2f13c8d2268c8dd9cdc",
+  "remote_sha256": "a04e28f8d29d1bb4f445a6162e210e0999289c31bf93f2f13c8d2268c8dd9cdc",
+  "byte_identical": true,
+  "checked_utc": "2026-09-29T05:46:28.106908+00:00"
+}

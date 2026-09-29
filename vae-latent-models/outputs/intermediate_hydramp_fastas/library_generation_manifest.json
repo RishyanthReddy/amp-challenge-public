@@ -1,0 +1,37 @@
+{
+  "status": "success",
+  "requested_count": 50000,
+  "actual_count": 50000,
+  "unique_count": 50000,
+  "exact_reference_overlap_count": 0,
+  "reference_count": 39448,
+  "base_seed": 42,
+  "generation_rounds": [
+    {
+      "seed": 42,
+      "requested": 50000,
+      "returned": 50000
+    },
+    {
+      "seed": 43,
+      "requested": 54,
+      "returned": 54
+    }
+  ],
+  "checkpoint_tree_sha256": "02ab8015a717bde799d66cce4043d93e3149a291b8df70c577df4521c76f41d6",
+  "pca_decomposer_sha256": "a3a5dcea04e91421be363c047249b93fa46e99e128aec929e1f6b0f0e488a26d",
+  "upstream_revision": "6590d2f4c2963f25d30669052a4c4a857e0e7279",
+  "tensorflow_version": "2.2.1",
+  "keras_version": "2.3.1",
+  "numpy_version": "1.18.5",
+  "device": "CPU",
+  "elapsed_seconds": 42.18,
+  "role": "03_hydramp_auxiliary_library_generation",
+  "generation_mode": "unconstrained_default_hydramp_amp",
+  "filter_out": true,
+  "softmax": true,
+  "generator_source_sha256": "c44a77ef3230a94ce392e4fb9d4d59ce6cae4073f087b33676266bf97a9e346c",
+  "runner_source_sha256": "090b2b379f742b8f2902f62ff432103446fc8134ca8e62db8f23806dc6995b3e",
+  "reference_fasta_sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9",
+  "library_fasta_sha256": "ae9a16a5ced219617a5b52b5ef6d922c86bcb48c7952cd728e6446c94228adcf"
+}

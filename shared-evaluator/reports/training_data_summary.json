@@ -1,0 +1,60 @@
+{
+  "training_script": "shared-evaluator/scripts/train_evaluator_models.py",
+  "seed": 42,
+  "feature_count": 27,
+  "amp": {
+    "train_n": 53398,
+    "val_n": 810,
+    "test_n": 810,
+    "val": {
+      "roc_auc": 0.9733150434385003,
+      "average_precision": 0.9786948038702439,
+      "brier_score": 0.06214453695582907
+    },
+    "test": {
+      "roc_auc": 0.9761865569272977,
+      "average_precision": 0.9811494204663118,
+      "brier_score": 0.058013127574766725
+    },
+    "negative_definition": "UniProt 25%-identity split; unlabeled proteins treated as negatives"
+  },
+  "hemolysis_input": {
+    "eligible_assay_rows": 285,
+    "labeled_assay_rows": 239,
+    "unambiguous_sequences": 183,
+    "conflicting_sequences_excluded": 8
+  },
+  "hemolysis": {
+    "metrics": {
+      "roc_auc": 0.7279609279609279,
+      "average_precision": 0.757557034989794,
+      "brier_score": 0.21127836795385158
+    },
+    "n_sequences": 183,
+    "positive_n": 105,
+    "negative_n": 78,
+    "similarity_group_n": 94,
+    "fold_sizes": [
+      35,
+      35,
+      40,
+      33,
+      40
+    ],
+    "evaluation": "5-fold out-of-fold predictions; no >=80% Levenshtein component spans folds"
+  },
+  "input_sha256": {
+    "data-engineering/data/processed/views/evaluator_view.parquet": "869bca0b1ae6df333eb17dd64c770e452200edde07ae62555a7f52c6071e45c7",
+    "data-engineering/data/processed/toxicity.parquet": "2d3c307bffcb4bb5276872115d5936cd9cb716bae91eacb9ff1102bd5108f141",
+    "data-engineering/data/processed/sequences.parquet": "24a863ed7c55331b1a9972f1ccf4df030d82af0453388cb67f2ee59cbb9d8098",
+    "vae-latent-models/data/training/Uniprot_0_25_train.csv": "1af551c81bb7252a88abf489083a226aba1d02b6049436171dffee672bd11c32",
+    "vae-latent-models/data/training/Uniprot_0_25_val.csv": "4c854b98795a19cc154b72b36d2ead8ab6c5c427a4e7050bae5065dacd550565",
+    "vae-latent-models/data/training/Uniprot_0_25_test.csv": "903ca81d66b50f5af1860f6f69d7f6b8aa883cf92a4230d6fea9c5ead152efe8"
+  },
+  "limitations": [
+    "UniProt sequences are unlabeled proteins used as negatives, not experimentally confirmed non-AMPs.",
+    "The binary HC50 < 100 uM target is based only on explicit human erythrocyte 50% hemolysis records.",
+    "Tree-to-tree spread is not a calibrated confidence interval.",
+    "Metrics are retrospective and do not establish prospective performance."
+  ]
+}

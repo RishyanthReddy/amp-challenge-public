@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: amp-challenge-2027-data
+Version: 0.1.0
+Summary: Auditable, leakage-controlled AMP data engineering pipeline
+Requires-Python: >=3.11
+Requires-Dist: pandas>=3.0.5
+Requires-Dist: pyarrow>=25.0.1
+Requires-Dist: rapidfuzz>=3.14.5

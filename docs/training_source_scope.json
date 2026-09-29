@@ -1,0 +1,34 @@
+{
+  "scope": "Current training view source overlap; not proof of historical training bytes or legal clearance",
+  "training_rows": 26699,
+  "training_unique_sequences": 26699,
+  "missing_provenance_rows": 0,
+  "source_overlap_counts_nonexclusive": {
+    "AMPlify": 2902,
+    "DBAASP_activity": 1509,
+    "DBAASP_fasta": 1524,
+    "DBAASP_peptides": 1524,
+    "DBAASP_toxicity": 630,
+    "DRAMP_Antibacterial_amps": 19713,
+    "DRAMP_antibacterial_fasta": 19713,
+    "DRAMP_general_amps": 8116,
+    "DRAMP_general_fasta": 8116,
+    "dbAMP": 6581
+  },
+  "dramp_antibacterial_categories": {
+    "Candidate": 5909,
+    "Clincial": 6,
+    "Clinical": 49,
+    "General": 6164,
+    "Patent": 16357,
+    "Specific": 217
+  },
+  "training_sequences_matching_dramp_patent_records": 10318,
+  "inputs": {
+    "data-engineering/data/processed/views/autoregressive_view.csv": "cb3c9b4e47c2ada6c4e6eb3b4f0843c4790a8a44c67d919fde422b815d80c369",
+    "data-engineering/data/processed/provenance.csv": "6800dee3dd757e9d68e24ed170bbe1128b26fa7b8a85aaafe59a70858688b768",
+    "data-engineering/data/raw/DRAMP/Antibacterial_amps.xlsx": "2b6c79485618439877e06bcaedc79fe4c647fd3be36129cc1cef91a70d0421f5"
+  },
+  "rights_status": "UNRESOLVED",
+  "remediation": "Obtain applicable permissions, or retrain generators and evaluators from a documented permitted corpus and regenerate/reselect artifacts. Removing raw files alone does not remove model training influence."
+}

@@ -1,0 +1,26 @@
+[project]
+name = "amp-challenge-2027"
+version = "0.1.0"
+description = "Multi-Model Generative AI & Determinantal Point Process Ensemble for AMP Design"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "AMP Challenge Team" }
+]
+
+dependencies = [
+    "levenshtein>=0.25.0",
+    "numpy>=1.26.0",
+    "pandas>=2.0.0",
+    "pyarrow>=14.0.0",
+    "scipy>=1.11.0",
+]
+
+[project.scripts]
+generate_broad_spectrum = "amp_challenge_2027.generate:cli"
+generate = "amp_challenge_2027.generate:cli"
+
+[build-system]
+requires = ["uv-build>=0.9.18,<0.14.0"]
+build-backend = "uv_build"

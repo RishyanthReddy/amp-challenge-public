@@ -1,0 +1,261 @@
+{
+  "checkpoint_files": {
+    "checkpoint/model/layers/AMPExpandedDecoder_dense/0_weight.npy": {
+      "sha256": "beb700cdb9717ea4deac37c4b4f0f8708a3f41adbe3b1a428313461be823815d",
+      "size_bytes": 8696
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_dense/1_weight.npy": {
+      "sha256": "39b247bc564fb521bee16eaf9b6e687e7d0d2369378001415c58adeb5e8b3c40",
+      "size_bytes": 212
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_dense/layer.json": {
+      "sha256": "fd54ef80919e48ac652b3a41442ff60577d45886a0999e1b190b190ce3b222b5",
+      "size_bytes": 493
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_latent_to_hidden/0_weight.npy": {
+      "sha256": "d91a969a09f675ba2c286aaba838c6073daa29c48c653af85499005a2d79fa16",
+      "size_bytes": 52400
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_latent_to_hidden/1_weight.npy": {
+      "sha256": "ce34d08dce59d89908dfe2d8d2cad7941e4e9557177f83383237712b02fd76a4",
+      "size_bytes": 52400
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_latent_to_hidden/2_weight.npy": {
+      "sha256": "0c62b4fc4574b88c5375be6c1c1d952d0d5b4bd5853760e1be76c1e190e3c90b",
+      "size_bytes": 920
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_latent_to_hidden/layer.json": {
+      "sha256": "f58fc896d14f9ff89c86380f761eb2a46235425d76c2c884db5f6e9b7f503d92",
+      "size_bytes": 862
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_lstm/0_weight.npy": {
+      "sha256": "c64e56ae2f750363ccadc74765abb594c122e902ce92bd4a6f91b87424ac7105",
+      "size_bytes": 108928
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_lstm/1_weight.npy": {
+      "sha256": "e37cbf132a872aa1896c121b2760a9493e30a986e7a63fc1034e6316e9080fa0",
+      "size_bytes": 160128
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_lstm/2_weight.npy": {
+      "sha256": "5875ac6124b597422316263b12b604df503ca9a92bfb7da07b7edb8b40e8e6e3",
+      "size_bytes": 1728
+    },
+    "checkpoint/model/layers/AMPExpandedDecoder_lstm/layer.json": {
+      "sha256": "e06daf2ee068163c4aba2473f4c8009d9613395e954ef3ff2404f6548b381be5",
+      "size_bytes": 875
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_dense_z_mean/0_weight.npy": {
+      "sha256": "5a9c51cd1c3284a55d815e76ad49a3a57423631c3b9cf641a1c8f9a07362c2bd",
+      "size_bytes": 65664
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_dense_z_mean/1_weight.npy": {
+      "sha256": "be15aba89ad2ee06e2e26eb98ea44d88ce5c27b1a486ecbbbc4a0f9ef4694573",
+      "size_bytes": 384
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_dense_z_mean/layer.json": {
+      "sha256": "2ce593bc8bf37e70dfb2d847885e25cbdafdb69b5f83a6a6a5138003c249f51a",
+      "size_bytes": 499
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_dense_z_sigma/0_weight.npy": {
+      "sha256": "ab2e4214cb9b69c43ed76fbf115c4eb65f6cd5bed20898ef9e61f845487a4336",
+      "size_bytes": 65664
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_dense_z_sigma/1_weight.npy": {
+      "sha256": "dac699b58854d58ef621991ccec52445a9c41ea545b46e354e9ff6dfbd459f1d",
+      "size_bytes": 384
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_dense_z_sigma/layer.json": {
+      "sha256": "3b7680483a9c6a0ccb13924d415916ea15cac319ab57f554c59fd6ae706b30e9",
+      "size_bytes": 500
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_embedding/0_weight.npy": {
+      "sha256": "524969a5b5318125c974350778c28cf3924fabe4d29d81adfec463c5c5995c95",
+      "size_bytes": 8528
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_embedding/layer.json": {
+      "sha256": "b4855dbc0ad751b53dcfe93c6273cddb63fa54705c84344624ab5694dcb48698",
+      "size_bytes": 427
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden/0_weight.npy": {
+      "sha256": "50e6036db0935b13c71daba7851f7c70c3564633fd8488e77309e38a01fdd930",
+      "size_bytes": 153728
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden/1_weight.npy": {
+      "sha256": "fef756aca8d375ee82a0fb532d7136d6f094f7d31c03daac8c10e3b36934d9d5",
+      "size_bytes": 196736
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden/2_weight.npy": {
+      "sha256": "c1f894d6be00f11402da3e76d5094c4db78fa28ab904d6e9d0183fc694da7712",
+      "size_bytes": 1664
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden/3_weight.npy": {
+      "sha256": "8e220db29cdbe32bc01080e06b842ac8ed5e31c08c5c2e3318d0769769af3903",
+      "size_bytes": 153728
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden/4_weight.npy": {
+      "sha256": "069ed9197aeaf14145a55f77dc89073c5fa0a33cc53159c6c44653b97f004574",
+      "size_bytes": 196736
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden/5_weight.npy": {
+      "sha256": "c86de3ad003ea809a5758f6a70115586b1f41f5d80c2e9d71d033def4a3e67db",
+      "size_bytes": 1664
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden/layer.json": {
+      "sha256": "9f72fec16911c82b92a309742813002d6393ee2ff52a2db88b6a986a86b3a361",
+      "size_bytes": 1023
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden2/0_weight.npy": {
+      "sha256": "e566876d42d98cdb6de508722b772ce96e79d6efa86660fc941d4545b92167df",
+      "size_bytes": 393344
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden2/1_weight.npy": {
+      "sha256": "24de7245d8e0a6f283bc00a3e5e19985ed7175de99f12d88e441d55206c394d1",
+      "size_bytes": 196736
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden2/2_weight.npy": {
+      "sha256": "49cd2709cc0deea7e79f804aad08cd93d9c48ab8d3978707a4df057c14dfb64b",
+      "size_bytes": 1664
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden2/3_weight.npy": {
+      "sha256": "01662165f6f978b7a4d620cba2c9326d5eb577c75f695f604bc5c4775528d692",
+      "size_bytes": 393344
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden2/4_weight.npy": {
+      "sha256": "c424f2cbf782155ff5a4a0e8ab523654f1e073b566a58c325f5f6d78c3344cba",
+      "size_bytes": 196736
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden2/5_weight.npy": {
+      "sha256": "12652cd5f76af8b246c74508af950e753161fa4d672f5cef527af48ea3f01cc1",
+      "size_bytes": 1664
+    },
+    "checkpoint/model/layers/AMPExpandedEncoder_hidden2/layer.json": {
+      "sha256": "38c3f4ef6c45f070b05d5e0a284f6c3198129104146afffa6fedeb48e0b1e4cb",
+      "size_bytes": 1024
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_dense_output/0_weight.npy": {
+      "sha256": "5a836e7379d8bb9199dc324d38dc8f94116342cefefe93f7d6d2c7b296b981d3",
+      "size_bytes": 528
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_dense_output/1_weight.npy": {
+      "sha256": "e314380e95c21544d28f5ee11ecd3a3e18579ecc230403e74935b2a61fa0e0a3",
+      "size_bytes": 132
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_dense_output/layer.json": {
+      "sha256": "c871519c9b12666e4890e8242e81266dd0f9f9e051b980339a0da95c117cf3ed",
+      "size_bytes": 496
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_embedding/0_weight.npy": {
+      "sha256": "4cff669e6846b847248ae1be599ce39a73cb4c08b8a8b48e2d9d6fa08e71bc9b",
+      "size_bytes": 10880
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_embedding/layer.json": {
+      "sha256": "a27f20c6683d19dc9a6b7048acc61b90c1c764e78ee49f7bd803693006744c86",
+      "size_bytes": 423
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_lstm1/0_weight.npy": {
+      "sha256": "f6168ac421864e64a8eb6aa6cdf64da492f77cd5be6543517662b05931abde06",
+      "size_bytes": 131200
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_lstm1/1_weight.npy": {
+      "sha256": "384a4b3aa4685a7a80c43fdd390efe404e6a637b4903c85ebf0c7a3fc40dcdbc",
+      "size_bytes": 65664
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_lstm1/2_weight.npy": {
+      "sha256": "03a4a8026821cd0854ba87a4d1a0b39125335a198d14fa5844fd8d1eb5027149",
+      "size_bytes": 1152
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_lstm1/layer.json": {
+      "sha256": "8b4fec41b7ce7d412f6474287062274f7e2a04705bb7bb5ab30f2252d375fa6a",
+      "size_bytes": 870
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_lstm2/0_weight.npy": {
+      "sha256": "b9b56ced73141fc03097b6d21afbbc6f3d44cb7fdf32312f150ee56ba7bbe13a",
+      "size_bytes": 102528
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_lstm2/1_weight.npy": {
+      "sha256": "709466679c04284d9c51479106eb15d346f7ffee2566943c9bcfa5a0f250e792",
+      "size_bytes": 160128
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_lstm2/2_weight.npy": {
+      "sha256": "a155972fae499854fd3d842491321e2f90ecc4a448a92874f45d1caa1c237ece",
+      "size_bytes": 1728
+    },
+    "checkpoint/model/layers/NoConvAMPClassifier_lstm2/layer.json": {
+      "sha256": "0290137b5c1ac975fabda901e970ead6e3529e64e3706e08bbaae2c63ea21e90",
+      "size_bytes": 872
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_convolution/0_weight.npy": {
+      "sha256": "bd87e57884d4c92175cc3701834429c57286195aa17522cd464e6482e322949c",
+      "size_bytes": 524416
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_convolution/1_weight.npy": {
+      "sha256": "98a35817a827d05725a153f2f04da9ae1daae13255af241e6b1c03aac93a0fff",
+      "size_bytes": 384
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_convolution/layer.json": {
+      "sha256": "768a96102464a545ca4e304a9dade57e133a8e1c41b0f6a43e8d2ac897f37b66",
+      "size_bytes": 600
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_dense_output/0_weight.npy": {
+      "sha256": "e04d65bfc611113faa039ba34a17634a6e16cb610a518e357931aff3b34891c3",
+      "size_bytes": 528
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_dense_output/1_weight.npy": {
+      "sha256": "742d9702acd657a1f913780dbc18beb3926ce2de4ffddd3b419b462b2a33cfd9",
+      "size_bytes": 132
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_dense_output/layer.json": {
+      "sha256": "d0aa718372f67b401b8c4010aab55ea7af59ee64b6226310d92919769791efc4",
+      "size_bytes": 488
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_embedding/0_weight.npy": {
+      "sha256": "4b26866e59133ab9656ae21d18de44282a8cff1e8c325ee4d9f5281ba62042c9",
+      "size_bytes": 10880
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_embedding/layer.json": {
+      "sha256": "33de0c36207f92d7cb5046a24ea9ed604202f076dcd91e2d55c59fda630ee2da",
+      "size_bytes": 423
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_lstm/0_weight.npy": {
+      "sha256": "c828949a6503f39c8a68d24198922df4f3f84c50423279bff56b067af7d8b61c",
+      "size_bytes": 102528
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_lstm/1_weight.npy": {
+      "sha256": "912593aa202a0a9f3e02b1bb88629d65b1025aa3d99b1513991c02e6d1ed5d83",
+      "size_bytes": 160128
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_lstm/2_weight.npy": {
+      "sha256": "2d0bf145cece68be624842ec2370d2831dbf5dadaa419fdac6e25abbee7a6ab6",
+      "size_bytes": 1728
+    },
+    "checkpoint/model/layers/VeltriAMPClassifier_lstm/layer.json": {
+      "sha256": "ad0a8aaea7c34b24bb1e06996cadddc9b30f059fc4833f61993128fff110996c",
+      "size_bytes": 872
+    },
+    "checkpoint/model/model_config.json": {
+      "sha256": "50b89706c0c8fdc92b69c2e846719df7e57101986c7014ca330ba7d4a8f86d44",
+      "size_bytes": 543
+    },
+    "checkpoint/pca_decomposer.joblib": {
+      "sha256": "a3a5dcea04e91421be363c047249b93fa46e99e128aec929e1f6b0f0e488a26d",
+      "size_bytes": 18711
+    }
+  },
+  "data_files": {
+    "antibacterial.fasta": {
+      "path": "vae-latent-models/data/antibacterial.fasta",
+      "sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9",
+      "size_bytes": 4318298
+    },
+    "curated_seed_panel.csv": {
+      "path": "data-engineering/data/processed/curated_seed_panel.csv",
+      "sha256": "0f9acf8fba00189ea99f951e67f21cce50c13aeec8b338373eb61addc0036077",
+      "size_bytes": 46942
+    },
+    "vae_latent_view.parquet": {
+      "path": "data-engineering/data/processed/views/vae_latent_view.parquet",
+      "sha256": "6f336ac65266ababb4abb308bdf639efa8ccbbc469620367578848da68290e7b",
+      "size_bytes": 942820
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "scope": "Reconstructed membership from current training script and archived local inputs; no model training or metric recomputation performed.",
+  "runtime_versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "Levenshtein": "0.27.5"
+  },
+  "amp_partition_counts": {
+    "train": 53398,
+    "validation": 810,
+    "test": 810
+  },
+  "amp_partitions_disjoint": true,
+  "hemolysis_input": {
+    "eligible_assay_rows": 285,
+    "labeled_assay_rows": 239,
+    "unambiguous_sequences": 183,
+    "conflicting_sequences_excluded": 8
+  },
+  "rbc_fold_sizes": [
+    35,
+    35,
+    40,
+    33,
+    40
+  ],
+  "rbc_source_assay_rows": 209,
+  "all_members_have_source_links": true,
+  "input_sha256": {
+    "shared-evaluator/scripts/train_evaluator_models.py": "0515f31b5f263ea5ca2e8b295af3aecf6d553444f1ed6aa6d44f35c101f4b274",
+    "data-engineering/data/processed/views/evaluator_view.parquet": "869bca0b1ae6df333eb17dd64c770e452200edde07ae62555a7f52c6071e45c7",
+    "vae-latent-models/data/training/Uniprot_0_25_train.csv": "1af551c81bb7252a88abf489083a226aba1d02b6049436171dffee672bd11c32",
+    "vae-latent-models/data/training/Uniprot_0_25_val.csv": "4c854b98795a19cc154b72b36d2ead8ab6c5c427a4e7050bae5065dacd550565",
+    "vae-latent-models/data/training/Uniprot_0_25_test.csv": "903ca81d66b50f5af1860f6f69d7f6b8aa883cf92a4230d6fea9c5ead152efe8",
+    "data-engineering/data/processed/toxicity.parquet": "2d3c307bffcb4bb5276872115d5936cd9cb716bae91eacb9ff1102bd5108f141",
+    "data-engineering/data/processed/sequences.parquet": "24a863ed7c55331b1a9972f1ccf4df030d82af0453388cb67f2ee59cbb9d8098",
+    "data-engineering/data/processed/provenance.csv": "6800dee3dd757e9d68e24ed170bbe1128b26fa7b8a85aaafe59a70858688b768"
+  },
+  "recorded_input_hashes_and_fold_sizes_match": true
+}

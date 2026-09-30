@@ -1,6 +1,6 @@
 """
-Official Generator Entry Point for AMP Challenge 2027
-Entry point command: uv run generate_broad_spectrum
+Validated artifact exporter for AMP Challenge 2027
+Entry point command: uv run export_submission
 Generates:
 - generate_broad_spectrum/library.fasta (50,000 sequences)
 - generate_broad_spectrum/top.fasta (100 candidate sequences)
@@ -85,7 +85,7 @@ def main(
     ref_path: Path | None = None,
 ):
     print("=================================================================")
-    print(" AMP Challenge 2027: Deterministic Broad-Spectrum AMP Generation")
+    print(" AMP Challenge 2027: Validated Submission Export")
     print("=================================================================\n")
 
     default_output = out_dir is None

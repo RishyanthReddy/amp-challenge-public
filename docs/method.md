@@ -51,8 +51,11 @@ evolutionary candidates.
 
 ## Reproducibility and interpretation
 
-The root entry point exports frozen selected tables deterministically. Separate model
-inference and training code is provided. Full replay reproduced the checkpoint, evaluator
+The root `uv run generate` runs inference, mutation search, scoring, selection and assembly
+from released weights with fixed schedules. It requires the declared RTX 4090/runtime and
+checks the submitted FASTA hashes before replacing outputs. `uv run export_submission` is
+the separate CPU export of saved tables. Training code is also provided. See
+[model generation](../generation/README.md). Full replay reproduced the checkpoint, evaluator
 models, evolutionary outputs and the original ranked lists; an additional fresh 50,000
 library build passed all sequence checks. See [verification](FULL_REPLAY_VERIFICATION.md).
 

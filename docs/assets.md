@@ -7,12 +7,12 @@ The fine-tuned checkpoint is distributed through the
 Download and verify it with:
 
 ```bash
-uv run python cloud/fetch_progen_checkpoint.py
+uv run python cloud/fetch_progen_checkpoint.py --source public
 ```
 
 The fetcher checks configuration, generation configuration, tokenizer and weights against
 recorded sizes and SHA-256 hashes. All four release assets have also been downloaded
-anonymously and checked. GitHub CLI may request login; browser downloads are public.
+anonymously and checked. The `public` download mode does not require GitHub CLI or login. Browser downloads are also public.
 Place manually downloaded files in
 `autoregressive-models/checkpoints/progen2_small_amp_best_val/` and run the fetcher to
 verify the cache.

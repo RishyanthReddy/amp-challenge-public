@@ -15,3 +15,12 @@ The submitted library and ranked candidates stay unchanged. Changes are prepared
 Source-use questions for DRAMP patent records and dbAMP remain explicitly disclosed. A matching public download does not resolve them. Co-authorship is determined by the organizers.
 
 Raw curation and both evaluator refits were additionally verified from the restored source inputs. The original library, Top 100, Top 50 and FASTAs reproduce byte-for-byte. See [the report](ORIGINAL_LIBRARY_REPLAY.md).
+
+## Model generation entry point (2026-09-30)
+
+- [x] Replace the default frozen-table export with local model generation and fresh scoring.
+- [x] Preserve a separately named CPU exporter.
+- [x] Add anonymous pinned checkpoint downloads and runtime checks.
+- [x] Confirm all 50 disclosed evolutionary seeds occur in the bundled DBAASP FASTA.
+- [x] Complete two full GPU runs from a public clone with saved outputs removed.
+- [x] Review the new diff and obtain approval to publish the entry-point change (approved 2026-09-30).

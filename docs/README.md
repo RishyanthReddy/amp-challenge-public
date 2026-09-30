@@ -2,7 +2,8 @@
 
 ## Use the project
 
-- [Execution guide](running.md): export the submission, sample candidates, and run individual pipeline stages.
+- [Model generation](../generation/README.md): hardware, fixed schedules and fresh scoring.
+- [Execution guide](running.md): regenerate the submission, inspect its saved artifacts, and run individual pipeline stages.
 - [Method](method.md): generation, filtering, evaluation and portfolio selection.
 - [Model assets and attribution](assets.md): checkpoint access and third-party components.
 - [Submission abstract](FINAL_METHOD_ABSTRACT.md).
@@ -20,6 +21,7 @@
 - [Original-library replay and raw-data rebuild](ORIGINAL_LIBRARY_REPLAY.md).
 - [Historical training-to-selection replay](FULL_REPLAY_VERIFICATION.md).
 - [Checkpoint inference check](INFERENCE_REPLAY.md).
+- [Model generation verification](MODEL_GENERATION_VERIFICATION.md): two fresh RTX 4090 runs and exact submitted FASTA hashes.
 - [Submitted artifact manifest](FINAL_HANDOFF_MANIFEST.json).
 - [Official validator result](official_validator_result.json).
 - [Research records](research_records.md): how to interpret older component reports.

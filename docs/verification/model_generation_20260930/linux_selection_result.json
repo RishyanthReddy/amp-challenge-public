@@ -1,0 +1,52 @@
+{
+  "scope": "Linux CPU-stage diagnosis, previously regenerated initial samples; not a full fresh GPU run",
+  "top100_ordered_sequences_equal": true,
+  "top100_domains_equal": true,
+  "eligible_count": 3964,
+  "missing_expected": [],
+  "extra_eligible": [],
+  "value_differences": {
+    "pred_amp_probability": {
+      "count": 0,
+      "max": 0.0,
+      "examples": []
+    },
+    "pred_toxicity_risk": {
+      "count": 0,
+      "max": 0.0,
+      "examples": []
+    },
+    "apex_mean_mic": {
+      "count": 244,
+      "max": 0.0010000000000331966,
+      "examples": [
+        {
+          "sequence": "NLCERASKTWTGNCGNTKHCDNQCKSWEGAAHGACHVRNGKWKCFCYFNC",
+          "expected": 461.546,
+          "actual": 461.545
+        },
+        {
+          "sequence": "NLCEKASKTWTGNCGNTKHCDNQCKSWEGAKHGACHKRNGKWKCFCYFNC",
+          "expected": 456.104,
+          "actual": 456.103
+        },
+        {
+          "sequence": "WRPVKWIRW",
+          "expected": 294.621,
+          "actual": 294.622
+        },
+        {
+          "sequence": "HITKLFKAGAKFAGKHLLKALFKAGAEHLLCKATQA",
+          "expected": 214.979,
+          "actual": 214.978
+        },
+        {
+          "sequence": "KIWNMLRCSCREKCCISNEKLYWFCPCCYSGKYCCLKPK",
+          "expected": 346.157,
+          "actual": 346.156
+        }
+      ]
+    }
+  },
+  "ancestry_sha256": "c6b6e524882951dbb789ecd3e04e99f7c6ab4855feecc7f0c4db513fab9ed2c3"
+}

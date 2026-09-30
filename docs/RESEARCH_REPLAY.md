@@ -1,6 +1,6 @@
 # Replaying the research method
 
-The root `uv run generate` exports the submitted frozen tables. It is a repeatable artifact exporter, not a fresh training or sampling run. The model pipeline below is separate. Keep that distinction when describing reproducibility to the organizers.
+The root `uv run generate` now runs the released model and the selection pipeline on the declared RTX 4090/runtime. See [the generation guide](../generation/README.md). `uv run export_submission` is the separate CPU exporter. The training replay and historical evidence below remain useful for examining how the released checkpoint and original datasets were produced.
 
 ## 1. Work in an isolated checkout
 

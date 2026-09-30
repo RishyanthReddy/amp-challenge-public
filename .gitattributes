@@ -1,3 +1,7 @@
 
 # Retained snapshots must keep their original bytes across platforms.
 data-engineering/data/raw/** -text
+
+# Generation context and seed hashes refer to their exact retained bytes.
+generation/*_exclusions.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evolutionary-search/data/evolution_seeds.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,15 @@
+{
+  "purpose": "Archived comparison pools used only for baseline ancestry exclusions and historical tie ordering. These rows are never admitted to the submission. No saved model scores or ranked submission tables are read.",
+  "files": {
+    "vae_exclusions.csv": {
+      "sha256": "1ebb949390935dfb8df21df118c13c608642436f704df6ac5c24f1616e60fd8c",
+      "rows": 2777,
+      "original_source_sha256": "887b2d3a90b682853f2313d7db2c806d115f65dec6cc1e97395a515a46e8ce3d"
+    },
+    "diffusion_exclusions.csv": {
+      "sha256": "fcd7f2e29d1f54ec4b82c505e965656dfbd9edb56c66a5d37e78c358c3f17e1e",
+      "rows": 3495,
+      "original_source_sha256": "2efd485c7f626872aef79fd11cd1787a2f279b64e97c1c3c72280da6729accea"
+    }
+  }
+}

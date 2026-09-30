@@ -1,7 +1,7 @@
 # What this release contains
 
 This is the public repository for the ProGen2 and evolutionary-search entry. It provides
-the selected sequences, deterministic export, ProGen2 inference, source code and data
+the selected sequences, model generation, a separate CPU export, source code and data
 provenance. The private repository preserves the wider research archive.
 
 ## Available here
@@ -29,8 +29,7 @@ records expected files and hashes. All 11 original raw files are retained in the
 pinned where verified; the two retained DRAMP General files are included with attribution. Original queries,
 acquisition dates and some release versions remain unknown.
 
-The root `uv run generate` exports the frozen selected tables; it does not launch training
-or sample a new library. A historical training-to-selection replay reproduced the checkpoint
+The root `uv run generate` runs local model sampling and selection using the released weights and declared RTX 4090/runtime. `uv run export_submission` is the separate frozen-table export. The generator loads released weights rather than retraining them. A historical training-to-selection replay reproduced the checkpoint
 and ranked lists from archived inputs. A separate fresh full-size library also passed the
 sequence checks. The 2026-09-29 follow-up reproduced the original auxiliary pools, library Parquet and both FASTAs exactly. See [the follow-up](docs/ORIGINAL_LIBRARY_REPLAY.md).
 See the [replay report](docs/FULL_REPLAY_VERIFICATION.md).
@@ -45,3 +44,5 @@ newly generated peptides.
 Public code and checkpoint availability do not settle the remaining source-data questions
 or establish co-authorship eligibility. The source disclosure records those limitations;
 the organizers make the eligibility decision.
+
+Two fresh executions of the default model command now reproduce both submitted FASTAs byte-for-byte on the declared RTX 4090/runtime. See [the verification report](docs/MODEL_GENERATION_VERIFICATION.md). The source-use limitations above remain unchanged.

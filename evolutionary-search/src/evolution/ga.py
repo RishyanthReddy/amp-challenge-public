@@ -14,6 +14,7 @@ import pandas as pd
 
 from .mutation import mutate
 from .evaluator_adapter import EvaluatorAdapter
+from amp_data.ordering import sort_descending_portable
 
 
 def validate_ancestry(candidates: List[Dict[str, Any]], edges: List[Dict[str, Any]]) -> None:
@@ -233,7 +234,7 @@ class GeneticAlgorithmSearch:
 
                 for fam_id, group in df_combined.groupby("seed_family"):
                     # Take top pop_size_per_family per family
-                    top_fam = group.sort_values(by="composite_fitness", ascending=False).head(self.pop_size_per_family)
+                    top_fam = sort_descending_portable(group, "composite_fitness").head(self.pop_size_per_family)
                     survivors.extend(top_fam.to_dict(orient="records"))
 
                 current_pop = survivors

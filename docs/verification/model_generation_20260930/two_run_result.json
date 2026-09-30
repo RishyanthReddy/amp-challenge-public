@@ -1,0 +1,565 @@
+{
+  "verified": true,
+  "base_commit": "a0e01a252dba77d89493ee6ba8cc6a2ccb34abe2",
+  "overlay_sha256": "b7707934bc5f4b5846575a622417456e3b151c1e85ee9713522734589791ca07",
+  "removed_saved_outputs": [
+    "generate",
+    "generate_broad_spectrum",
+    "portfolio-selection/outputs",
+    "outputs",
+    "autoregressive-models/outputs",
+    "shared-evaluator/outputs"
+  ],
+  "private_inputs_used": false,
+  "beam_credentials_used_by_generator": false,
+  "runs": [
+    {
+      "run": 1,
+      "elapsed_seconds": 3294.4480239140003,
+      "hashes": {
+        "library.fasta": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+        "top.fasta": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480"
+      },
+      "evidence": {
+        "scope": "Fresh local model sampling, mutation, reference audit, forest/APEX inference, MAP-Elites/DPP and library assembly; no saved ranked/library tables read. Archived baseline comparison inputs are used only to preserve source exclusions.",
+        "seed": 42,
+        "elapsed_seconds": 3178.302617714,
+        "outputs_sha256": {
+          "library.fasta": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+          "top.fasta": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480"
+        },
+        "matches_submitted_artifacts": true,
+        "model_generation": true,
+        "master": {
+          "timestamp_utc": "2026-09-30T08:01:11Z",
+          "input_candidate_rows": 13057,
+          "unique_sequences": 12756,
+          "valid_sequences": 12756,
+          "novelty_eligible_sequences": 9841,
+          "synthesizable_novelty_eligible_sequences": 7655,
+          "rankable_sequences_scored_by_apex": 7655,
+          "apex_rows_returned": 7655,
+          "apex_columns": [
+            "A. baumannii ATCC 19606",
+            "E. coli ATCC 11775",
+            "E. coli AIC221",
+            "E. coli AIC222",
+            "K. pneumoniae ATCC 13883",
+            "P. aeruginosa PA01",
+            "P. aeruginosa PA14",
+            "S. aureus ATCC 12600",
+            "S. aureus (ATCC BAA-1556) - MRSA",
+            "vancomycin-resistant E. faecalis ATCC 700802",
+            "vancomycin-resistant E. faecium ATCC 700221",
+            "apex_mean_mic",
+            "apex_min_mic"
+          ],
+          "input_sha256": {
+            "autoregressive": "13c3e1c62a510a23ce33e2178959d71238ae8977419a54e490495957b460d737",
+            "vae_latent": "d9ac1353b927de184daa1ada81355d100a77035c8a21c2ad9e50211ad9323cb9",
+            "diffusion": "194f8c980c39d5b134f634719404b9d2404bfde30711eac55ce49f0713400220",
+            "evolution": "61db7aa1111ab4fad56ed4f1215213dbb4ef689e4921f9b429856a7b7d8d15d4"
+          },
+          "classifier_model_sha256": {
+            "amp_classifier_ensemble": "c93c67ff1d63d5f1eb6386fb2daea6e537708bd60352aea78c933a8f9ce49679",
+            "empirical_hemolysis_ensemble": "8215836de943f63a7f327a368d2f13e5f646d1ecf418b06ec4718b39c63cebf9"
+          },
+          "apex_asset_sha256": {
+            "diffusion-models/apex/APEX_predict.py": "cf306746f27df93410882676790b2e05643943223b3783044febae2b1439d281",
+            "diffusion-models/apex/APEX_models.py": "34d31fe74cb74a2320c7a7299cab4319ab7f9967637b27a506a3a6c600296f48",
+            "diffusion-models/apex/utils.py": "a99a3d94129616cde92c91e2099e395339bac25f62fccdbf8b5d9b560af18432",
+            "diffusion-models/apex/aaindex1.csv": "478510fa4ee5e23c871558789a3f8450c20615b82dc294794a24bfe55e2bfaef",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_2&256&2048&1e-05&0.0&0.1": "fccd356cbb901c08fe7d35663f3902a5d2d01a4c257203af931aabf02bdd7913",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&1024&1e-06&0.001&2.0": "857e17d7703d771f82fe63dd82f15a86dd60a0b4f705577a56b88485d60a60c6",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.0&1.0": "9db48419381d7bcdac2ad3154aa6b67327c6da47dce973bb8a0745e5632ff79a",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.001&0.1": "9362c006ccc0e7ae3fd5210f2cbbe9ed02cec4ff6383f95a119acab9b020aea4",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.001&2.0": "58b5eeb6c8c8c4b94d1d776c92f5c653177cfcf3b77ec41cf409839304c8cc80",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&2048&1e-05&0.001&0.1": "6d3f2bd66c6b3f138e98fb13d1a3010ee94714b9ebf9673475192b365d388858",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&2048&1e-06&0.001&0.1": "69f101c4e3a1309166493f96221a8c44e37c87bd7a988240b32e26819162c954",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&512&1e-06&0.0&2.0": "d56b8153a4618620f3b3f91aeb204d6ba8ac38af2ab2f3dff77a28863bc49059"
+          },
+          "evaluator_code_sha256": {
+            "data-engineering/src/amp_data/ordering.py": "d3897ceb6ce0999042171c4e8f95a07b7d3776a730a19da215bfce721d5a687a",
+            "shared-evaluator/src/evaluator/validator.py": "1bce62d2320db8cd05b683ed4b6f8cb174116128a934f5da781d5d0547645be3",
+            "shared-evaluator/src/evaluator/biophysical.py": "098eec5b18be6d2a525b41fb0605ac424e1a4ee3f2d0ba6fab5298cd4ab92398",
+            "shared-evaluator/src/evaluator/activity_safety_models.py": "eea7dcdbaac82adff26385da7dc408d569896c9849f54ebd4e81a4aa26543231",
+            "shared-evaluator/src/evaluator/apex_scorer.py": "404be246e5acc435099a8768705934c185cfb49f3ee65492bf9a87bf346ce94e",
+            "shared-evaluator/scripts/run_master_evaluation.py": "7c8a522653b2ceaca1a3f66a9ec175e86dd3c3b8121331a717c33732f0a55798"
+          },
+          "training_data_summary_sha256": "b2c47d49b2f7f1d2ec3256dcfd1ad955ee61a28f78f60a98567fb7daaa816a28",
+          "runtime": {
+            "numpy": "2.5.3",
+            "pandas": "3.0.6",
+            "scikit-learn": "1.9.1",
+            "joblib": "1.6.0"
+          },
+          "output_sha256": "32d9cc2be42039dda2cd1a312d06a6f89735567eaeb9e5d0bb9cf7ec2534b3aa",
+          "elapsed_seconds": 426.06
+        },
+        "selection": {
+          "archive_cells_occupied": 103,
+          "archive_cells_total": 150,
+          "domain_distribution": {
+            "autoregressive": 60,
+            "evolution": 40
+          },
+          "excluded_official_checkpoint_domains": [
+            "diffusion",
+            "vae_latent"
+          ],
+          "max_internal_top100_levenshtein_ratio": 0.7777777777777778,
+          "method": "fine_tuned_progen2_plus_project_evolutionary_search",
+          "outputs_sha256": {
+            "reserves.csv": "e0404ee7c6a88fb9e864b7d3da720aaee1c75aeb43e6bfaf6f75fb517cd0b886",
+            "reserves.parquet": "970ddf19417a0ba043e2ebb25b18eecb210c4af761d239b78b1f77ddacd732cc",
+            "top100.csv": "9a444c5bf8b1fac1e90bda5717d61f202e4819efece2276d4e186004e59f585c",
+            "top100.parquet": "59ff398a0b4dab91b35dda92d2bebef10d6a61cc515f491a607bc368441224a5",
+            "top50.csv": "87ef3ed1430d8f01ba3b404e18b31c497daf1135db738601502f1556b331048a",
+            "top50.parquet": "b22a15741d20356f94cde9e0782907c06f2a9eb53d539554cf6230d652083701"
+          },
+          "provenance": {
+            "eligible_rows": 3964,
+            "evaluation_manifest_sha256": "3bc94aba7344e872189d5b4edf0ec398642dd31c9ead2445268feb09daaceb28",
+            "master_sha256": "32d9cc2be42039dda2cd1a312d06a6f89735567eaeb9e5d0bb9cf7ec2534b3aa",
+            "source_sha256": {
+              "autoregressive": "13c3e1c62a510a23ce33e2178959d71238ae8977419a54e490495957b460d737",
+              "diffusion": "194f8c980c39d5b134f634719404b9d2404bfde30711eac55ce49f0713400220",
+              "evolution": "61db7aa1111ab4fad56ed4f1215213dbb4ef689e4921f9b429856a7b7d8d15d4",
+              "vae_latent": "d9ac1353b927de184daa1ada81355d100a77035c8a21c2ad9e50211ad9323cb9"
+            }
+          },
+          "run_id": "model_generation",
+          "selection_source_sha256": {
+            "dpp_optimizer.py": "e87732636fc22087ecf85f0dbdff8a1b03f5a337c7c23e86d7d71fe9d18aa69e",
+            "map_elites.py": "d96b4d30d54ec13ea52b869bc71ad340ea4b21fb30ccfa10903ccd75e56bbc8e",
+            "run_submission_portfolio.py": "733166b960685f9f82f9861edac8628b9478256d7fa5993d251cf45ab3ae292b"
+          }
+        },
+        "assembly": {
+          "actual_library_size": 50000,
+          "amp_model_sha256": "c93c67ff1d63d5f1eb6386fb2daea6e537708bd60352aea78c933a8f9ce49679",
+          "auxiliary_provenance": {
+            "rejected": {
+              "duplicate": 6034,
+              "invalid": 0,
+              "perplexity": 0,
+              "reference_overlap": 7801
+            },
+            "runs": [
+              {
+                "attempts": 51069,
+                "csv": "autoregressive-models/outputs/progen_aux_production_20260928_a_ppl100.csv",
+                "csv_sha256": "aca03588b6d0c4551cbeabb67e09af1b65e82e56ec0610e257cee251426c23b8",
+                "generation_attempts_per_sec": 59.22308078817039,
+                "generation_gpu": "NVIDIA GeForce RTX 4090",
+                "manifest": "autoregressive-models/outputs/progen_aux_production_20260928_a_ppl100.manifest.json",
+                "manifest_sha256": "02b7624405523fe5f39fdb4f46ee1768a463b3b54cfbe8f5a5fe4408a75de7ed",
+                "max_observed_perplexity": 31.742647171020508,
+                "max_perplexity": 100.0,
+                "n_perplexity_pass": 51069,
+                "perplexity_attempts_per_sec": 2095.6098306900703,
+                "perplexity_elapsed_sec": 24.369517288999987,
+                "perplexity_gpu": "NVIDIA GeForce RTX 4090",
+                "perplexity_runner_source_file": "generation/inference.py",
+                "perplexity_runner_source_sha256": "e25d852ec55a9ac59be70439534d38ee7dda263b77226b75bb3be7caf40dd343",
+                "requested_attempts": 60000,
+                "run_id": "production_20260928_a",
+                "run_status": "completed_schedule_with_historical_prefix",
+                "runner_source_file": "generation/inference.py",
+                "runner_source_sha256": "e25d852ec55a9ac59be70439534d38ee7dda263b77226b75bb3be7caf40dd343",
+                "unique_valid_attempts": 47333,
+                "valid_attempts": 51069
+              },
+              {
+                "attempts": 85000,
+                "csv": "autoregressive-models/outputs/progen_aux_production_20260928_b_ppl100.csv",
+                "csv_sha256": "0b8cafc261b94cfcbed28a2d2c1ea87735d3c6bebbee1e307df922eccddbe0aa",
+                "generation_attempts_per_sec": 59.217848608343346,
+                "generation_gpu": "NVIDIA GeForce RTX 4090",
+                "manifest": "autoregressive-models/outputs/progen_aux_production_20260928_b_ppl100.manifest.json",
+                "manifest_sha256": "7dd74c8b69a6ad0ac74d58cb0a014a989c2360825175287944839327caacf449",
+                "max_observed_perplexity": 29.116283416748047,
+                "max_perplexity": 100.0,
+                "n_perplexity_pass": 85000,
+                "perplexity_attempts_per_sec": 2132.9915224556667,
+                "perplexity_elapsed_sec": 39.85013494199984,
+                "perplexity_gpu": "NVIDIA GeForce RTX 4090",
+                "perplexity_runner_source_file": "generation/inference.py",
+                "perplexity_runner_source_sha256": "e25d852ec55a9ac59be70439534d38ee7dda263b77226b75bb3be7caf40dd343",
+                "requested_attempts": 85000,
+                "run_id": "production_20260928_b",
+                "run_status": "completed",
+                "runner_source_file": "generation/inference.py",
+                "runner_source_sha256": "e25d852ec55a9ac59be70439534d38ee7dda263b77226b75bb3be7caf40dd343",
+                "unique_valid_attempts": 77679,
+                "valid_attempts": 85000
+              }
+            ]
+          },
+          "auxiliary_selection_score_min": 0.5191927666819611,
+          "auxiliary_sequences_selected": 46036,
+          "auxiliary_synthesizable_selected": 46036,
+          "challenger_manifest_sha256": "fb810745d6a9d02ea4583959c4155c85126ce4598a70581eae34ade2067665d4",
+          "challenger_top100_sha256": "59ff398a0b4dab91b35dda92d2bebef10d6a61cc515f491a607bc368441224a5",
+          "eligible_master_provenance": {
+            "eligible_rows": 3964,
+            "evaluation_manifest_sha256": "3bc94aba7344e872189d5b4edf0ec398642dd31c9ead2445268feb09daaceb28",
+            "master_sha256": "32d9cc2be42039dda2cd1a312d06a6f89735567eaeb9e5d0bb9cf7ec2534b3aa",
+            "source_sha256": {
+              "autoregressive": "13c3e1c62a510a23ce33e2178959d71238ae8977419a54e490495957b460d737",
+              "diffusion": "194f8c980c39d5b134f634719404b9d2404bfde30711eac55ce49f0713400220",
+              "evolution": "61db7aa1111ab4fad56ed4f1215213dbb4ef689e4921f9b429856a7b7d8d15d4",
+              "vae_latent": "d9ac1353b927de184daa1ada81355d100a77035c8a21c2ad9e50211ad9323cb9"
+            }
+          },
+          "exact_reference_overlap_count": 0,
+          "hemolysis_model_sha256": "8215836de943f63a7f327a368d2f13e5f646d1ecf418b06ec4718b39c63cebf9",
+          "library_domain_counts": {
+            "autoregressive": 47683,
+            "evolution": 2317
+          },
+          "library_sha256": "029b8c9738eb9133dc01f396ab40b2ebf92f28663aa12c20d7e6c07433fa1af9",
+          "method": "scored_AR_evolution_candidates_plus_finetuned_ProGen2_fillers",
+          "reference_count": 39448,
+          "reference_fasta_sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9",
+          "run_id": "model_generation",
+          "scoring_limit": "Auxiliary MIC is unscored; AMP and safety fields are model predictions, not assay results.",
+          "synthesis_filter_pass_count": 50000,
+          "synthesizable_unique_auxiliary_pool": 73491,
+          "target_library_size": 50000,
+          "top100_count": 100,
+          "top100_is_subset": true,
+          "top100_max_internal_levenshtein_ratio": 0.7777777777777778,
+          "top100_max_reference_levenshtein_ratio": 0.8,
+          "unique_nonreference_auxiliary_pool": 122234,
+          "unique_sequences": 50000
+        },
+        "evolution": {
+          "role": "05_evolutionary_search",
+          "algorithm": "Multi-Family Genetic Algorithm (GA)",
+          "run_id": "evo_prod_001",
+          "timestamp_utc": "2026-09-30T07:53:03Z",
+          "seed_count": 50,
+          "families_count": 9,
+          "generations_completed": 14,
+          "evaluator_call_budget": 3500,
+          "termination_reason": "budget_exhausted",
+          "evaluator_ledger": {
+            "total_requests": 3616,
+            "unique_evaluator_calls": 3500,
+            "cache_hits": 70,
+            "cache_hit_rate": 0.0194,
+            "pre_evaluator_rejections": 46,
+            "cached_sequences_count": 3500,
+            "evaluator_version": "1.0.0-prod"
+          },
+          "raw_candidate_count": 3543,
+          "candidate_node_count": 3543,
+          "unique_candidate_count": 3500,
+          "exact_reference_matches_quarantined": 43,
+          "invalid_candidates_quarantined": 43,
+          "total_ancestry_edges": 3493,
+          "mean_candidate_fitness": 0.734,
+          "max_candidate_fitness": 0.8485,
+          "synthesizable_percentage": 98.0,
+          "output_candidate_file": "outputs/evolution_candidates.csv",
+          "output_candidate_sha256": "b19d7845163cc76dc2148733fe0356dcebac1b2d57f1d90d6478fe82038a29e9",
+          "output_candidate_nodes_file": "outputs/evolution_candidate_nodes.csv",
+          "output_candidate_nodes_sha256": "66b9e9b001d52e5234d17183ac0e8b5f97d892f533052620fee39dc565348211",
+          "output_ancestry_file": "outputs/ancestry.csv",
+          "output_ancestry_sha256": "c6b6e524882951dbb789ecd3e04e99f7c6ab4855feecc7f0c4db513fab9ed2c3",
+          "seed_file": "evolutionary-search/data/evolution_seeds.csv",
+          "seed_file_sha256": "cf945c5c952d2223b454dad6d12e28c8b479787fe2ea4dd75e5be1c4fd44f5a6"
+        }
+      }
+    },
+    {
+      "run": 2,
+      "elapsed_seconds": 3026.542306207,
+      "hashes": {
+        "library.fasta": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+        "top.fasta": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480"
+      },
+      "evidence": {
+        "scope": "Fresh local model sampling, mutation, reference audit, forest/APEX inference, MAP-Elites/DPP and library assembly; no saved ranked/library tables read. Archived baseline comparison inputs are used only to preserve source exclusions.",
+        "seed": 42,
+        "elapsed_seconds": 3022.807274852,
+        "outputs_sha256": {
+          "library.fasta": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+          "top.fasta": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480"
+        },
+        "matches_submitted_artifacts": true,
+        "model_generation": true,
+        "master": {
+          "timestamp_utc": "2026-09-30T08:51:40Z",
+          "input_candidate_rows": 13057,
+          "unique_sequences": 12756,
+          "valid_sequences": 12756,
+          "novelty_eligible_sequences": 9841,
+          "synthesizable_novelty_eligible_sequences": 7655,
+          "rankable_sequences_scored_by_apex": 7655,
+          "apex_rows_returned": 7655,
+          "apex_columns": [
+            "A. baumannii ATCC 19606",
+            "E. coli ATCC 11775",
+            "E. coli AIC221",
+            "E. coli AIC222",
+            "K. pneumoniae ATCC 13883",
+            "P. aeruginosa PA01",
+            "P. aeruginosa PA14",
+            "S. aureus ATCC 12600",
+            "S. aureus (ATCC BAA-1556) - MRSA",
+            "vancomycin-resistant E. faecalis ATCC 700802",
+            "vancomycin-resistant E. faecium ATCC 700221",
+            "apex_mean_mic",
+            "apex_min_mic"
+          ],
+          "input_sha256": {
+            "autoregressive": "13c3e1c62a510a23ce33e2178959d71238ae8977419a54e490495957b460d737",
+            "vae_latent": "d9ac1353b927de184daa1ada81355d100a77035c8a21c2ad9e50211ad9323cb9",
+            "diffusion": "194f8c980c39d5b134f634719404b9d2404bfde30711eac55ce49f0713400220",
+            "evolution": "61db7aa1111ab4fad56ed4f1215213dbb4ef689e4921f9b429856a7b7d8d15d4"
+          },
+          "classifier_model_sha256": {
+            "amp_classifier_ensemble": "c93c67ff1d63d5f1eb6386fb2daea6e537708bd60352aea78c933a8f9ce49679",
+            "empirical_hemolysis_ensemble": "8215836de943f63a7f327a368d2f13e5f646d1ecf418b06ec4718b39c63cebf9"
+          },
+          "apex_asset_sha256": {
+            "diffusion-models/apex/APEX_predict.py": "cf306746f27df93410882676790b2e05643943223b3783044febae2b1439d281",
+            "diffusion-models/apex/APEX_models.py": "34d31fe74cb74a2320c7a7299cab4319ab7f9967637b27a506a3a6c600296f48",
+            "diffusion-models/apex/utils.py": "a99a3d94129616cde92c91e2099e395339bac25f62fccdbf8b5d9b560af18432",
+            "diffusion-models/apex/aaindex1.csv": "478510fa4ee5e23c871558789a3f8450c20615b82dc294794a24bfe55e2bfaef",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_2&256&2048&1e-05&0.0&0.1": "fccd356cbb901c08fe7d35663f3902a5d2d01a4c257203af931aabf02bdd7913",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&1024&1e-06&0.001&2.0": "857e17d7703d771f82fe63dd82f15a86dd60a0b4f705577a56b88485d60a60c6",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.0&1.0": "9db48419381d7bcdac2ad3154aa6b67327c6da47dce973bb8a0745e5632ff79a",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.001&0.1": "9362c006ccc0e7ae3fd5210f2cbbe9ed02cec4ff6383f95a119acab9b020aea4",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&128&2048&1e-06&0.001&2.0": "58b5eeb6c8c8c4b94d1d776c92f5c653177cfcf3b77ec41cf409839304c8cc80",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&2048&1e-05&0.001&0.1": "6d3f2bd66c6b3f138e98fb13d1a3010ee94714b9ebf9673475192b365d388858",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&2048&1e-06&0.001&0.1": "69f101c4e3a1309166493f96221a8c44e37c87bd7a988240b32e26819162c954",
+            "diffusion-models/apex/APEX_pathogen_models/APEX_3&256&512&1e-06&0.0&2.0": "d56b8153a4618620f3b3f91aeb204d6ba8ac38af2ab2f3dff77a28863bc49059"
+          },
+          "evaluator_code_sha256": {
+            "data-engineering/src/amp_data/ordering.py": "d3897ceb6ce0999042171c4e8f95a07b7d3776a730a19da215bfce721d5a687a",
+            "shared-evaluator/src/evaluator/validator.py": "1bce62d2320db8cd05b683ed4b6f8cb174116128a934f5da781d5d0547645be3",
+            "shared-evaluator/src/evaluator/biophysical.py": "098eec5b18be6d2a525b41fb0605ac424e1a4ee3f2d0ba6fab5298cd4ab92398",
+            "shared-evaluator/src/evaluator/activity_safety_models.py": "eea7dcdbaac82adff26385da7dc408d569896c9849f54ebd4e81a4aa26543231",
+            "shared-evaluator/src/evaluator/apex_scorer.py": "404be246e5acc435099a8768705934c185cfb49f3ee65492bf9a87bf346ce94e",
+            "shared-evaluator/scripts/run_master_evaluation.py": "7c8a522653b2ceaca1a3f66a9ec175e86dd3c3b8121331a717c33732f0a55798"
+          },
+          "training_data_summary_sha256": "b2c47d49b2f7f1d2ec3256dcfd1ad955ee61a28f78f60a98567fb7daaa816a28",
+          "runtime": {
+            "numpy": "2.5.3",
+            "pandas": "3.0.6",
+            "scikit-learn": "1.9.1",
+            "joblib": "1.6.0"
+          },
+          "output_sha256": "32d9cc2be42039dda2cd1a312d06a6f89735567eaeb9e5d0bb9cf7ec2534b3aa",
+          "elapsed_seconds": 409.34
+        },
+        "selection": {
+          "archive_cells_occupied": 103,
+          "archive_cells_total": 150,
+          "domain_distribution": {
+            "autoregressive": 60,
+            "evolution": 40
+          },
+          "excluded_official_checkpoint_domains": [
+            "diffusion",
+            "vae_latent"
+          ],
+          "max_internal_top100_levenshtein_ratio": 0.7777777777777778,
+          "method": "fine_tuned_progen2_plus_project_evolutionary_search",
+          "outputs_sha256": {
+            "reserves.csv": "e0404ee7c6a88fb9e864b7d3da720aaee1c75aeb43e6bfaf6f75fb517cd0b886",
+            "reserves.parquet": "970ddf19417a0ba043e2ebb25b18eecb210c4af761d239b78b1f77ddacd732cc",
+            "top100.csv": "9a444c5bf8b1fac1e90bda5717d61f202e4819efece2276d4e186004e59f585c",
+            "top100.parquet": "59ff398a0b4dab91b35dda92d2bebef10d6a61cc515f491a607bc368441224a5",
+            "top50.csv": "87ef3ed1430d8f01ba3b404e18b31c497daf1135db738601502f1556b331048a",
+            "top50.parquet": "b22a15741d20356f94cde9e0782907c06f2a9eb53d539554cf6230d652083701"
+          },
+          "provenance": {
+            "eligible_rows": 3964,
+            "evaluation_manifest_sha256": "35afa54ebfa683d5dab007adbb5284c4bab08c8703a9a4004368a24dd2bc78dc",
+            "master_sha256": "32d9cc2be42039dda2cd1a312d06a6f89735567eaeb9e5d0bb9cf7ec2534b3aa",
+            "source_sha256": {
+              "autoregressive": "13c3e1c62a510a23ce33e2178959d71238ae8977419a54e490495957b460d737",
+              "diffusion": "194f8c980c39d5b134f634719404b9d2404bfde30711eac55ce49f0713400220",
+              "evolution": "61db7aa1111ab4fad56ed4f1215213dbb4ef689e4921f9b429856a7b7d8d15d4",
+              "vae_latent": "d9ac1353b927de184daa1ada81355d100a77035c8a21c2ad9e50211ad9323cb9"
+            }
+          },
+          "run_id": "model_generation",
+          "selection_source_sha256": {
+            "dpp_optimizer.py": "e87732636fc22087ecf85f0dbdff8a1b03f5a337c7c23e86d7d71fe9d18aa69e",
+            "map_elites.py": "d96b4d30d54ec13ea52b869bc71ad340ea4b21fb30ccfa10903ccd75e56bbc8e",
+            "run_submission_portfolio.py": "733166b960685f9f82f9861edac8628b9478256d7fa5993d251cf45ab3ae292b"
+          }
+        },
+        "assembly": {
+          "actual_library_size": 50000,
+          "amp_model_sha256": "c93c67ff1d63d5f1eb6386fb2daea6e537708bd60352aea78c933a8f9ce49679",
+          "auxiliary_provenance": {
+            "rejected": {
+              "duplicate": 6034,
+              "invalid": 0,
+              "perplexity": 0,
+              "reference_overlap": 7801
+            },
+            "runs": [
+              {
+                "attempts": 51069,
+                "csv": "autoregressive-models/outputs/progen_aux_production_20260928_a_ppl100.csv",
+                "csv_sha256": "aca03588b6d0c4551cbeabb67e09af1b65e82e56ec0610e257cee251426c23b8",
+                "generation_attempts_per_sec": 62.01811215091081,
+                "generation_gpu": "NVIDIA GeForce RTX 4090",
+                "manifest": "autoregressive-models/outputs/progen_aux_production_20260928_a_ppl100.manifest.json",
+                "manifest_sha256": "2148e5ef76cd3f391bca3ee741d6192aabd9db372763db88d19363edfcbd347f",
+                "max_observed_perplexity": 31.742647171020508,
+                "max_perplexity": 100.0,
+                "n_perplexity_pass": 51069,
+                "perplexity_attempts_per_sec": 2206.5991397643184,
+                "perplexity_elapsed_sec": 23.143759589000183,
+                "perplexity_gpu": "NVIDIA GeForce RTX 4090",
+                "perplexity_runner_source_file": "generation/inference.py",
+                "perplexity_runner_source_sha256": "e25d852ec55a9ac59be70439534d38ee7dda263b77226b75bb3be7caf40dd343",
+                "requested_attempts": 60000,
+                "run_id": "production_20260928_a",
+                "run_status": "completed_schedule_with_historical_prefix",
+                "runner_source_file": "generation/inference.py",
+                "runner_source_sha256": "e25d852ec55a9ac59be70439534d38ee7dda263b77226b75bb3be7caf40dd343",
+                "unique_valid_attempts": 47333,
+                "valid_attempts": 51069
+              },
+              {
+                "attempts": 85000,
+                "csv": "autoregressive-models/outputs/progen_aux_production_20260928_b_ppl100.csv",
+                "csv_sha256": "0b8cafc261b94cfcbed28a2d2c1ea87735d3c6bebbee1e307df922eccddbe0aa",
+                "generation_attempts_per_sec": 61.771578336622255,
+                "generation_gpu": "NVIDIA GeForce RTX 4090",
+                "manifest": "autoregressive-models/outputs/progen_aux_production_20260928_b_ppl100.manifest.json",
+                "manifest_sha256": "dc88dbf0869fb088ba52eaf30199986ffb66a83aa1fff7a92d8f2e50d38cafb8",
+                "max_observed_perplexity": 29.116283416748047,
+                "max_perplexity": 100.0,
+                "n_perplexity_pass": 85000,
+                "perplexity_attempts_per_sec": 2225.5711221777974,
+                "perplexity_elapsed_sec": 38.192443796999214,
+                "perplexity_gpu": "NVIDIA GeForce RTX 4090",
+                "perplexity_runner_source_file": "generation/inference.py",
+                "perplexity_runner_source_sha256": "e25d852ec55a9ac59be70439534d38ee7dda263b77226b75bb3be7caf40dd343",
+                "requested_attempts": 85000,
+                "run_id": "production_20260928_b",
+                "run_status": "completed",
+                "runner_source_file": "generation/inference.py",
+                "runner_source_sha256": "e25d852ec55a9ac59be70439534d38ee7dda263b77226b75bb3be7caf40dd343",
+                "unique_valid_attempts": 77679,
+                "valid_attempts": 85000
+              }
+            ]
+          },
+          "auxiliary_selection_score_min": 0.5191927666819611,
+          "auxiliary_sequences_selected": 46036,
+          "auxiliary_synthesizable_selected": 46036,
+          "challenger_manifest_sha256": "969b77fdfb76f6f4a29599ad1d4aad731809b3d2009b641267f4b297a90ac52d",
+          "challenger_top100_sha256": "59ff398a0b4dab91b35dda92d2bebef10d6a61cc515f491a607bc368441224a5",
+          "eligible_master_provenance": {
+            "eligible_rows": 3964,
+            "evaluation_manifest_sha256": "35afa54ebfa683d5dab007adbb5284c4bab08c8703a9a4004368a24dd2bc78dc",
+            "master_sha256": "32d9cc2be42039dda2cd1a312d06a6f89735567eaeb9e5d0bb9cf7ec2534b3aa",
+            "source_sha256": {
+              "autoregressive": "13c3e1c62a510a23ce33e2178959d71238ae8977419a54e490495957b460d737",
+              "diffusion": "194f8c980c39d5b134f634719404b9d2404bfde30711eac55ce49f0713400220",
+              "evolution": "61db7aa1111ab4fad56ed4f1215213dbb4ef689e4921f9b429856a7b7d8d15d4",
+              "vae_latent": "d9ac1353b927de184daa1ada81355d100a77035c8a21c2ad9e50211ad9323cb9"
+            }
+          },
+          "exact_reference_overlap_count": 0,
+          "hemolysis_model_sha256": "8215836de943f63a7f327a368d2f13e5f646d1ecf418b06ec4718b39c63cebf9",
+          "library_domain_counts": {
+            "autoregressive": 47683,
+            "evolution": 2317
+          },
+          "library_sha256": "029b8c9738eb9133dc01f396ab40b2ebf92f28663aa12c20d7e6c07433fa1af9",
+          "method": "scored_AR_evolution_candidates_plus_finetuned_ProGen2_fillers",
+          "reference_count": 39448,
+          "reference_fasta_sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9",
+          "run_id": "model_generation",
+          "scoring_limit": "Auxiliary MIC is unscored; AMP and safety fields are model predictions, not assay results.",
+          "synthesis_filter_pass_count": 50000,
+          "synthesizable_unique_auxiliary_pool": 73491,
+          "target_library_size": 50000,
+          "top100_count": 100,
+          "top100_is_subset": true,
+          "top100_max_internal_levenshtein_ratio": 0.7777777777777778,
+          "top100_max_reference_levenshtein_ratio": 0.8,
+          "unique_nonreference_auxiliary_pool": 122234,
+          "unique_sequences": 50000
+        },
+        "evolution": {
+          "role": "05_evolutionary_search",
+          "algorithm": "Multi-Family Genetic Algorithm (GA)",
+          "run_id": "evo_prod_001",
+          "timestamp_utc": "2026-09-30T08:43:57Z",
+          "seed_count": 50,
+          "families_count": 9,
+          "generations_completed": 14,
+          "evaluator_call_budget": 3500,
+          "termination_reason": "budget_exhausted",
+          "evaluator_ledger": {
+            "total_requests": 3616,
+            "unique_evaluator_calls": 3500,
+            "cache_hits": 70,
+            "cache_hit_rate": 0.0194,
+            "pre_evaluator_rejections": 46,
+            "cached_sequences_count": 3500,
+            "evaluator_version": "1.0.0-prod"
+          },
+          "raw_candidate_count": 3543,
+          "candidate_node_count": 3543,
+          "unique_candidate_count": 3500,
+          "exact_reference_matches_quarantined": 43,
+          "invalid_candidates_quarantined": 43,
+          "total_ancestry_edges": 3493,
+          "mean_candidate_fitness": 0.734,
+          "max_candidate_fitness": 0.8485,
+          "synthesizable_percentage": 98.0,
+          "output_candidate_file": "outputs/evolution_candidates.csv",
+          "output_candidate_sha256": "b19d7845163cc76dc2148733fe0356dcebac1b2d57f1d90d6478fe82038a29e9",
+          "output_candidate_nodes_file": "outputs/evolution_candidate_nodes.csv",
+          "output_candidate_nodes_sha256": "66b9e9b001d52e5234d17183ac0e8b5f97d892f533052620fee39dc565348211",
+          "output_ancestry_file": "outputs/ancestry.csv",
+          "output_ancestry_sha256": "c6b6e524882951dbb789ecd3e04e99f7c6ab4855feecc7f0c4db513fab9ed2c3",
+          "seed_file": "evolutionary-search/data/evolution_seeds.csv",
+          "seed_file_sha256": "cf945c5c952d2223b454dad6d12e28c8b479787fe2ea4dd75e5be1c4fd44f5a6"
+        }
+      }
+    }
+  ],
+  "beam_task_id": "bd0e3050-c698-49a0-badb-37068c32012e",
+  "runtime_files_unchanged_since_gpu_snapshot": {
+    "cloud/fetch_progen_checkpoint.py": "b69b443da3c1e8de0b5d36d310bb3078ff8c29a9f89504a9630b443df5aa9b6e",
+    "data-engineering/src/amp_data/ordering.py": "d3897ceb6ce0999042171c4e8f95a07b7d3776a730a19da215bfce721d5a687a",
+    "diffusion-models/apex/aaindex1.csv": "478510fa4ee5e23c871558789a3f8450c20615b82dc294794a24bfe55e2bfaef",
+    "evolutionary-search/data/evolution_seeds.csv": "cf945c5c952d2223b454dad6d12e28c8b479787fe2ea4dd75e5be1c4fd44f5a6",
+    "evolutionary-search/scripts/run_production_search.py": "9e3b4f945f0601223f6e5bfc36b99ba08c6c5e2debd85214bd3cca7602410c66",
+    "evolutionary-search/src/evolution/ga.py": "b9b7d65423224dde3d6b1c9985c36f7214e462055784b214f7e01370f655d790",
+    "generation/audit_candidates.py": "b7ffca4c34dc7329f7b14a2fb3d59ee9d3339c74d4db04106c0fe03012a281e4",
+    "generation/diffusion_exclusions.csv": "fcd7f2e29d1f54ec4b82c505e965656dfbd9edb56c66a5d37e78c358c3f17e1e",
+    "generation/inference.py": "e25d852ec55a9ac59be70439534d38ee7dda263b77226b75bb3be7caf40dd343",
+    "generation/pyproject.toml": "64c8fd31aa87b2ca5dabe9b5831d616ae7938fe43bb00f7e9f618adc38101b1f",
+    "generation/uv.lock": "6e050d7337cff1093dd0822493144f803edd2e0fb7d4b53451b8080ed254caea",
+    "generation/vae_exclusions.csv": "1ebb949390935dfb8df21df118c13c608642436f704df6ac5c24f1616e60fd8c",
+    "pyproject.toml": "26ac3a6d3b06713ce8ac97cb1a5fc0ac35447b31ebfb4feed9c846fe7e80aeaa",
+    "scripts/build_submission_artifacts.py": "e08bfad541d9bbae7feb091063ee9c0fa1c57ef7ea96a879b7108241659d0af9",
+    "shared-evaluator/scripts/run_master_evaluation.py": "7c8a522653b2ceaca1a3f66a9ec175e86dd3c3b8121331a717c33732f0a55798",
+    "shared-evaluator/src/evaluator/apex_scorer.py": "404be246e5acc435099a8768705934c185cfb49f3ee65492bf9a87bf346ce94e",
+    "src/amp_challenge_2027/generate.py": "92ce828d35037d469060c366e9dbf9dcff218a45069ea00315f211b3781f30c2",
+    "src/amp_challenge_2027/model_generation.py": "0661a30df130cd4a9962dffb5d12d92deb89ef3c18f93b8ab9f869ec21b8122b"
+  },
+  "observed_inference_runtime": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "torch": "2.5.1+cu124",
+    "cuda": "12.4",
+    "transformers": "4.46.3",
+    "tokenizers": "0.20.3"
+  }
+}

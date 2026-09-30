@@ -18,8 +18,9 @@ dependencies = [
 ]
 
 [project.scripts]
-generate_broad_spectrum = "amp_challenge_2027.generate:cli"
-generate = "amp_challenge_2027.generate:cli"
+generate_broad_spectrum = "amp_challenge_2027.model_generation:cli"
+generate = "amp_challenge_2027.model_generation:cli"
+export_submission = "amp_challenge_2027.generate:cli"
 
 [build-system]
 requires = ["uv-build>=0.9.18,<0.14.0"]

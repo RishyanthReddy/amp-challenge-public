@@ -60,3 +60,7 @@ data-engineering/data/raw/DRAMP/*
 !data-engineering/data/raw/DRAMP/general_amps.xlsx
 !data-engineering/data/raw/DRAMP/ATTRIBUTION.md
 vae-latent-models/data/training/Uniprot_0_25_*.csv
+
+# Local model regeneration workspaces and reusable dependency environments
+generation_runs/
+.generation-envs/

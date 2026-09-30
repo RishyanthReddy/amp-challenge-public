@@ -1,27 +1,40 @@
 # Execution guide
 
 Run commands from the repository root. Use `uv` to select each component's locked
-environment; the root environment is intended for FASTA export and validation.
+environment; the root command coordinates the separate inference, evaluator and selector runtimes.
 
-## 1. Export the submitted sequences
+## 1. Regenerate the submitted sequences
+
+Use Linux, NVIDIA RTX 4090 and a driver compatible with the pinned CUDA 12.4 runtime.
 
 ```bash
 uv sync --frozen --python 3.12
+uv run generate --check
 uv run generate
-uv run python scripts/verify_submission.py .
+uv run python scripts/verify_submission.py . --no-replay
 ```
 
-The command reads the frozen library and ranked tables in `portfolio-selection/outputs/`
-and writes `generate/library.fasta` and `generate/top.fasta`, with identical compatibility
-copies under `generate_broad_spectrum/`. It requires no GPU or model download. The validator
-checks counts, uniqueness, alphabet, lengths, subset membership, novelty and repeated export.
+The generator samples candidates, reruns evolution and model scoring, selects the portfolio,
+and checks both submitted FASTA hashes before writing `generate/` and its compatibility
+copy in `generate_broad_spectrum/`. It does not read the saved library, ranked tables or
+saved APEX predictions. Weights are fetched anonymously from the public release.
+See [the generation guide](../generation/README.md) for the exact schedules and baseline comparison inputs.
+
+For CPU-only inspection of the unchanged submitted artifacts:
+
+```bash
+uv run export_submission
+uv run python scripts/verify_submission.py . --no-replay
+```
+
+This explicitly exports the saved tables. The full validator without `--no-replay` reruns model generation and compares it with the existing FASTAs and requires the declared GPU.
 
 ## 2. Download weights and sample new sequences
 
-The release assets are public. GitHub CLI may require login; direct browser downloads do not.
+The release assets are public. Use `--source public` for anonymous downloads; no GitHub CLI login is required.
 
 ```bash
-uv run python cloud/fetch_progen_checkpoint.py
+uv run python cloud/fetch_progen_checkpoint.py --source public
 uv run --project autoregressive-models --locked python \
   autoregressive-models/scripts/06_generate_from_checkpoint.py \
   --checkpoint autoregressive-models/checkpoints/progen2_small_amp_best_val \
@@ -75,7 +88,7 @@ uv run --project evolutionary-search --locked python evolutionary-search/scripts
 
 Candidate tables must have the audit fields expected by the shared evaluator. Audit AR
 candidates with `cloud/audit_ar_candidates.py` before scoring. The complete pipeline is a
-sequence of component commands; `uv run generate` is not an end-to-end training command.
+sequence of component commands. The default `uv run generate` reproduces inference and selection; it does not retrain the released model.
 
 To assemble from already generated, PPL-scored auxiliary inputs and a current scored master:
 

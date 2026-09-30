@@ -6,7 +6,7 @@ The root MIT license covers original project software. It does not replace third
 - APEX code: retain diffusion-models/apex/LICENSE. Eight bundled weights match the organizer starter kit LFS fingerprints; see docs/license_evidence/APEX_WEIGHT_PROVENANCE.json.
 - HydrAMP code: retain vae-latent-models/LICENSE (University of Warsaw, 2022). Baseline checkpoint redistribution is not included in this public release.
 - Diffusion component: existing diffusion-models/LICENSE is preserved; the license matches the upstream starter kit byte-for-byte.
-- DBAASP: five retained exports are included with acknowledgment under the current source terms; see data-engineering/data/raw/DBAASP/ATTRIBUTION.md.
+- DBAASP: five retained exports and the derived 50-peptide evolutionary seed panel are included with acknowledgment under the current source terms; see data-engineering/data/raw/DBAASP/ATTRIBUTION.md and evolutionary-search/data/ATTRIBUTION.md.
 - UniProt: negative partitions are fetched from a pinned organizer source with CC BY 4.0 attribution; see docs/DATA_ACCESS.md.
 - DRAMP: the two retained General files are included under source CC BY 4.0 terms with original references and adjacent attribution. Antibacterial/patent exports are not mirrored.
 - dbAMP: its raw file is not mirrored publicly. Pinned retrieval does not resolve the source caveats documented in docs/DATA_ACCESS.md.

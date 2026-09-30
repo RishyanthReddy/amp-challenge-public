@@ -1,0 +1,26 @@
+{
+  "compiled_python_files": [
+    "cloud/fetch_progen_checkpoint.py",
+    "data-engineering/src/amp_data/ordering.py",
+    "evolutionary-search/scripts/run_production_search.py",
+    "evolutionary-search/src/evolution/ga.py",
+    "generation/audit_candidates.py",
+    "generation/inference.py",
+    "scripts/build_submission_artifacts.py",
+    "scripts/verify_model_generation_controls.py",
+    "shared-evaluator/scripts/run_master_evaluation.py",
+    "shared-evaluator/src/evaluator/apex_scorer.py",
+    "src/amp_challenge_2027/generate.py",
+    "src/amp_challenge_2027/model_generation.py"
+  ],
+  "isolated_input_file_count": 87,
+  "saved_submission_inputs_absent": true,
+  "canonical_fasta_hashes": {
+    "generate/top.fasta": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480",
+    "generate/library.fasta": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+    "generate_broad_spectrum/top.fasta": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480",
+    "generate_broad_spectrum/library.fasta": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba"
+  },
+  "new_large_files": [],
+  "offline_regression_tests_passed": 13
+}

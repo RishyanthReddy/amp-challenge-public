@@ -12,14 +12,14 @@ checkpoint access, and reproducibility evidence.
 
 ## Quick start
 
-Requirements: Git and [uv](https://docs.astral.sh/uv/). Export and validation run on CPU; no GPU or model download is needed.
+Requirements: Git, [uv](https://docs.astral.sh/uv/), Linux and an **NVIDIA RTX 4090** with a CUDA-compatible driver. The original sampling runtime uses CUDA 12.4. No Beam account or GitHub login is needed.
 
 ```bash
 git clone https://github.com/RishyanthReddy/amp-challenge-public.git
 cd amp-challenge-public
 uv sync --frozen --python 3.12
 uv run generate
-uv run python scripts/verify_submission.py .
+uv run python scripts/verify_submission.py . --no-replay
 ```
 
 | Output | Contents |
@@ -27,10 +27,21 @@ uv run python scripts/verify_submission.py .
 | [`generate/library.fasta`](generate/library.fasta) | 50,000 unique sequences |
 | [`generate/top.fasta`](generate/top.fasta) | 100 candidates in rank order; a subset of the library |
 
-`uv run generate` deterministically exports the frozen, selected tables. It does **not**
-retrain models or sample a new library. The same files are mirrored in
-`generate_broad_spectrum/` for compatibility. See [execution guide](docs/running.md) for
-model inference, training, scoring, and selection commands.
+`uv run generate` samples from the released ProGen2 checkpoint, runs evolutionary search,
+computes fresh activity/hemolysis and APEX predictions, selects the portfolio, and assembles
+the library. Fixed schedules reproduce the submitted sequences. Both output hashes must
+match before existing submission files are replaced. The same files are mirrored in
+`generate_broad_spectrum/` for compatibility. See [generation details](generation/README.md).
+
+For **CPU-only inspection** of the submitted artifacts:
+
+```bash
+uv run export_submission
+uv run python scripts/verify_submission.py . --no-replay
+```
+
+This separate command exports the saved selection tables. The full validator without
+`--no-replay` reruns model generation and compares it with the existing FASTAs and requires the declared GPU.
 
 ## How it works
 
@@ -65,10 +76,10 @@ are excluded from this entry. Read the [method](docs/method.md) or [abstract](do
 
 ## Run model inference
 
-Install [GitHub CLI](https://cli.github.com/) (the CLI may require login), then:
+For a smaller research sample, fetch the public weights and run:
 
 ```bash
-uv run python cloud/fetch_progen_checkpoint.py
+uv run python cloud/fetch_progen_checkpoint.py --source public
 uv run --project autoregressive-models --locked python \
   autoregressive-models/scripts/06_generate_from_checkpoint.py \
   --checkpoint autoregressive-models/checkpoints/progen2_small_amp_best_val \
@@ -83,7 +94,8 @@ this command does not replace the submitted FASTAs. See [model assets](docs/asse
 ## Repository structure
 
 ```text
-src/amp_challenge_2027/   Submission export entry point
+src/amp_challenge_2027/   Model generation entry point and validated exporter
+generation/               Pinned local inference runtime and comparison inputs
 scripts/                  Validation, provenance and artifact assembly
 cloud/                    Beam runners and checkpoint downloads
 data-engineering/         Data curation and biophysical descriptors
@@ -99,7 +111,7 @@ docs/                     Usage, methods, data and verification
 ```
 
 Each component has its own dependency lockfile where its runtime differs from the root
-export environment. Paths are retained so that recorded provenance hashes and model loading
+orchestration environment. Paths are retained so that recorded provenance hashes and model loading
 remain valid.
 
 ## Validation and reproducibility
@@ -112,6 +124,7 @@ remain valid.
 | Maximum Top-100/reference Levenshtein ratio | 0.8000 |
 | Maximum internal Top-100 Levenshtein ratio | 0.7778 |
 | Repeated submission export | Byte-identical |
+| Default model generation, two fresh RTX 4090 runs | Both original FASTAs reproduced byte-for-byte |
 | Historical training / selection replay | Checkpoint and ranked lists reproduced from archived inputs |
 | Original library replay | Original sampling/PPL pools, 50,000-row library and FASTAs reproduced byte-for-byte |
 
@@ -121,10 +134,15 @@ auxiliary pools and full submitted library were subsequently reproduced exactly;
 [verification report](docs/FULL_REPLAY_VERIFICATION.md) and
 [artifact hashes](docs/FINAL_HANDOFF_MANIFEST.json).
 
+Two complete runs of the default model command reproduced both submitted FASTAs.
+See [model generation verification](docs/MODEL_GENERATION_VERIFICATION.md) for the runtime,
+inputs, timings and scope.
+
 ## Reproducibility scope
 
-The public repository supports deterministic export of the submitted artifacts and ProGen2
-inference with the released checkpoint. The original AMP/RBC forests are included and
+The public repository provides model generation through `uv run generate`, with a separate
+CPU artifact exporter. Exact sampling reproduction requires the declared RTX 4090/runtime.
+Training is not needed for inference: the fine-tuned checkpoint is released publicly. The original AMP/RBC forests are included and
 hash-verifiable. All raw training and evaluator-negative inputs can be restored using
 [the source guide](docs/DATA_ACCESS.md). Curation rebuilds recover the original model-input
 values, and evaluator refits recover both original forests. The retained DRAMP General

@@ -31,4 +31,6 @@ hardware or reproduce the entire submitted library. For larger samples, use the
 The [historical replay report](FULL_REPLAY_VERIFICATION.md) describes the separate training,
 evolution, scoring and selection replay performed with archived research inputs.
 
-The root `uv run generate` remains the deterministic export of frozen selected tables.
+The root `uv run generate` now performs full inference and selection on the declared RTX 4090/runtime.
+The historical CPU check above retains its original scope. See [model generation](../generation/README.md).
+`uv run export_submission` is the separately named export of saved tables.

@@ -1,16 +1,17 @@
 # GPU runners and model downloads
 
 These scripts support training, model inference, asset retrieval and artifact verification.
-The root `uv run generate` command exports frozen results and does not dispatch Beam jobs.
+The root `uv run generate` command runs the models locally on the declared GPU; it does not dispatch Beam jobs.
+`uv run export_submission` is the separate CPU artifact export.
 
 ## Checkpoint access
 
 ```bash
-uv run python cloud/fetch_progen_checkpoint.py
+uv run python cloud/fetch_progen_checkpoint.py --source public
 ```
 
-The default source is the public checkpoint release. GitHub CLI may request login; direct
-browser downloads are also available without authentication.
+The `public` mode downloads the checkpoint release anonymously. The default `github` mode
+uses GitHub CLI, which may request login; browser downloads also work without authentication.
 `--source beam` uses the original model volume instead. Every file is checked against size
 and SHA-256 pins. `fetch_diffusion_checkpoint.py` downloads the separately pinned baseline.
 

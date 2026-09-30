@@ -78,11 +78,17 @@ class ApexScorer:
                     "-o", str(out_csv),
                     "-g", "0",
                 ]
+                # APEX has its own Python/torch environment. Inheriting the
+                # caller's uv target would replace that live environment.
+                apex_env = os.environ.copy()
+                apex_env.pop("UV_PROJECT_ENVIRONMENT", None)
+                apex_env.pop("VIRTUAL_ENV", None)
                 result = subprocess.run(
                     cmd,
                     cwd=str(self.apex_dir),
                     capture_output=True,
                     text=True,
+                    env=apex_env,
                 )
                 if result.returncode != 0:
                     raise RuntimeError(f"APEX scoring failed: {result.stderr}")

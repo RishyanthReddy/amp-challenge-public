@@ -25,6 +25,7 @@ from evolution.evaluator_adapter import EvaluatorAdapter
 from evolution.ga import GeneticAlgorithmSearch, validate_ancestry
 sys.path.append(str(MAIN_ROOT / "data-engineering/src"))
 from amp_data.core import fasta_rows, norm
+from amp_data.ordering import sort_descending_portable
 
 
 def sha256_file(path: Path) -> str:
@@ -89,7 +90,7 @@ def main():
     # 1. Deduplication with Ancestry Preservation (Task 11)
     df_raw = pd.DataFrame(result["candidates"])
     # Sort by fitness descending so the best candidate instance is the primary representative
-    df_sorted = df_raw.sort_values(by="composite_fitness", ascending=False)
+    df_sorted = sort_descending_portable(df_raw, "composite_fitness")
     df_unique = df_sorted.drop_duplicates(subset=["sequence"]).copy()
     exact_ref_mask = df_unique["sequence"].map(lambda sequence: norm(sequence) in reference_set)
     exact_ref_matches_quarantined = int(exact_ref_mask.sum())

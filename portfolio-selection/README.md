@@ -23,9 +23,10 @@ the private research archive. The workflow below describes that research path; s
 3. `scripts/build_submission_artifacts.py` packages an isolated challenger and verifies it.
    `--promote-canonical` also archives the previous four-domain research snapshot before
    updating local canonical tables and FASTAs. It performs no remote writes.
-4. The root `uv run generate_broad_spectrum` and `uv run generate` commands serialize the
-   current frozen Parquet tables. They do not run model inference or rebuild evaluator scores.
-   `scripts/verify_submission.py` checks FASTA invariants and can replay the packager.
+4. The root `uv run generate` and `uv run generate_broad_spectrum` commands run model inference,
+   mutation, fresh scoring, selection and assembly on the declared RTX 4090/runtime.
+   `uv run export_submission` is the separate CPU export of saved tables.
+   `scripts/verify_submission.py` checks FASTA invariants and can repeat model generation.
 
 The current canonical run ID is `final_ar_evo_20260928`. The Top 100 has 60 autoregressive
 and 40 evolutionary candidates; all 50,000 library sequences are unique and pass the

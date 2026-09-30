@@ -54,4 +54,5 @@ only eligible ProGen2/evolution sequences. Input, code, model and output hashes 
 in `reports/master_evaluation_manifest.json`. Raw scored tables remain in the private
 archive, so their physical verifier is not a fresh-public-clone command. The included
 forest files have a separate hash manifest and verification command above.
-Root `uv run generate` exports the frozen selected tables; it does not run this evaluator.
+Root `uv run generate` now runs this evaluator and APEX on newly generated candidates.
+`uv run export_submission` is the separate CPU export of the saved selection tables.

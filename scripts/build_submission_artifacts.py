@@ -192,7 +192,7 @@ def main() -> None:
 
     challenger_fasta = challenger / "fasta"
     run([
-        "uv", "run", "generate_broad_spectrum",
+        "uv", "run", "export_submission",
         "--top-parquet", str(challenger / "top100.parquet"),
         "--library-parquet", str(challenger / "full_50k_library.parquet"),
         "--output-dir", str(challenger_fasta),
@@ -264,7 +264,7 @@ def main() -> None:
             copy_atomic(challenger / source_name, ROOT / "portfolio-selection/outputs" / name)
             copy_atomic(challenger / source_name, ROOT / "outputs" / name)
 
-        run(["uv", "run", "generate_broad_spectrum"])
+        run(["uv", "run", "export_submission"])
         run(["uv", "run", "python", "scripts/verify_submission.py", ".", "--no-replay"])
         for name in ("library.fasta", "top.fasta"):
             if sha256(ROOT / "generate_broad_spectrum" / name) != sha256(challenger_fasta / name):

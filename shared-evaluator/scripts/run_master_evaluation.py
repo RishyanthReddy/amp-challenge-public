@@ -36,6 +36,7 @@ MAIN_ROOT = Path(__file__).resolve().parents[2]
 sys.path.append(str(MAIN_ROOT / "data-engineering/src"))
 from amp_data.core import fasta_rows, norm
 from amp_data.synthesis_filter import is_synthesizable
+from amp_data.ordering import sort_descending_portable
 
 from evaluator.validator import validate_hard_rules
 from evaluator.biophysical import compute_biophysical_properties
@@ -175,7 +176,7 @@ def main():
 
     # 5. Stage 3: APEX Multi-Strain Scoring for all candidates eligible for ranking
     print("\n[*] Running Stage 3: APEX Multi-Strain Scorer...")
-    df_sorted = df_unique.sort_values(by="pred_amp_probability", ascending=False).reset_index(drop=True)
+    df_sorted = sort_descending_portable(df_unique, "pred_amp_probability").reset_index(drop=True)
 
     rankable_mask = (
         df_sorted["is_valid"].astype(bool)
@@ -247,6 +248,7 @@ def main():
     if any(not path.is_file() for path in apex_files):
         raise FileNotFoundError("APEX source, feature table, or pathogen model files are missing")
     evaluator_code_paths = [
+        MAIN_ROOT / "data-engineering/src/amp_data/ordering.py",
         ROOT / "src/evaluator/validator.py",
         ROOT / "src/evaluator/biophysical.py",
         ROOT / "src/evaluator/activity_safety_models.py",

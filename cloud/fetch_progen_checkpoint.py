@@ -1,4 +1,4 @@
-"""Fetch and verify the pinned ProGen2 checkpoint from private GitHub or Beam."""
+"""Fetch and verify the pinned ProGen2 checkpoint from public GitHub, GitHub CLI, or Beam."""
 
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import hashlib
 import os
 import subprocess
 import tempfile
+import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -56,7 +57,7 @@ def verify_asset(path: Path, name: str) -> bool:
 
 def fetch(destination: Path, beam_cli: str = "beam", *, source: str = "github",
           github_repository: str = GITHUB_REPOSITORY, gh_cli: str = "gh") -> None:
-    if source not in {"github", "beam"}:
+    if source not in {"public", "github", "beam"}:
         raise ValueError(f"Unknown checkpoint source: {source}")
     destination = destination.expanduser().resolve()
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -83,6 +84,15 @@ def fetch(destination: Path, beam_cli: str = "beam", *, source: str = "github",
             remote_path = f"{REMOTE_DIRECTORY}/{name}"
             if source == "beam":
                 subprocess.run([beam_cli, "cp", remote_path, name], check=True, cwd=staging)
+            elif source == "public":
+                url = f"https://github.com/{github_repository}/releases/download/{GITHUB_TAG}/{name}"
+                with urllib.request.urlopen(url, timeout=60) as response, staged_path.open("wb") as output:
+                    downloaded = 0
+                    for block in iter(lambda: response.read(CHUNK_SIZE), b""):
+                        downloaded += len(block)
+                        if downloaded > ASSETS[name][0]:
+                            raise ValueError(f"Downloaded asset exceeds its pinned size: {name}")
+                        output.write(block)
             else:
                 subprocess.run(
                     [gh_cli, "release", "download", GITHUB_TAG, "--repo", github_repository,
@@ -117,7 +127,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=DEFAULT_DESTINATION)
     parser.add_argument("--beam-cli", default="beam", help="Beam CLI executable")
-    parser.add_argument("--source", choices=("github", "beam"), default="github")
+    parser.add_argument("--source", choices=("public", "github", "beam"), default="github")
     parser.add_argument("--github-repository", default=GITHUB_REPOSITORY)
     parser.add_argument("--gh-cli", default="gh")
     args = parser.parse_args()

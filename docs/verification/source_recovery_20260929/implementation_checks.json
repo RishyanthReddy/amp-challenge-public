@@ -1,0 +1,19 @@
+{
+  "download_helper_checks": [
+    "verified atomic restoration",
+    "verified cache uses no network",
+    "mismatch rejected and preserved",
+    "missing verify-only input rejected",
+    "retained-only input rejected",
+    "path traversal rejected",
+    "failed batch installs no downloads",
+    "concurrent differing file preserved",
+    "changed upstream file rejected"
+  ],
+  "passed": 9,
+  "maintained_offline_regression": {
+    "command": "uv run python scripts/verify_training_source_fetch.py",
+    "tests_passed": 11,
+    "exit_code": 0
+  }
+}

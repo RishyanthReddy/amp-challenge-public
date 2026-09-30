@@ -1,0 +1,17 @@
+{
+  "scope": "Evaluator refit from freshly rebuilt raw-source views and exact negative partitions, using locked Python 3.12/scikit-learn 1.9.1. Biological inputs unchanged; serialized table bytes and path separators differ as disclosed.",
+  "models": [
+    {
+      "path": "shared-evaluator/models/amp_classifier_ensemble.joblib",
+      "old_sha256": "c93c67ff1d63d5f1eb6386fb2daea6e537708bd60352aea78c933a8f9ce49679",
+      "refit_sha256": "c93c67ff1d63d5f1eb6386fb2daea6e537708bd60352aea78c933a8f9ce49679",
+      "byte_identical": true
+    },
+    {
+      "path": "shared-evaluator/models/empirical_hemolysis_ensemble.joblib",
+      "old_sha256": "8215836de943f63a7f327a368d2f13e5f646d1ecf418b06ec4718b39c63cebf9",
+      "refit_sha256": "8215836de943f63a7f327a368d2f13e5f646d1ecf418b06ec4718b39c63cebf9",
+      "byte_identical": true
+    }
+  ]
+}

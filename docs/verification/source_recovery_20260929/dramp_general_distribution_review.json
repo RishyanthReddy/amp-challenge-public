@@ -1,0 +1,17 @@
+{
+  "retained_general_xlsx_rows": 11687,
+  "retained_general_unique_ids": 11687,
+  "current_patent_fasta_records": 18715,
+  "current_patent_unique_ids": 18715,
+  "general_patent_id_overlap": [],
+  "general_reference_fields_present": [
+    "Pubmed_ID",
+    "Reference",
+    "Author",
+    "Title"
+  ],
+  "terms_url": "https://dramp.cpu-bioinfor.org/",
+  "patent_download_url": "https://dramp.cpu-bioinfor.org/downloads/download.php?filename=download_data%2FDRAMP3.0_new%2Fpatent_amps.fasta",
+  "patent_download_sha256": "8d5c0e7b313fb32ffad888177106ab6fe7b1851fbfc6baccf47d5fc155891a59",
+  "scope": "Record-accession category comparison, not proof of absence of patent claims on general peptides or clearance of antibacterial-derived patent entries."
+}

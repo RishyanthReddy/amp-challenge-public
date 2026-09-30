@@ -1,0 +1,9 @@
+{
+  "value_fingerprint_negative_controls_passed": 4,
+  "checks": [
+    "source-path separators normalize only",
+    "one-ULP float change detected",
+    "row order change detected",
+    "partition label change detected"
+  ]
+}

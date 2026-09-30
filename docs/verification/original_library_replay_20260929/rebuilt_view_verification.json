@@ -1,0 +1,31 @@
+{
+  "verified_rebuilt_views": 5,
+  "inputs": [
+    {
+      "path": "data-engineering/data/processed/views/autoregressive_view.parquet",
+      "rows": 27509,
+      "value_sha256": "a092bc0534d0fb793711f93eca725c29877df113d508c66d139026e502dba400"
+    },
+    {
+      "path": "data-engineering/data/processed/views/evaluator_view.parquet",
+      "rows": 27509,
+      "value_sha256": "3d9130262bef7337108a28957d93df0a808b6d8de314b46023a5c2cff26c649e"
+    },
+    {
+      "path": "data-engineering/data/processed/toxicity.parquet",
+      "rows": 1609,
+      "value_sha256": "9730132b4d6a905438c7e22f15227c7f8a37f018b1b87e324ad2822238f1df8c"
+    },
+    {
+      "path": "data-engineering/data/processed/sequences.parquet",
+      "rows": 38678,
+      "value_sha256": "7747a6ac8b53c4a4c7d7d6ac9034427146456dc529b99172b50797011d45acdf"
+    },
+    {
+      "path": "data-engineering/data/processed/provenance.csv",
+      "rows": 122581,
+      "value_sha256": "6de238b53a9224e443a413177c79255ea98bdcd5f4ad13b9a18ec20acaf4d1ae"
+    }
+  ],
+  "scope": "Original curation column names, dtypes, row order and exact scalar values. Only source_file path separators are normalized; serialized Parquet bytes are separately disclosed."
+}

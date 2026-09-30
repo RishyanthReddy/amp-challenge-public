@@ -1,0 +1,7 @@
+Using CPython 3.12.14
+Creating virtual environment at: shared-evaluator/.venv
+Installed 18 packages in 159ms
+Training Role 06 models from the checked-in data partitions
+AMP test: ROC-AUC 0.9762; average precision 0.9811; Brier score 0.0580
+Hemolysis OOF: ROC-AUC 0.7280; average precision 0.7576; Brier score 0.2113
+Saved models and summary under /private<isolated-replay>/raw_rebuild/shared-evaluator; elapsed 10.7s

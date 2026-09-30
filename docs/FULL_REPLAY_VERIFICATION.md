@@ -1,5 +1,13 @@
 # Historical training-to-selection replay
 
+## Follow-up: original library reproduced
+
+On 2026-09-29, the original auxiliary schedules and PPL outputs were repeated. The original
+50,000-row library, Top 100, Top 50 and both submitted FASTAs now match byte-for-byte.
+Raw curation was also rebuilt and both forests refit exactly. See the
+[follow-up report](ORIGINAL_LIBRARY_REPLAY.md) for comparisons and scope. The dated
+2026-09-28 observations below are retained as historical evidence.
+
 Verified 2026-09-28 in isolated local workspaces and a separate Beam volume. The existing
 submission was not promoted, overwritten or regenerated in place.
 

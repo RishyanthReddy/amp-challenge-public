@@ -1,0 +1,9 @@
+# Retained DRAMP general snapshot
+
+These are the unchanged `general_amps.xlsx` and `general_amps.fasta` inputs retained by the project. The XLSX contains 11,687 records and preserves the original `Pubmed_ID`, `Reference`, `Author` and `Title` fields. Consult and cite those original works when using individual records. Acquisition date and provider release label are unknown. File hashes identify the snapshot; today's general export is different.
+
+Source: [DRAMP](https://dramp.cpu-bioinfor.org/), Zheng group. DRAMP makes its data available under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and asks researchers to cite original authors for general and clinical AMPs. Acknowledge DRAMP and its authors, cite Ma et al., *DRAMP 4.0: an open-access data repository dedicated to the clinical translation of antimicrobial peptides*, Nucleic Acids Research (2025), [PMID 39526377](https://pubmed.ncbi.nlm.nih.gov/39526377/), and retain the original per-record references. No changes were made to these raw files. Project preprocessing is described separately in the data card.
+
+The official [download page](https://dramp.cpu-bioinfor.org/downloads/) separates General and Patent exports. A 2026-09-29 comparison found zero accession overlaps between this retained general XLSX and the current 18,715-record patent FASTA. The check establishes record-category separation, not freedom from patent claims on the peptides.
+
+DRAMP separately asks for authorization for patent AMPs. That caveat remains disclosed for the project's antibacterial-source training records. The antibacterial and patent exports are not mirrored here. CC BY 4.0 does not grant patent rights; the repository MIT license does not replace source terms. See [the distribution review](../../../../docs/verification/source_recovery_20260929/dramp_general_distribution_review.json) and [source disclosure](../../../../docs/PUBLIC_TRAINING_DISCLOSURE.md).

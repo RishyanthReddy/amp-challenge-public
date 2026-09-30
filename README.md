@@ -113,17 +113,22 @@ remain valid.
 | Maximum internal Top-100 Levenshtein ratio | 0.7778 |
 | Repeated submission export | Byte-identical |
 | Historical training / selection replay | Checkpoint and ranked lists reproduced from archived inputs |
+| Original library replay | Original sampling/PPL pools, 50,000-row library and FASTAs reproduced byte-for-byte |
 
-A separate fresh 50,000-sequence build also passed the sequence checks. Exact regeneration
-of every historical auxiliary filler was not tested. See the
+A separate fresh 50,000-sequence build also passed the sequence checks. The original
+auxiliary pools and full submitted library were subsequently reproduced exactly; see
+[the original-library replay](docs/ORIGINAL_LIBRARY_REPLAY.md). See the
 [verification report](docs/FULL_REPLAY_VERIFICATION.md) and
 [artifact hashes](docs/FINAL_HANDOFF_MANIFEST.json).
 
 ## Reproducibility scope
 
 The public repository supports deterministic export of the submitted artifacts and ProGen2
-inference with the released checkpoint. Full training and evaluation require additional
-curated training tables and AMP/RBC model assets that are not bundled here. Historical
+inference with the released checkpoint. The original AMP/RBC forests are included and
+hash-verifiable. All raw training and evaluator-negative inputs can be restored using
+[the source guide](docs/DATA_ACCESS.md). Curation rebuilds recover the original model-input
+values, and evaluator refits recover both original forests. The retained DRAMP General
+snapshots are included with attribution. Historical
 source acquisition gaps are documented in the [training disclosure](docs/PUBLIC_TRAINING_DISCLOSURE.md).
 See [release scope](PUBLIC_RELEASE_STATUS.md) for the remaining limitations.
 

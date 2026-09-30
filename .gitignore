@@ -52,3 +52,11 @@ AGENTS.md
 *.egg-info/
 **/*.egg-info/
 data-engineering/tmp/
+
+# Downloaded third-party inputs: retrieval is documented; source terms still apply.
+data-engineering/data/raw/dbamp/
+data-engineering/data/raw/DRAMP/*
+!data-engineering/data/raw/DRAMP/general_amps.fasta
+!data-engineering/data/raw/DRAMP/general_amps.xlsx
+!data-engineering/data/raw/DRAMP/ATTRIBUTION.md
+vae-latent-models/data/training/Uniprot_0_25_*.csv

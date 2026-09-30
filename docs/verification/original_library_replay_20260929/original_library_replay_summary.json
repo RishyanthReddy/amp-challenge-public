@@ -1,0 +1,75 @@
+{
+  "scope": "2026-09-29 original auxiliary schedules regenerated on RTX4090 with the exact pinned checkpoint, independent teacher-forced PPL, selection/assembly from unchanged historical audited and APEX-scored candidate tables. Prior 2026-09-28 replay separately reproduced checkpoint, initial AR, evolution and scoring. This run did not retrain AR or rescore APEX for every master candidate.",
+  "original_sampler_source_sha256": "22045b357c2fdc284bbdc331a70e2ebb41db767393cd7f8e0b964a6ff961efd1",
+  "isolated_source_change": "Only Beam volume name changed; new run labels were recorded separately while historical sequence identifiers were retained for FASTA comparisons.",
+  "run_a": {
+    "run": "A",
+    "full_replay_rows": 60000,
+    "historical_prefix_rows": 51069,
+    "historical_raw_sha256": "b10089eecd412cf3224b5f02adb91e65441c47982ccafacf047fb2630147f975",
+    "replayed_prefix_sha256": "b10089eecd412cf3224b5f02adb91e65441c47982ccafacf047fb2630147f975",
+    "byte_identical": true,
+    "scope": "Completed original 60000-attempt schedule, then retained its first 51069 rows for comparison with the historically interrupted file.",
+    "ppl_historical_sha256": "aca03588b6d0c4551cbeabb67e09af1b65e82e56ec0610e257cee251426c23b8",
+    "ppl_replayed_sha256": "aca03588b6d0c4551cbeabb67e09af1b65e82e56ec0610e257cee251426c23b8",
+    "ppl_csv_byte_identical": true,
+    "ppl_retained_rows": 51069,
+    "ppl_pass_rows": 51069,
+    "ppl_max_perplexity": 100
+  },
+  "run_b": {
+    "run": "B",
+    "full_replay_rows": 85000,
+    "historical_rows": 85000,
+    "historical_raw_sha256": "21fb48389d0caafdcd4e049981822442984a89f5ea63f5f77ec546164a6db3c5",
+    "replayed_raw_sha256": "21fb48389d0caafdcd4e049981822442984a89f5ea63f5f77ec546164a6db3c5",
+    "raw_csv_byte_identical": true,
+    "scope": "Completed original 85000-attempt schedule; all raw CSV bytes compared with historical run.",
+    "ppl_historical_sha256": "0b8cafc261b94cfcbed28a2d2c1ea87735d3c6bebbee1e307df922eccddbe0aa",
+    "ppl_replayed_sha256": "0b8cafc261b94cfcbed28a2d2c1ea87735d3c6bebbee1e307df922eccddbe0aa",
+    "ppl_csv_byte_identical": true,
+    "ppl_retained_rows": 85000,
+    "ppl_pass_rows": 85000,
+    "ppl_max_perplexity": 100
+  },
+  "artifact_comparisons": [
+    {
+      "artifact": "generate/library.fasta",
+      "original_sha256": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+      "reconstructed_sha256": "65183eef34ef86924f311c47de9b9183dabad0634da8586d155c01d81944afba",
+      "byte_identical": true
+    },
+    {
+      "artifact": "generate/top.fasta",
+      "original_sha256": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480",
+      "reconstructed_sha256": "7181777317b8a4c7c29841471ae9941dfb0de83b1a0c53c5f0a6bf6d0991e480",
+      "byte_identical": true
+    },
+    {
+      "artifact": "portfolio-selection/outputs/full_50k_library.parquet",
+      "original_sha256": "c88d450e572f099546cdd1f9c863c5cd21f9cc292b50714513c156984f60995e",
+      "reconstructed_sha256": "c88d450e572f099546cdd1f9c863c5cd21f9cc292b50714513c156984f60995e",
+      "byte_identical": true
+    },
+    {
+      "artifact": "portfolio-selection/outputs/portfolio_top100.parquet",
+      "original_sha256": "684a0d7cf3ac9f69ed62abff9a41eac1902a63c04ee62e73b6c08285519cd38d",
+      "reconstructed_sha256": "684a0d7cf3ac9f69ed62abff9a41eac1902a63c04ee62e73b6c08285519cd38d",
+      "byte_identical": true
+    },
+    {
+      "artifact": "portfolio-selection/outputs/portfolio_top50.parquet",
+      "original_sha256": "42dce9229c557b162e8b7a0ee4e15f1d9ec301fdb540958843a969940be4bf53",
+      "reconstructed_sha256": "42dce9229c557b162e8b7a0ee4e15f1d9ec301fdb540958843a969940be4bf53",
+      "byte_identical": true
+    }
+  ],
+  "submission_verification_exit_code": 0,
+  "canonical_artifacts_unchanged": true,
+  "recovery_notes": [
+    "Run B upload failed before task launch; retry succeeded.",
+    "First assembly call used relative auxiliary paths; rerun with resolved absolute paths succeeded.",
+    "First isolated exporter build omitted README.md; copied the unchanged packaging README/LICENSE and reran successfully.",
+    "Only successful completed outputs count toward verification."
+  ]
+}

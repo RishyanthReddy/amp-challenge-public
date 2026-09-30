@@ -1,0 +1,78 @@
+[
+  {
+    "source": "DRAMP",
+    "file": "general_amps.xlsx",
+    "url": "https://dramp.cpu-bioinfor.org/downloads/download.php?filename=download_data%2FDRAMP3.0_new%2Fgeneral_amps.xlsx",
+    "bytes": 2960502,
+    "sha256": "1f376e89596a01e0a186258ada2d2c29bcde2e520abfe2969a618b824958f25e",
+    "local_sha256": "205b13ba026f54e69d598fa53a54c21a279613d516c70e9cd7598307c8c18925",
+    "byte_identical": false,
+    "http_last_modified": null,
+    "download_rows": 12784,
+    "local_rows": 11687,
+    "parsed_rows_identical": false
+  },
+  {
+    "source": "DRAMP",
+    "file": "Antibacterial_amps.xlsx",
+    "url": "https://dramp.cpu-bioinfor.org/downloads/download.php?filename=download_data%2FDRAMP3.0_new%2FAntibacterial_amps.xlsx",
+    "bytes": 1853664,
+    "sha256": "2b6c79485618439877e06bcaedc79fe4c647fd3be36129cc1cef91a70d0421f5",
+    "local_sha256": "2b6c79485618439877e06bcaedc79fe4c647fd3be36129cc1cef91a70d0421f5",
+    "byte_identical": true,
+    "http_last_modified": null,
+    "download_rows": 28702,
+    "local_rows": 28702,
+    "parsed_rows_identical": true
+  },
+  {
+    "source": "DRAMP",
+    "file": "general_amps.fasta",
+    "url": "https://dramp.cpu-bioinfor.org/downloads/download.php?filename=download_data%2FDRAMP3.0_new%2Fgeneral_amps.fasta",
+    "bytes": 477245,
+    "sha256": "8326ff308eb3ae67cafbdbf3756c0e943d7d968e5e0a338298ce602269d1caf0",
+    "local_sha256": "5915e91b3501c41a914a05403dfd2a435af59116ffb738a8423d34995a2b9c26",
+    "byte_identical": false,
+    "http_last_modified": null
+  },
+  {
+    "source": "DRAMP",
+    "file": "Antibacterial_amps.fasta",
+    "url": "https://dramp.cpu-bioinfor.org/downloads/download.php?filename=download_data%2FDRAMP3.0_new%2FAntibacterial_amps.fasta",
+    "bytes": 1072625,
+    "sha256": "a0d484eb6176e123298d19d06f23ccc6398a1f5c75d169cccbbf7590a6e6c835",
+    "local_sha256": "a0d484eb6176e123298d19d06f23ccc6398a1f5c75d169cccbbf7590a6e6c835",
+    "byte_identical": true,
+    "http_last_modified": null
+  },
+  {
+    "source": "HydrAMP",
+    "file": "Uniprot_0_25_train.csv",
+    "url": "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/Uniprot_0_25_train.csv",
+    "bytes": 9140400,
+    "sha256": "1af551c81bb7252a88abf489083a226aba1d02b6049436171dffee672bd11c32",
+    "local_sha256": "1af551c81bb7252a88abf489083a226aba1d02b6049436171dffee672bd11c32",
+    "byte_identical": true,
+    "http_last_modified": null
+  },
+  {
+    "source": "HydrAMP",
+    "file": "Uniprot_0_25_val.csv",
+    "url": "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/Uniprot_0_25_val.csv",
+    "bytes": 1142856,
+    "sha256": "4c854b98795a19cc154b72b36d2ead8ab6c5c427a4e7050bae5065dacd550565",
+    "local_sha256": "4c854b98795a19cc154b72b36d2ead8ab6c5c427a4e7050bae5065dacd550565",
+    "byte_identical": true,
+    "http_last_modified": null
+  },
+  {
+    "source": "HydrAMP",
+    "file": "Uniprot_0_25_test.csv",
+    "url": "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/Uniprot_0_25_test.csv",
+    "bytes": 1142642,
+    "sha256": "903ca81d66b50f5af1860f6f69d7f6b8aa883cf92a4230d6fea9c5ead152efe8",
+    "local_sha256": "903ca81d66b50f5af1860f6f69d7f6b8aa883cf92a4230d6fea9c5ead152efe8",
+    "byte_identical": true,
+    "http_last_modified": null
+  }
+]

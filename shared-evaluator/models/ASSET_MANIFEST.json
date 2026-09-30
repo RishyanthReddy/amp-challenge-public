@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "runtime": {
+    "python": "3.12",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6"
+  },
+  "models": [
+    {
+      "path": "shared-evaluator/models/amp_classifier_ensemble.joblib",
+      "bytes": 7749785,
+      "sha256": "c93c67ff1d63d5f1eb6386fb2daea6e537708bd60352aea78c933a8f9ce49679",
+      "origin": "Original selected evaluator, reproduced byte-for-byte in the 2026-09-28 isolated replay"
+    },
+    {
+      "path": "shared-evaluator/models/empirical_hemolysis_ensemble.joblib",
+      "bytes": 263145,
+      "sha256": "8215836de943f63a7f327a368d2f13e5f646d1ecf418b06ec4718b39c63cebf9",
+      "origin": "Original selected evaluator, reproduced byte-for-byte in the 2026-09-28 isolated replay"
+    }
+  ],
+  "model_card": "shared-evaluator/reports/model_cards.md",
+  "training_summary": "shared-evaluator/reports/training_data_summary.json",
+  "source_terms": "docs/PUBLIC_TRAINING_DISCLOSURE.md",
+  "scope": "Research screening predictions; no clinical or prospective validation. Model publication does not settle source-use questions."
+}

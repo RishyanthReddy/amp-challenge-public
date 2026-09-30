@@ -28,4 +28,4 @@ uv run --project shared-evaluator --locked python scripts/disclose_evaluator_mem
 
 This command loads the training script's membership helpers without fitting models. It checks the recorded input fingerprints and fold sizes. It does not recompute performance metrics or establish the availability of historical provider exports. The source checkout must be trusted because its Python module is imported.
 
-See [source access](../DATA_ACCESS.md). The exact AMPlify snapshot is included with CC BY 4.0 attribution. Other source snapshots remain provider-hosted; missing acquisition dates, queries and versions are still disclosed limitations.
+See [source access](../DATA_ACCESS.md). The exact AMPlify snapshot is included with CC BY 4.0 attribution. Retained DBAASP exports and DRAMP General files are also included with source attribution. Exact retrieval routes are pinned where verified; missing acquisition dates, queries and versions are still disclosed limitations.

@@ -1,0 +1,11 @@
+{
+  "repository": "BioGenies/CancerGram-analysis",
+  "commit": "210206b9762bbc82a45436e9743516753bfaa59f",
+  "path": "data/dbamp_df.csv",
+  "url": "https://raw.githubusercontent.com/BioGenies/CancerGram-analysis/210206b9762bbc82a45436e9743516753bfaa59f/data/dbamp_df.csv",
+  "bytes": 4818154,
+  "sha256": "d7a1eede4c6c9d87605145c6b1854d1f1918564d0db58cb756ee330947f5a688",
+  "local_sha256": "d7a1eede4c6c9d87605145c6b1854d1f1918564d0db58cb756ee330947f5a688",
+  "byte_identical": true,
+  "scope": "Verified public retrieval source for the same bytes; does not prove original acquisition date or settle third-party redistribution permission."
+}

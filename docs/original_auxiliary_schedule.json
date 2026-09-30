@@ -1,0 +1,32 @@
+{
+  "checkpoint_sha256": "124b8ea7df5c96cda927bada51c9d26d89f91636d0975fe70e7bc0ef182f9f83",
+  "scope": "Original sampler schedule, not a claim of completed replay",
+  "runs": [
+    {
+      "run_id": "production_20260928_a",
+      "base_seed": 200000,
+      "batch_size": 64,
+      "requested_attempts": 60000,
+      "retained_rows": 51069,
+      "original_run_status": "cancelled_incomplete",
+      "raw_sha256": "b10089eecd412cf3224b5f02adb91e65441c47982ccafacf047fb2630147f975",
+      "ppl_sha256": "aca03588b6d0c4551cbeabb67e09af1b65e82e56ec0610e257cee251426c23b8",
+      "max_perplexity": 100,
+      "generation_runner_sha256": "22045b357c2fdc284bbdc331a70e2ebb41db767393cd7f8e0b964a6ff961efd1",
+      "perplexity_runner_sha256": "26a039f209681ac6d3637b61f6015f3ef4f3323ec9b84b391bf947b7e9e34dbf"
+    },
+    {
+      "run_id": "production_20260928_b",
+      "base_seed": 300000,
+      "batch_size": 64,
+      "requested_attempts": 85000,
+      "retained_rows": 85000,
+      "original_run_status": "completed",
+      "raw_sha256": "21fb48389d0caafdcd4e049981822442984a89f5ea63f5f77ec546164a6db3c5",
+      "ppl_sha256": "0b8cafc261b94cfcbed28a2d2c1ea87735d3c6bebbee1e307df922eccddbe0aa",
+      "max_perplexity": 100,
+      "generation_runner_sha256": "22045b357c2fdc284bbdc331a70e2ebb41db767393cd7f8e0b964a6ff961efd1",
+      "perplexity_runner_sha256": "26a039f209681ac6d3637b61f6015f3ef4f3323ec9b84b391bf947b7e9e34dbf"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "old_rows": 11687,
+  "current_rows": 12784,
+  "old_id_field": "DRAMP_ID",
+  "current_id_field": "DRAMP_ID",
+  "ids_retained_in_current": 11687,
+  "same_shared_fields": 4824,
+  "shared_columns": 28,
+  "same_sequence_for_matching_id": 11684
+}

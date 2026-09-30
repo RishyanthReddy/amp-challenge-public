@@ -1,0 +1,17 @@
+{
+  "verified_models": 2,
+  "loaded_models": true,
+  "sequence": "KWKLFKKIGAVLKVL",
+  "prediction": {
+    "pred_amp_probability": 0.9955,
+    "uncertainty_amp_std": 0.0075,
+    "pred_empirical_hemolysis_prob": 0.8817,
+    "uncertainty_hemo_std": 0.277,
+    "biophysical_membrane_disruption_proxy": 0.542,
+    "pred_toxicity_risk": 0.7119
+  },
+  "runtime": {
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.3"
+  }
+}

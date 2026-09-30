@@ -46,9 +46,9 @@ recorded in [the verification report](FULL_REPLAY_VERIFICATION.md).
 
 ## 3. Research workflow with additional inputs
 
-Additional inputs are required: curated training tables, AMP/RBC forests and baseline
-checkpoints are omitted. These commands document the research workflow and cannot run
-from the public checkout alone. See [source access](DATA_ACCESS.md).
+The original forests are included. Restore all raw inputs and rebuild the curated views
+using the source and replay guides below. Historical selection additionally needs the
+archived audited/APEX-scored candidate pool; new experiments produce their own candidate tables. See [source access](DATA_ACCESS.md) and [the isolated replay guide](RESEARCH_REPLAY.md).
 
 These stages write research outputs. Run them in an isolated checkout if preserving a
 previous candidate pool. Full regeneration needs curated training partitions, all evaluator

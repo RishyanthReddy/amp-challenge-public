@@ -27,7 +27,7 @@ BSD-3-Clause; its notice is retained in [licenses/PROGEN_BSD_3_CLAUSE.txt](../li
 
 | Component | Availability | Purpose |
 | --- | --- | --- |
-| AMP / RBC forests | Not bundled | Required to repeat activity and hemolysis scoring |
+| AMP / RBC forests | Original files in `shared-evaluator/models/`, with hash manifest | Repeat activity and hemolysis scoring without retraining |
 | APEX | Eight weights and source in `diffusion-models/apex/` | Pathogen MIC prediction; weights match upstream fingerprints and retain the MIT notice |
 | HydrAMP | Source adapter only; checkpoint and decomposer omitted | Research baseline; excluded from submitted sequence ancestry |
 | AMP-Diffusion | Source and hash-pinned checkpoint download helper | Research baseline; excluded from submitted sequence ancestry |
@@ -36,6 +36,17 @@ APEX uses a separate locked environment. Its asset provenance is recorded in
 [APEX_WEIGHT_PROVENANCE.json](license_evidence/APEX_WEIGHT_PROVENANCE.json).
 Read the [HydrAMP](../vae-latent-models/README.md) and
 [diffusion](../diffusion-models/README.md) guides for baseline requirements.
+
+Verify the original forest files without loading them:
+
+```bash
+uv run python scripts/verify_evaluator_assets.py
+uv run --project shared-evaluator --locked --python 3.12 python \
+  scripts/verify_evaluator_assets.py --smoke
+```
+
+The [model manifest](../shared-evaluator/models/ASSET_MANIFEST.json) pins the original
+AMP/RBC assets and runtime. These files reproduced byte-for-byte in the historical replay.
 
 ## Data and licenses
 

@@ -1,0 +1,55 @@
+{
+  "scope": "Exact archived inputs used by the 2026-09-28 training/evolution replay. Processed mixed-source tables are not a new permissively licensed corpus.",
+  "inputs": [
+    {
+      "path": "data-engineering/data/processed/views/autoregressive_view.parquet",
+      "bytes": 932674,
+      "sha256": "1aca93329a89cff8bf5a3d88284cf35fadc638f648b165512d54ff632e6db191"
+    },
+    {
+      "path": "data-engineering/data/processed/views/evaluator_view.parquet",
+      "bytes": 1487312,
+      "sha256": "869bca0b1ae6df333eb17dd64c770e452200edde07ae62555a7f52c6071e45c7"
+    },
+    {
+      "path": "data-engineering/data/processed/toxicity.parquet",
+      "bytes": 63087,
+      "sha256": "2d3c307bffcb4bb5276872115d5936cd9cb716bae91eacb9ff1102bd5108f141"
+    },
+    {
+      "path": "data-engineering/data/processed/sequences.parquet",
+      "bytes": 2915233,
+      "sha256": "24a863ed7c55331b1a9972f1ccf4df030d82af0453388cb67f2ee59cbb9d8098"
+    },
+    {
+      "path": "evolutionary-search/data/evolution_seeds.csv",
+      "bytes": 17283,
+      "sha256": "cf945c5c952d2223b454dad6d12e28c8b479787fe2ea4dd75e5be1c4fd44f5a6"
+    },
+    {
+      "path": "data-engineering/data/challenge/antibacterial.fasta",
+      "bytes": 4318298,
+      "sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9"
+    },
+    {
+      "path": "vae-latent-models/data/training/Uniprot_0_25_train.csv",
+      "bytes": 9140400,
+      "sha256": "1af551c81bb7252a88abf489083a226aba1d02b6049436171dffee672bd11c32"
+    },
+    {
+      "path": "vae-latent-models/data/training/Uniprot_0_25_val.csv",
+      "bytes": 1142856,
+      "sha256": "4c854b98795a19cc154b72b36d2ead8ab6c5c427a4e7050bae5065dacd550565"
+    },
+    {
+      "path": "vae-latent-models/data/training/Uniprot_0_25_test.csv",
+      "bytes": 1142642,
+      "sha256": "903ca81d66b50f5af1860f6f69d7f6b8aa883cf92a4230d6fea9c5ead152efe8"
+    },
+    {
+      "path": "data-engineering/data/processed/provenance.csv",
+      "bytes": 43195917,
+      "sha256": "6800dee3dd757e9d68e24ed170bbe1128b26fa7b8a85aaafe59a70858688b768"
+    }
+  ]
+}

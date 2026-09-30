@@ -7,10 +7,17 @@ assays.
 
 ## Inputs and environment
 
-Curated training views, negative partitions and the AMP/RBC forest files are not bundled
-in this public checkout. The training and full-scoring commands require these additional
-inputs; see [source access](../docs/DATA_ACCESS.md) and
-[model cards](reports/model_cards.md). The eight APEX weights are included separately.
+The original AMP/RBC forests and eight APEX weights are included. Verify the forests and
+score a fixed peptide in the original locked environment:
+
+```bash
+uv run --project shared-evaluator --locked --python 3.12 python \
+  scripts/verify_evaluator_assets.py --smoke
+```
+
+Curated training views are not bundled publicly. The exact negative partitions can be
+downloaded from their pinned public source; see [source access](../docs/DATA_ACCESS.md),
+[model files](models/README.md) and [model cards](reports/model_cards.md).
 
 ## Training workflow
 
@@ -44,6 +51,7 @@ The recorded master table contained 12,756 unique valid candidates with 11-patho
 APEX coverage for all 7,655 candidates passing the novelty and synthesis ranking gates.
 Those totals describe the wider four-generator research pool; the submitted entry retains
 only eligible ProGen2/evolution sequences. Input, code, model and output hashes are recorded
-in `reports/master_evaluation_manifest.json`. Raw scored tables and forest assets remain in
-the private archive, so their physical verifier is not a fresh-public-clone command.
+in `reports/master_evaluation_manifest.json`. Raw scored tables remain in the private
+archive, so their physical verifier is not a fresh-public-clone command. The included
+forest files have a separate hash manifest and verification command above.
 Root `uv run generate` exports the frozen selected tables; it does not run this evaluator.

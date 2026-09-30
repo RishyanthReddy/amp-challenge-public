@@ -1,0 +1,41 @@
+{
+  "A. baumannii ATCC 19606":{
+    "KWKLFKKIGAVLKVL":10.962618
+  },
+  "E. coli ATCC 11775":{
+    "KWKLFKKIGAVLKVL":31.228725
+  },
+  "E. coli AIC221":{
+    "KWKLFKKIGAVLKVL":12.930352
+  },
+  "E. coli AIC222":{
+    "KWKLFKKIGAVLKVL":35.48508
+  },
+  "K. pneumoniae ATCC 13883":{
+    "KWKLFKKIGAVLKVL":54.83972
+  },
+  "P. aeruginosa PA01":{
+    "KWKLFKKIGAVLKVL":133.09616
+  },
+  "P. aeruginosa PA14":{
+    "KWKLFKKIGAVLKVL":50.849125
+  },
+  "S. aureus ATCC 12600":{
+    "KWKLFKKIGAVLKVL":172.11421
+  },
+  "S. aureus (ATCC BAA-1556) - MRSA":{
+    "KWKLFKKIGAVLKVL":105.03757
+  },
+  "vancomycin-resistant E. faecalis ATCC 700802":{
+    "KWKLFKKIGAVLKVL":203.93767
+  },
+  "vancomycin-resistant E. faecium ATCC 700221":{
+    "KWKLFKKIGAVLKVL":7.066092
+  },
+  "apex_mean_mic":{
+    "KWKLFKKIGAVLKVL":74.322
+  },
+  "apex_min_mic":{
+    "KWKLFKKIGAVLKVL":7.066
+  }
+}

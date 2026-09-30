@@ -12,10 +12,12 @@
 - [Data card](../data-engineering/data/DATA_CARD.md) and [source manifest](TRAINING_SOURCE_MANIFEST.csv).
 - [Training-source inventory](training_source_scope.json).
 - [Activity and hemolysis model cards](../shared-evaluator/reports/model_cards.md).
+- [Isolated research replay](RESEARCH_REPLAY.md) and [completion checklist](REPRODUCIBILITY_TODO.md).
 - [Source access](DATA_ACCESS.md) and [record membership](training_provenance/README.md).
 
 ## Verification evidence
 
+- [Original-library replay and raw-data rebuild](ORIGINAL_LIBRARY_REPLAY.md).
 - [Historical training-to-selection replay](FULL_REPLAY_VERIFICATION.md).
 - [Checkpoint inference check](INFERENCE_REPLAY.md).
 - [Submitted artifact manifest](FINAL_HANDOFF_MANIFEST.json).

@@ -1,46 +1,57 @@
 # Obtaining the training sources
 
-## Distribution approach
-This public release discloses third-party public training sources and processing code without mirroring the raw databases, except the exact AMPlify file whose deposit license was verified. The official challenge requires full training-data disclosure and permissive release of any non-public data. We interpret disclosure plus original-source access instructions as an appropriate approach for public data; this interpretation is not an organizer ruling. It does not waive applicable source terms or cover genuinely non-public inputs.
+The original files are retained in the research archive. All 11 raw source files still match the historical source manifest. Missing acquisition dates, provider version labels and export queries remain unknown; file loss is not the issue. Research on 2026-09-29 recovered identical public copies of several inputs.
 
-## Access routes
+## Restore and verify inputs
 
-### DBAASP
-Visit https://dbaasp.org/ (current service: https://dbaasp.dbaasp.niaidprod.net/). Obtain the peptide CSV/FASTA and associated activity, hemolysis/cytotoxicity and antibiofilm exports corresponding to the filenames below. See the site's search/export interface and API documentation. Exact historical export queries and acquisition dates are not recorded; a current export cannot be assumed identical. Current terms permit redistribution with acknowledgment: https://dbaasp.dbaasp.niaidprod.net/terms-and-conditions . Cite DBAASP v3, DOI 10.1093/nar/gkaa991.
+The [download manifest](training_sources.json) records 14 inputs: 11 raw database files and three UniProt negative partitions. It supplements [the historical inventory](TRAINING_SOURCE_MANIFEST.csv) without inventing acquisition dates.
 
-### DRAMP
-Use https://dramp.cpu-bioinfor.org/downloads/ . The page provides General and Antibacterial XLSX/FASTA exports. Our historical filenames differ from some current labels: use the manifest to identify the historical expected inputs, not filename matching alone. The site states CC BY 4.0 alongside a patent-AMP authorization caveat; retain this caveat and do not infer patent clearance. We do not redistribute those raw exports in this public checkout. Exact historic download versions remain unknown.
+```bash
+# Restore all 14 exact inputs: retained snapshots plus pinned public downloads.
+uv run python scripts/fetch_training_sources.py
 
-### dbAMP
-Use the provider's download pages: https://ycclab.cuhk.edu.cn/dbAMP/download2024.php (3.0) and https://ycclab.cuhk.edu.cn/dbAMP/download.php (2.0). Obtain the provider's sequence/annotation export under its terms. Our local dbamp_df.csv is a pre-existing CSV with columns Name, Source, Length, Activity, Hemolytic Activity, UniprotKB ID/AC, Sequence, Description, Taxonomy, Experimental Evidence, Target and PubMed. The original export-to-CSV acquisition procedure and version are not recorded. Do not represent a newly downloaded version as the historical training input. Terms: https://ycclab.cuhk.edu.cn/dbAMP/download/LICENSE . Academic use is stated; the original data remains provider-hosted.
+# Verify every input without network access.
+uv run python scripts/fetch_training_sources.py --verify-only
+```
 
-### AMPlify
-The authors' deposit https://doi.org/10.5281/zenodo.7320306 contains AMPlify_AMP_train_common.fa under CC BY 4.0. The exact dataset file is accessible from https://zenodo.org/api/records/7320306/files/AMPlify_AMP_train_common.fa/content . Its bytes were checked against our local snapshot on 2026-09-29 and match exactly. SHA-256: a04e28f8d29d1bb4f445a6162e210e0999289c31bf93f2f13c8d2268c8dd9cdc. Attribute Li, Warren and Birol; cite https://doi.org/10.1186/s13104-023-06279-1 and the deposit. Indicate preprocessing changes.
+The first command verifies the included snapshots and fetches missing pinned inputs. The second fails unless all 14 files are present with matching sizes and SHA-256 hashes. Existing mismatches are never overwritten. Downloads are staged and checked before installation; a current export with changed bytes is rejected. Downloaded DRAMP, dbAMP and UniProt files are ignored by Git in this public checkout.
 
-### Evaluator negatives / released HydrAMP data
-The existing project uses UniProt-derived negative partitions distributed with HydrAMP, rather than a newly sampled UniProt download. Original asset entry points are https://github.com/szczurek-lab/hydramp and https://doi.org/10.5281/zenodo.7420189 . UniProt terms: https://www.uniprot.org/help/license . The precise partition hashes are recorded in shared-evaluator/reports/training_data_summary.json. Do not substitute a current UniProt query and call it the same training partition. This public release does not bundle the copied HydrAMP data tree; exact archive-file mapping still needs verification.
+For individual inputs, use `--id dbamp_dbamp_df`, `--id uniprot_train`, or another ID in the manifest. `--root /path/to/isolated-checkout` restores files into a separate workspace. Read the source terms below before use.
 
-## Snapshot inventory
-Paths below are relative to data-engineering/. The public source manifest retains unknown dates/versions explicitly.
+## DBAASP: retained exports included
 
-| Source | Expected local input | SHA-256 |
-|---|---|---|
-| DBAASP | `data/raw/DBAASP/activity-against-target-species.csv` | `d871e664d194ca155a39d9bbff564b73b30783c8afc53f26a0422c0d0aea24f9` |
-| DBAASP | `data/raw/DBAASP/hemolytic-and-cytotoxic-activities.csv` | `987ea27c1ed86ec7ddb6868d94d40d41f26a689cf0b72a9241e6d76968f1e921` |
-| DBAASP | `data/raw/DBAASP/peptides-antibiofilm-activities.csv` | `d07f34e5efc1bec91a661ee9df412bc22d4dbd78141b59b2f81b5640b0cbb5a9` |
-| DBAASP | `data/raw/DBAASP/peptides-fasta.txt` | `607a3dc32237f0869683532093b10478fba2b391406409235f05212b52ff437d` |
-| DBAASP | `data/raw/DBAASP/peptides.csv` | `4377a3434ff0fbb6e52b24d01f32df1b9e74e0b462aa5c0f761f6a51bb518277` |
-| DRAMP | `data/raw/DRAMP/Antibacterial_amps.fasta` | `a0d484eb6176e123298d19d06f23ccc6398a1f5c75d169cccbbf7590a6e6c835` |
-| DRAMP | `data/raw/DRAMP/Antibacterial_amps.xlsx` | `2b6c79485618439877e06bcaedc79fe4c647fd3be36129cc1cef91a70d0421f5` |
-| DRAMP | `data/raw/DRAMP/general_amps.fasta` | `5915e91b3501c41a914a05403dfd2a435af59116ffb738a8423d34995a2b9c26` |
-| DRAMP | `data/raw/DRAMP/general_amps.xlsx` | `205b13ba026f54e69d598fa53a54c21a279613d516c70e9cd7598307c8c18925` |
-| AMPlify training common export | `data/raw/amplify/AMPlify_AMP_train_common.fa` | `a04e28f8d29d1bb4f445a6162e210e0999289c31bf93f2f13c8d2268c8dd9cdc` |
-| dbAMP | `data/raw/dbamp/dbamp_df.csv` | `d7a1eede4c6c9d87605145c6b1854d1f1918564d0db58cb756ee330947f5a688` |
+The five original peptide and assay exports are included in `data-engineering/data/raw/DBAASP/`, unchanged and with [attribution](../data-engineering/data/raw/DBAASP/ATTRIBUTION.md). Their original export queries and acquisition dates were not recorded. The [current DBAASP terms](https://dbaasp.dbaasp.niaidprod.net/terms-and-conditions), reviewed 2026-09-29, permit access, copying, adaptation and redistribution with acknowledgment. Cite *DBAASP v3*, DOI [10.1093/nar/gkaa991](https://doi.org/10.1093/nar/gkaa991). These inputs retain their source terms; MIT does not replace them.
 
-## Processing and reproducibility scope
-The existing implementation is documented in data-engineering/README.md and data-engineering/src/amp_data/. It reads immutable inputs and produces normalized records, provenance, assay tables and declared splits. Inspect that documentation and source configuration after obtaining the inputs under their applicable terms. Compare downloaded file hashes with TRAINING_SOURCE_MANIFEST.csv before claiming exact historical reproduction.
+## DRAMP: antibacterial copies match, general copies differ
 
-The submitted FASTAs and frozen export inputs are distributed separately from training records. Root export repeatability does not depend on downloading raw databases. Exact full historical training reconstruction from current provider downloads is not established because some original snapshots/queries are unknown. No private data should be relabeled public merely because its upstream database is public.
+The [DRAMP download service](https://dramp.cpu-bioinfor.org/downloads/) currently supplies antibacterial XLSX/FASTA files that match the project's originals byte-for-byte. The helper pins those URLs and hashes.
 
-## Included exact snapshot and identifiers
-The exact AMPlify training FASTA is included at `data-engineering/data/raw/amplify/AMPlify_AMP_train_common.fa`, with adjacent CC BY 4.0 attribution. Other raw databases are not mirrored. [AR source identifiers](training_provenance/AR_TRAINING_SOURCE_IDS.csv) cover all 26,699 sequences in the current AR training view; [summary](training_provenance/PROVENANCE_SUMMARY.json) records hashes and audit scope.
+Today's general XLSX contains 12,784 rows, compared with 11,687 in the retained file. Of the old IDs, 11,684 sequences match and only 4,824 rows match all 28 shared fields. Both current general files have different hashes. They cannot replace the historical inputs for exact reconstruction. The two unchanged old General files are now included with [source attribution](../data-engineering/data/raw/DRAMP/ATTRIBUTION.md), CC BY 4.0 and original author/reference fields. No exact current-provider download is asserted. File-internal timestamps are not evidence of when the project acquired them.
+
+The [DRAMP home page](https://dramp.cpu-bioinfor.org/) states CC BY 4.0 and separately asks researchers to cite original authors for general/clinical records or obtain authorization for patent AMPs. Retain original record references and this caveat. CC BY 4.0 does not grant patent rights. Matching content or including source IDs does not resolve that caveat. The retained general XLSX has zero accession overlaps with today's 18,715-record Patent export. This supports General/Patent record separation, not patent clearance. The public checkout includes only the retained General files; antibacterial and patent exports are not mirrored.
+
+## dbAMP: identical public archive recovered
+
+The exact `dbamp_df.csv` was found in [BioGenies/CancerGram-analysis](https://github.com/BioGenies/CancerGram-analysis/blob/210206b9762bbc82a45436e9743516753bfaa59f/data/dbamp_df.csv), pinned to commit `210206b9762bbc82a45436e9743516753bfaa59f` (2020-11-05). The downloaded 4,818,154-byte file matches SHA-256 `d7a1eede4c6c9d87605145c6b1854d1f1918564d0db58cb756ee330947f5a688`.
+
+This establishes an exact public retrieval route. It does not establish the project's original acquisition route/date or the provider release that produced it. The archive has no declared root license. The [provider terms](https://ycclab.cuhk.edu.cn/dbAMP/download/LICENSE) state free academic use; a broad redistribution grant has not been established. Use the pinned download under applicable source terms rather than publishing a new mirror.
+
+The retained provenance links 1,725 AR training sequences only to dbAMP. Omitting the source file or its name would not remove those sequences' influence from the existing checkpoint.
+
+## AMPlify: exact CC BY 4.0 deposit included
+
+The authors' [Zenodo deposit 7320306](https://doi.org/10.5281/zenodo.7320306) supplies `AMPlify_AMP_train_common.fa` under CC BY 4.0. The exact file is included with [attribution](../data-engineering/data/raw/amplify/ATTRIBUTION.md); the manifest also provides its verified download URL. Attribute Chenkai Li, Rene L. Warren and Inanc Birol, cite [their paper](https://doi.org/10.1186/s13104-023-06279-1), and indicate preprocessing changes. The dataset license is distinct from AMPlify's GPL software license.
+
+## UniProt-derived evaluator negatives: exact organizer partitions
+
+The three `Uniprot_0_25_{train,val,test}.csv` files are exact matches to the [organizer HydrAMP starter kit](https://github.com/szczurek-lab/hydramp-starter-kit/tree/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training), pinned to commit `7804df862872ccc6d09fe01c41bafbca194cfa31`. The helper restores them under `vae-latent-models/data/training/`, their historical evaluator input path. They are unlabeled proteins used as negative examples, not experimentally confirmed inactive peptides.
+
+A previous guide linked Zenodo 7420189; that record is a HydrAMP software archive, not the verified location of these CSVs. The precise CSV hashes now appear in the download manifest. Retain [UniProt attribution and license](https://www.uniprot.org/help/license) and acknowledge the HydrAMP authors. A new UniProt query is not the same training partition.
+
+## Processed inputs and reconstruction
+
+Data processing is documented in [data-engineering](../data-engineering/README.md). The private archive retains the exact processed AR/evaluator views, toxicity table, sequence table and provenance. All 14 raw/evaluator-negative inputs can now be restored from included snapshots and pinned downloads. Their hashes are disclosed in the training summaries and source-recovery evidence. Most mixed-source processed tables are not mirrored publicly. They can be rebuilt from the restored inputs: [value verification](ORIGINAL_LIBRARY_REPLAY.md) confirms the original columns, dtypes and ordered data, with source-path separators normalized. Both evaluator refits then recover the original model files. DRAMP/dbAMP use questions remain separately unresolved. Changing the data and retraining would create a different checkpoint and submission.
+
+The public release contains the original AMP/RBC forests, so inference with those models does not require retraining. [Model verification](assets.md) and [the replay guide](RESEARCH_REPLAY.md) describe what is executable and what still needs archived inputs. The root exporter is separately reproducible from frozen selected tables.
+
+See [source recovery evidence](verification/source_recovery_20260929/README.md) and [training membership](training_provenance/README.md). Exact hashes and public access improve reproducibility; they do not establish source-use clearance or guarantee co-authorship. The organizers decide eligibility.

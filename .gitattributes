@@ -1,0 +1,3 @@
+
+# Retained snapshots must keep their original bytes across platforms.
+data-engineering/data/raw/** -text

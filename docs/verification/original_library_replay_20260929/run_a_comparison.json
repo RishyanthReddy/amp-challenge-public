@@ -1,0 +1,15 @@
+{
+  "run": "A",
+  "full_replay_rows": 60000,
+  "historical_prefix_rows": 51069,
+  "historical_raw_sha256": "b10089eecd412cf3224b5f02adb91e65441c47982ccafacf047fb2630147f975",
+  "replayed_prefix_sha256": "b10089eecd412cf3224b5f02adb91e65441c47982ccafacf047fb2630147f975",
+  "byte_identical": true,
+  "scope": "Completed original 60000-attempt schedule, then retained its first 51069 rows for comparison with the historically interrupted file.",
+  "ppl_historical_sha256": "aca03588b6d0c4551cbeabb67e09af1b65e82e56ec0610e257cee251426c23b8",
+  "ppl_replayed_sha256": "aca03588b6d0c4551cbeabb67e09af1b65e82e56ec0610e257cee251426c23b8",
+  "ppl_csv_byte_identical": true,
+  "ppl_retained_rows": 51069,
+  "ppl_pass_rows": 51069,
+  "ppl_max_perplexity": 100
+}

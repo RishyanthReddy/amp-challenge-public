@@ -1,0 +1,12 @@
+=======================================================
+ AMP Challenge 2027: Comprehensive Submission Verifier
+=======================================================
+
+[1] Auditing library at: /private<isolated-replay>/workspace/portfolio-selection/outputs/challenger_exact_original_20260929/fasta/library.fasta
+[2] Auditing top list at: /private<isolated-replay>/workspace/portfolio-selection/outputs/challenger_exact_original_20260929/fasta/top.fasta
+    v Novelty check passed: max similarity to reference is 0.8000 <= 0.80
+    v Internal Top-100 similarity passed: max is 0.7778 <= 0.80
+
+=======================================================
+ ALL SUBMISSION INVARIANTS RIGOROUSLY VERIFIED (PASS)
+=======================================================

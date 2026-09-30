@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "scope": "Exact raw source snapshots and evaluator negative partitions. Retrieval hashes do not grant rights or prove original acquisition dates.",
+  "inputs": [
+    {
+      "id": "dbaasp_activity_against_target_species",
+      "source": "DBAASP",
+      "path": "data-engineering/data/raw/DBAASP/activity-against-target-species.csv",
+      "bytes": 2359042,
+      "sha256": "d871e664d194ca155a39d9bbff564b73b30783c8afc53f26a0422c0d0aea24f9",
+      "bundled": true,
+      "download_urls": [],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://dbaasp.dbaasp.niaidprod.net/terms-and-conditions",
+      "retrieval_note": "Retained original export, included with DBAASP acknowledgment. Original query unknown."
+    },
+    {
+      "id": "dbaasp_hemolytic_and_cytotoxic_activities",
+      "source": "DBAASP",
+      "path": "data-engineering/data/raw/DBAASP/hemolytic-and-cytotoxic-activities.csv",
+      "bytes": 145639,
+      "sha256": "987ea27c1ed86ec7ddb6868d94d40d41f26a689cf0b72a9241e6d76968f1e921",
+      "bundled": true,
+      "download_urls": [],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://dbaasp.dbaasp.niaidprod.net/terms-and-conditions",
+      "retrieval_note": "Retained original export, included with DBAASP acknowledgment. Original query unknown."
+    },
+    {
+      "id": "dbaasp_peptides_antibiofilm_activities",
+      "source": "DBAASP",
+      "path": "data-engineering/data/raw/DBAASP/peptides-antibiofilm-activities.csv",
+      "bytes": 11983,
+      "sha256": "d07f34e5efc1bec91a661ee9df412bc22d4dbd78141b59b2f81b5640b0cbb5a9",
+      "bundled": true,
+      "download_urls": [],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://dbaasp.dbaasp.niaidprod.net/terms-and-conditions",
+      "retrieval_note": "Retained original export, included with DBAASP acknowledgment. Original query unknown."
+    },
+    {
+      "id": "dbaasp_peptides_fasta",
+      "source": "DBAASP",
+      "path": "data-engineering/data/raw/DBAASP/peptides-fasta.txt",
+      "bytes": 111935,
+      "sha256": "607a3dc32237f0869683532093b10478fba2b391406409235f05212b52ff437d",
+      "bundled": true,
+      "download_urls": [],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://dbaasp.dbaasp.niaidprod.net/terms-and-conditions",
+      "retrieval_note": "Retained original export, included with DBAASP acknowledgment. Original query unknown."
+    },
+    {
+      "id": "dbaasp_peptides",
+      "source": "DBAASP",
+      "path": "data-engineering/data/raw/DBAASP/peptides.csv",
+      "bytes": 254732,
+      "sha256": "4377a3434ff0fbb6e52b24d01f32df1b9e74e0b462aa5c0f761f6a51bb518277",
+      "bundled": true,
+      "download_urls": [],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://dbaasp.dbaasp.niaidprod.net/terms-and-conditions",
+      "retrieval_note": "Retained original export, included with DBAASP acknowledgment. Original query unknown."
+    },
+    {
+      "id": "dramp_Antibacterial_amps_fasta",
+      "source": "DRAMP",
+      "path": "data-engineering/data/raw/DRAMP/Antibacterial_amps.fasta",
+      "bytes": 1072625,
+      "sha256": "a0d484eb6176e123298d19d06f23ccc6398a1f5c75d169cccbbf7590a6e6c835",
+      "bundled": false,
+      "download_urls": [
+        "https://dramp.cpu-bioinfor.org/downloads/download.php?filename=download_data%2FDRAMP3.0_new%2FAntibacterial_amps.fasta"
+      ],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://dramp.cpu-bioinfor.org/",
+      "retrieval_note": "CC BY 4.0 statement and separate patent-data authorization caveat. No patent clearance inferred. Current antibacterial export matches original bytes."
+    },
+    {
+      "id": "dramp_Antibacterial_amps_xlsx",
+      "source": "DRAMP",
+      "path": "data-engineering/data/raw/DRAMP/Antibacterial_amps.xlsx",
+      "bytes": 1853664,
+      "sha256": "2b6c79485618439877e06bcaedc79fe4c647fd3be36129cc1cef91a70d0421f5",
+      "bundled": false,
+      "download_urls": [
+        "https://dramp.cpu-bioinfor.org/downloads/download.php?filename=download_data%2FDRAMP3.0_new%2FAntibacterial_amps.xlsx"
+      ],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://dramp.cpu-bioinfor.org/",
+      "retrieval_note": "CC BY 4.0 statement and separate patent-data authorization caveat. No patent clearance inferred. Current antibacterial export matches original bytes."
+    },
+    {
+      "id": "dramp_general_amps_fasta",
+      "source": "DRAMP",
+      "path": "data-engineering/data/raw/DRAMP/general_amps.fasta",
+      "bytes": 445659,
+      "sha256": "5915e91b3501c41a914a05403dfd2a435af59116ffb738a8423d34995a2b9c26",
+      "bundled": true,
+      "download_urls": [],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": null,
+      "terms_url": "https://dramp.cpu-bioinfor.org/",
+      "retrieval_note": "Retained original General export included with CC BY 4.0/source attribution and original author/reference fields. Current provider export differs; no original acquisition date or release label is inferred. Patent-source authorization caveat remains separately disclosed."
+    },
+    {
+      "id": "dramp_general_amps_xlsx",
+      "source": "DRAMP",
+      "path": "data-engineering/data/raw/DRAMP/general_amps.xlsx",
+      "bytes": 2773355,
+      "sha256": "205b13ba026f54e69d598fa53a54c21a279613d516c70e9cd7598307c8c18925",
+      "bundled": true,
+      "download_urls": [],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": null,
+      "terms_url": "https://dramp.cpu-bioinfor.org/",
+      "retrieval_note": "Retained original General export included with CC BY 4.0/source attribution and original author/reference fields. Current provider export differs; no original acquisition date or release label is inferred. Patent-source authorization caveat remains separately disclosed."
+    },
+    {
+      "id": "amplify_AMPlify_AMP_train_common",
+      "source": "AMPlify",
+      "path": "data-engineering/data/raw/amplify/AMPlify_AMP_train_common.fa",
+      "bytes": 141696,
+      "sha256": "a04e28f8d29d1bb4f445a6162e210e0999289c31bf93f2f13c8d2268c8dd9cdc",
+      "bundled": true,
+      "download_urls": [
+        "https://zenodo.org/api/records/7320306/files/AMPlify_AMP_train_common.fa/content"
+      ],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://creativecommons.org/licenses/by/4.0/",
+      "retrieval_note": "Exact authors deposit, CC BY 4.0; Li, Warren and Birol, Zenodo DOI 10.5281/zenodo.7320306."
+    },
+    {
+      "id": "dbamp_dbamp_df",
+      "source": "dbAMP",
+      "path": "data-engineering/data/raw/dbamp/dbamp_df.csv",
+      "bytes": 4818154,
+      "sha256": "d7a1eede4c6c9d87605145c6b1854d1f1918564d0db58cb756ee330947f5a688",
+      "bundled": false,
+      "download_urls": [
+        "https://raw.githubusercontent.com/BioGenies/CancerGram-analysis/210206b9762bbc82a45436e9743516753bfaa59f/data/dbamp_df.csv"
+      ],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://ycclab.cuhk.edu.cn/dbAMP/download/LICENSE",
+      "retrieval_note": "Byte-identical public research archive; not evidence of original acquisition route or a new redistribution grant. Archive has no declared root license."
+    },
+    {
+      "id": "uniprot_train",
+      "source": "UniProt-derived HydrAMP partition",
+      "path": "vae-latent-models/data/training/Uniprot_0_25_train.csv",
+      "bytes": 9140400,
+      "sha256": "1af551c81bb7252a88abf489083a226aba1d02b6049436171dffee672bd11c32",
+      "bundled": false,
+      "download_urls": [
+        "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/Uniprot_0_25_train.csv"
+      ],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://www.uniprot.org/help/license",
+      "retrieval_note": "Exact organizer starter-kit partition; current UniProt query is not a substitute. UniProt CC BY 4.0, acknowledge HydrAMP authors."
+    },
+    {
+      "id": "uniprot_val",
+      "source": "UniProt-derived HydrAMP partition",
+      "path": "vae-latent-models/data/training/Uniprot_0_25_val.csv",
+      "bytes": 1142856,
+      "sha256": "4c854b98795a19cc154b72b36d2ead8ab6c5c427a4e7050bae5065dacd550565",
+      "bundled": false,
+      "download_urls": [
+        "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/Uniprot_0_25_val.csv"
+      ],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://www.uniprot.org/help/license",
+      "retrieval_note": "Exact organizer starter-kit partition; current UniProt query is not a substitute. UniProt CC BY 4.0, acknowledge HydrAMP authors."
+    },
+    {
+      "id": "uniprot_test",
+      "source": "UniProt-derived HydrAMP partition",
+      "path": "vae-latent-models/data/training/Uniprot_0_25_test.csv",
+      "bytes": 1142642,
+      "sha256": "903ca81d66b50f5af1860f6f69d7f6b8aa883cf92a4230d6fea9c5ead152efe8",
+      "bundled": false,
+      "download_urls": [
+        "https://raw.githubusercontent.com/szczurek-lab/hydramp-starter-kit/7804df862872ccc6d09fe01c41bafbca194cfa31/data/training/Uniprot_0_25_test.csv"
+      ],
+      "original_acquisition_date": "unknown",
+      "original_provider_version": "unknown",
+      "retrieval_verified_on": "2026-09-29",
+      "terms_url": "https://www.uniprot.org/help/license",
+      "retrieval_note": "Exact organizer starter-kit partition; current UniProt query is not a substitute. UniProt CC BY 4.0, acknowledge HydrAMP authors."
+    }
+  ]
+}

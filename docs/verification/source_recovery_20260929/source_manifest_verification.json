@@ -1,0 +1,79 @@
+[
+  {
+    "path": "data/raw/DBAASP/activity-against-target-species.csv",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/DBAASP/hemolytic-and-cytotoxic-activities.csv",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/DBAASP/peptides-antibiofilm-activities.csv",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/DBAASP/peptides-fasta.txt",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/DBAASP/peptides.csv",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/DRAMP/Antibacterial_amps.fasta",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/DRAMP/Antibacterial_amps.xlsx",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/DRAMP/general_amps.fasta",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/DRAMP/general_amps.xlsx",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/amplify/AMPlify_AMP_train_common.fa",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "3a07713c25b8a21ef66d31d10e121989d26d9320",
+    "known_download_date": "unknown_preexisting_local_file"
+  },
+  {
+    "path": "data/raw/dbamp/dbamp_df.csv",
+    "retained": true,
+    "manifest_hash_matches": true,
+    "known_source_version": "version not embedded in local export",
+    "known_download_date": "unknown_preexisting_local_file"
+  }
+]

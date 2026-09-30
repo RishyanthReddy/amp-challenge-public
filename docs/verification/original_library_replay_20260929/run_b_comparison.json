@@ -1,0 +1,15 @@
+{
+  "run": "B",
+  "full_replay_rows": 85000,
+  "historical_rows": 85000,
+  "historical_raw_sha256": "21fb48389d0caafdcd4e049981822442984a89f5ea63f5f77ec546164a6db3c5",
+  "replayed_raw_sha256": "21fb48389d0caafdcd4e049981822442984a89f5ea63f5f77ec546164a6db3c5",
+  "raw_csv_byte_identical": true,
+  "scope": "Completed original 85000-attempt schedule; all raw CSV bytes compared with historical run.",
+  "ppl_historical_sha256": "0b8cafc261b94cfcbed28a2d2c1ea87735d3c6bebbee1e307df922eccddbe0aa",
+  "ppl_replayed_sha256": "0b8cafc261b94cfcbed28a2d2c1ea87735d3c6bebbee1e307df922eccddbe0aa",
+  "ppl_csv_byte_identical": true,
+  "ppl_retained_rows": 85000,
+  "ppl_pass_rows": 85000,
+  "ppl_max_perplexity": 100
+}

@@ -1,0 +1,77 @@
+{
+  "scope": "Raw ingestion/curation replay using the exact retained 11 source files. Curated model inputs compared to archived fingerprints and DataFrames; not new training or a rights grant.",
+  "comparisons": [
+    {
+      "path": "data-engineering/data/processed/views/autoregressive_view.parquet",
+      "old_sha256": "1aca93329a89cff8bf5a3d88284cf35fadc638f648b165512d54ff632e6db191",
+      "new_sha256": "c9d9515346392b93b6cd5211800ef73612b22cf333afe42448e3097a22a116e5",
+      "byte_identical": false,
+      "rows_old": 27509,
+      "rows_new": 27509,
+      "dataframe_identical": true,
+      "differing_columns": [],
+      "old_parquet_writer": "parquet-cpp-arrow version 23.0.0",
+      "new_parquet_writer": "parquet-cpp-arrow version 25.0.1"
+    },
+    {
+      "path": "data-engineering/data/processed/views/evaluator_view.parquet",
+      "old_sha256": "869bca0b1ae6df333eb17dd64c770e452200edde07ae62555a7f52c6071e45c7",
+      "new_sha256": "1b0dadca56ab530e17d5bdf97cf5102a19aec7a58e9e305814c4115fdf268f6c",
+      "byte_identical": false,
+      "rows_old": 27509,
+      "rows_new": 27509,
+      "dataframe_identical": true,
+      "differing_columns": [],
+      "old_parquet_writer": "parquet-cpp-arrow version 23.0.0",
+      "new_parquet_writer": "parquet-cpp-arrow version 25.0.1"
+    },
+    {
+      "path": "data-engineering/data/processed/toxicity.parquet",
+      "old_sha256": "2d3c307bffcb4bb5276872115d5936cd9cb716bae91eacb9ff1102bd5108f141",
+      "new_sha256": "53904c5996deb09979a2f262a5940de1b4cf7bf6c3b59d8db4e13c22bd50ff23",
+      "byte_identical": false,
+      "rows_old": 1609,
+      "rows_new": 1609,
+      "dataframe_identical": false,
+      "differing_columns": [
+        "source_file"
+      ],
+      "old_parquet_writer": "parquet-cpp-arrow version 23.0.0",
+      "new_parquet_writer": "parquet-cpp-arrow version 25.0.1",
+      "identical_after_source_path_separator_normalization": true,
+      "path_only_difference_confirmed": true
+    },
+    {
+      "path": "data-engineering/data/processed/sequences.parquet",
+      "old_sha256": "24a863ed7c55331b1a9972f1ccf4df030d82af0453388cb67f2ee59cbb9d8098",
+      "new_sha256": "45c43ed7ab88866f4a3021589e6c289bb59e23f0eeb1f4877e7f94865d50aad1",
+      "byte_identical": false,
+      "rows_old": 38678,
+      "rows_new": 38678,
+      "dataframe_identical": true,
+      "differing_columns": [],
+      "old_parquet_writer": "parquet-cpp-arrow version 23.0.0",
+      "new_parquet_writer": "parquet-cpp-arrow version 25.0.1"
+    },
+    {
+      "path": "data-engineering/data/challenge/antibacterial.fasta",
+      "old_sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9",
+      "new_sha256": "cbbeac64ba95746d87961e8ad9dd0849ae8058d15a300b2e7f6990730ca521e9",
+      "byte_identical": true
+    },
+    {
+      "path": "data-engineering/data/processed/provenance.csv",
+      "old_sha256": "6800dee3dd757e9d68e24ed170bbe1128b26fa7b8a85aaafe59a70858688b768",
+      "new_sha256": "a36f040f7c73ef9086e377b41577d20851f6379ed794599adcb2653a51361f3d",
+      "byte_identical": false,
+      "rows_old": 122581,
+      "rows_new": 122581,
+      "dataframe_identical": false,
+      "differing_columns": [
+        "source_file"
+      ],
+      "identical_after_source_path_separator_normalization": true,
+      "path_only_difference_confirmed": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "original_runner_sha256": "22045b357c2fdc284bbdc331a70e2ebb41db767393cd7f8e0b964a6ff961efd1",
+  "isolated_runner_sha256": "e43fbda9a5bb60009a16e20e43968b54aff2dfb11e0f0c90791bcf498680d13f",
+  "only_source_change": "volume name amp-models -> amp-replay-20260928; checkpoint bytes previously reproduced exactly",
+  "runs": {
+    "a": {
+      "requested_attempts": 60000,
+      "compare_prefix_rows": 51069,
+      "base_seed": 200000,
+      "batch_size": 64
+    },
+    "b": {
+      "requested_attempts": 85000,
+      "compare_prefix_rows": 85000,
+      "base_seed": 300000,
+      "batch_size": 64
+    }
+  }
+}

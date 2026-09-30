@@ -1,0 +1,71 @@
+{
+  "verified_inputs": 12,
+  "downloaded_inputs": 6,
+  "inputs": [
+    {
+      "id": "dbaasp_activity_against_target_species",
+      "path": "data-engineering/data/raw/DBAASP/activity-against-target-species.csv",
+      "sha256": "d871e664d194ca155a39d9bbff564b73b30783c8afc53f26a0422c0d0aea24f9"
+    },
+    {
+      "id": "dbaasp_hemolytic_and_cytotoxic_activities",
+      "path": "data-engineering/data/raw/DBAASP/hemolytic-and-cytotoxic-activities.csv",
+      "sha256": "987ea27c1ed86ec7ddb6868d94d40d41f26a689cf0b72a9241e6d76968f1e921"
+    },
+    {
+      "id": "dbaasp_peptides_antibiofilm_activities",
+      "path": "data-engineering/data/raw/DBAASP/peptides-antibiofilm-activities.csv",
+      "sha256": "d07f34e5efc1bec91a661ee9df412bc22d4dbd78141b59b2f81b5640b0cbb5a9"
+    },
+    {
+      "id": "dbaasp_peptides_fasta",
+      "path": "data-engineering/data/raw/DBAASP/peptides-fasta.txt",
+      "sha256": "607a3dc32237f0869683532093b10478fba2b391406409235f05212b52ff437d"
+    },
+    {
+      "id": "dbaasp_peptides",
+      "path": "data-engineering/data/raw/DBAASP/peptides.csv",
+      "sha256": "4377a3434ff0fbb6e52b24d01f32df1b9e74e0b462aa5c0f761f6a51bb518277"
+    },
+    {
+      "id": "dramp_Antibacterial_amps_fasta",
+      "path": "data-engineering/data/raw/DRAMP/Antibacterial_amps.fasta",
+      "sha256": "a0d484eb6176e123298d19d06f23ccc6398a1f5c75d169cccbbf7590a6e6c835"
+    },
+    {
+      "id": "dramp_Antibacterial_amps_xlsx",
+      "path": "data-engineering/data/raw/DRAMP/Antibacterial_amps.xlsx",
+      "sha256": "2b6c79485618439877e06bcaedc79fe4c647fd3be36129cc1cef91a70d0421f5"
+    },
+    {
+      "id": "amplify_AMPlify_AMP_train_common",
+      "path": "data-engineering/data/raw/amplify/AMPlify_AMP_train_common.fa",
+      "sha256": "a04e28f8d29d1bb4f445a6162e210e0999289c31bf93f2f13c8d2268c8dd9cdc"
+    },
+    {
+      "id": "dbamp_dbamp_df",
+      "path": "data-engineering/data/raw/dbamp/dbamp_df.csv",
+      "sha256": "d7a1eede4c6c9d87605145c6b1854d1f1918564d0db58cb756ee330947f5a688"
+    },
+    {
+      "id": "uniprot_train",
+      "path": "vae-latent-models/data/training/Uniprot_0_25_train.csv",
+      "sha256": "1af551c81bb7252a88abf489083a226aba1d02b6049436171dffee672bd11c32"
+    },
+    {
+      "id": "uniprot_val",
+      "path": "vae-latent-models/data/training/Uniprot_0_25_val.csv",
+      "sha256": "4c854b98795a19cc154b72b36d2ead8ab6c5c427a4e7050bae5065dacd550565"
+    },
+    {
+      "id": "uniprot_test",
+      "path": "vae-latent-models/data/training/Uniprot_0_25_test.csv",
+      "sha256": "903ca81d66b50f5af1860f6f69d7f6b8aa883cf92a4230d6fea9c5ead152efe8"
+    }
+  ],
+  "omitted_inputs": [
+    "dramp_general_amps_fasta",
+    "dramp_general_amps_xlsx"
+  ],
+  "complete_training_source_inventory_verified": false
+}
